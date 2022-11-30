@@ -1,0 +1,16 @@
+.navLinks {
+    padding: 25px;
+}
+
+.navLink {
+    font-size: 30pt;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.navTitle {
+    font-size: 30pt;
+    margin-right: 20px;
+    font-family: 'Press Start 2P';
+    padding: 25px;
+}
