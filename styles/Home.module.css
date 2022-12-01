@@ -1,0 +1,35 @@
+.gameList {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.game {
+    aspect-ratio: 1 / 1;
+    border-radius: 90px;
+    margin: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    cursor: pointer;
+    flex: 300px;
+    transition: all ease 0.7s;
+    height: 300px;
+}
+
+.game:hover {
+    transform: scale(1.1);
+    backdrop-filter: blur(10px);
+}
+
+.game img {
+    transition: all ease 0.5s;
+    height: 60%;
+}
+
+.game:hover img {
+    transform: scale(1.3);
+}
