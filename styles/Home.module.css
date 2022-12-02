@@ -1,3 +1,7 @@
+.carousel {
+    width: 100%;
+}
+
 .gameList {
     display: flex;
     flex-wrap: wrap;
