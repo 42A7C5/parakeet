@@ -7,8 +7,7 @@
 }
 
 .game {
-    aspect-ratio: 1 / 1;
-    border-radius: 90px;
+    border-radius: 50px;
     margin: 40px;
     display: flex;
     align-items: center;
@@ -18,11 +17,31 @@
     flex: 300px;
     transition: all ease 0.7s;
     height: 300px;
+    box-sizing: border-box;
+}
+
+.gameotw {
+    border-radius: 10px;
+    margin: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    cursor: pointer;
+    flex: 100%;
+    transition: all ease 0.3s;
+    height: 300px;
+    box-sizing: border-box;
 }
 
 .game:hover {
     transform: scale(1.1);
-    backdrop-filter: blur(10px);
+    border-width: 6px !important;
+}
+
+.gameotw:hover {
+    transform: scale(1.04);
+    border-width: 3px !important;
 }
 
 .game img {
