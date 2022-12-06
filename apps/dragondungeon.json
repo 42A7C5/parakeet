@@ -1,0 +1,12 @@
+{
+    "name": "DragonDungeon",
+    "color": "red",
+    "art": {
+        "background": "https://dragondungeon.io/assets/img/game/bt-bg.png",
+        "logo": "https://lit.games/img/dragondungeon/logo.png"
+    },
+    "frame": "https://dragondungeon.io",
+    "features": [
+        "login"
+    ]
+}

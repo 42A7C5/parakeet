@@ -27,3 +27,7 @@ header {
   justify-content: space-between;
   z-index: 99999999;
 }
+
+a {
+  text-decoration: none;
+}

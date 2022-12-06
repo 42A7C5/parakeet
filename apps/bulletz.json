@@ -1,0 +1,12 @@
+{
+    "name": "Bulletz",
+    "color": "purple",
+    "art": {
+        "background": "https://lit.games/img/bulletz/keyart.png/",
+        "logo": "https://github.com/LukeWood/bulletz.io/raw/master/media/bulletz.png"
+    },
+    "frame": "https://bulletz.io",
+    "features": [
+        "login"
+    ]
+}
