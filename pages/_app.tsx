@@ -1,3 +1,7 @@
+/****************************
+© 2019-present LeagueXP. All rights reserved.
+****************************/
+
 import '../styles/globals.css'
 import Link from 'next/link'
 import type { AppProps } from 'next/app'

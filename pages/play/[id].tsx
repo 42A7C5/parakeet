@@ -1,3 +1,7 @@
+/****************************
+© 2019-present LeagueXP. All rights reserved.
+****************************/
+
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
