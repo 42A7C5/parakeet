@@ -1,0 +1,9 @@
+{
+    "name": "Mapple",
+    "color": "#0ca0ff",
+    "art": {
+        "background": "https://mapplegame.netlify.app/map-keysize.png",
+        "logo": "https://docs.google.com/drawings/d/e/2PACX-1vSVbRVdJTtAAqDAVkSQKHodFDA8TVCUyPdJIpoYIKrsLQil35HRyR-w7Fzf2UBmY56QKu9I8QGw551N/pub?w=525&h=150"
+    },
+    "frame": "https://mapplegame.netlify.app"
+}
