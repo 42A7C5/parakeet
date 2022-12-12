@@ -23,7 +23,7 @@ export default function Home(props: any) {
       <Carousel className={styles.carousel} showThumbs={false} showStatus={false} autoPlay={true}>
         {props.picks.map((game: any) => (
           <Link key={game.id} href={`/play/${game.id}`}>
-            <div className={styles.gameotw} style={{ background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${game.art.background}) center center no-repeat`, boxShadow: `0 0 20px ${game.color}`, border: `0px solid ${game.color}` }}>
+            <div className={styles.gameotw} style={{ background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${game.art.background}) center center no-repeat` }}>
               <div>
                 <img src={game.art.logo} style={{ height: '120px', width: 'auto' }} alt={game.name} />
                 <p style={{ fontSize: '18pt', fontWeight: 'bold', color: 'white' }}>{game.reason}</p>
