@@ -20,7 +20,7 @@ html {
 
 header {
   height: 10vh;
-  position: sticky;
+  position: sticky !important;
   top: 0;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);

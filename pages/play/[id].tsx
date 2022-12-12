@@ -15,10 +15,10 @@ function GamePage(props: any) {
             <Head>
                 <title>{`Play ${props.game.name} | Parakeet Games`}</title>
             </Head>
-            <img src={props.game.art.background} style={{ position: 'fixed', top: 0, left: 0, filter: 'brightness(0.5)', width: '100vw', height: '100vh' }} />
+            <img src={props.game.art.background} style={{ position: 'fixed', top: 0, left: 0, filter: 'brightness(0.5)', width: '100vw', height: '100vh', objectFit: 'cover' }} />
             <div style={{ height: '90vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'fixed', bottom: 0, left: 0 }}>
                 <div style={{ textAlign: 'center' }}>
-                    <img src={props.game.art.logo} alt={props.game.name} />
+                    <img src={props.game.art.logo} alt={props.game.name} style={{ width: '60vw' }} />
                     <br />
                     <Link href={'#'} onClick={() => {
                         // @ts-ignore
