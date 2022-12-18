@@ -25,8 +25,9 @@ function GamePage(props: any) {
                         // @ts-ignore
                         navigator.keyboard.lock()
                         // @ts-ignore
+                        alert(screenfull.isEnabled)
                         if (screenfull.isEnabled) {
-                            screenfull.request(document.querySelector(`#frame-${props.game.id}`) as Element)
+                            screenfull.request(document.querySelector(`#frame-${props.game.id}`) as Element, { navigationUI: 'hide' })
                         } else {
                             window.location.href = props.game.frame
                         }
