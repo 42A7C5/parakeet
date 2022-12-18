@@ -23,7 +23,6 @@ function GamePage(props: any) {
                     <br />
                     <Link href={'#'} onClick={() => {
                         // @ts-ignore
-                        alert(screenfull.isEnabled)
                         if (screenfull.isEnabled) {
                             screenfull.request(document.querySelector(`#frame-${props.game.id}`) as Element, { navigationUI: 'hide' })
                         } else {
