@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { readdirSync } from 'fs'
+import screenfull from 'screenfull';
 
 function GamePage(props: any) {
     let router = useRouter()
@@ -24,7 +25,11 @@ function GamePage(props: any) {
                         // @ts-ignore
                         navigator.keyboard.lock()
                         // @ts-ignore
-                        document.querySelector(`#frame-${props.game.id}`).requestFullscreen()
+                        if (screenfull.isEnabled) {
+                            screenfull.request(document.querySelector(`#frame-${props.game.id}`) as Element)
+                        } else {
+                            window.location.href = props.game.frame
+                        }
                     }}>
                         <span className="material-symbols-outlined" style={{ color: 'white', fontSize: '100pt' }}>play_circle</span>
                     </Link>
