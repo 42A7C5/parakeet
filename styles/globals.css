@@ -19,7 +19,7 @@ html {
 }
 
 header {
-  height: 10vh;
+  height: 8vh;
   position: sticky !important;
   top: 0;
   background: rgba(255, 255, 255, 0.3);

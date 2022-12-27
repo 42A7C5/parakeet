@@ -17,22 +17,13 @@ function GamePage(props: any) {
                 <title>{`Play ${props.game.name} | Parakeet Games`}</title>
             </Head>
             <img src={props.game.art.background} style={{ position: 'fixed', top: 0, left: 0, filter: 'brightness(0.5)', width: '100vw', height: '100vh', objectFit: 'cover' }} />
-            <div style={{ height: '90vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'fixed', bottom: 0, left: 0 }}>
-                <div style={{ textAlign: 'center' }}>
-                    <img src={props.game.art.logo} alt={props.game.name} style={{ width: '60vw' }} />
-                    <br />
-                    <Link href={'#'} onClick={() => {
-                        // @ts-ignore
-                        if (screenfull.isEnabled) {
-                            screenfull.request(document.querySelector(`#frame-${props.game.id}`) as Element, { navigationUI: 'hide' })
-                        } else {
-                            window.location.href = props.game.frame
-                        }
-                    }}>
-                        <span className="material-symbols-outlined" style={{ color: 'white', fontSize: '100pt' }}>play_circle</span>
-                    </Link>
-                </div>
-                <iframe src={props.game.frame} id={`frame-${props.game.id}`} style={{ height: 0, width: 0, border: 'none' }}></iframe>
+            <iframe src={props.game.frame} id={`frame-${props.game.id}`} style={{ height: '94vh', width: '100vw', border: 'none', zIndex: 9, position: 'fixed' }}></iframe>
+            <div style={{ position: 'fixed', bottom: 0, right: 0, borderRadius: '10px 0 0 0', backdropFilter: 'blur(10px)', zIndex: 10, background: 'rgba(0, 0, 0, 0.3)', borderLeft: '3px solid white', borderTop: '3px solid white', padding: '15px' }}>
+                <Link href={'#'} onClick={() => {
+                    document.querySelector('iframe')?.requestFullscreen();
+                    (navigator as any).keyboard.lock()
+                }}><span className="material-symbols-outlined" style={{ color: 'white', fontSize: '25pt' }}>fullscreen</span></Link>
+                {/* <Link href={'/play/${props.game.id}/about'}><span className="material-symbols-outlined" style={{ color: 'white', padding: '10px', fontSize: '20pt' }}>info</span></Link> */}
             </div>
         </>
     )
