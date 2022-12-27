@@ -40,7 +40,7 @@ export default function Account() {
                 window.addEventListener('message', subscribe)
                 document.addEventListener('message', subscribe)
             } else {
-                useRouter().push('/account')
+                router.push('/account')
             }
         })
     }, [])
