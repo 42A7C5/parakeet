@@ -17,7 +17,7 @@ function GamePage(props: any) {
                 <title>{`Play ${props.game.name} | Parakeet Games`}</title>
             </Head>
             <img src={props.game.art.background} style={{ position: 'fixed', top: 0, left: 0, filter: 'brightness(0.5)', width: '100vw', height: '100vh', objectFit: 'cover' }} />
-            <iframe src={props.game.frame} id={`frame-${props.game.id}`} style={{ height: '94vh', width: '100vw', border: 'none', zIndex: 9, position: 'fixed' }}></iframe>
+            <iframe src={props.game.frame} id={`frame-${props.game.id}`} style={{ height: '100vh', width: '100vw', border: 'none', zIndex: 9, position: 'fixed' }}></iframe>
             <div style={{ position: 'fixed', bottom: 0, right: 0, borderRadius: '10px 0 0 0', backdropFilter: 'blur(10px)', zIndex: 10, background: 'rgba(0, 0, 0, 0.3)', borderLeft: '3px solid white', borderTop: '3px solid white', padding: '15px' }}>
                 <Link href={'#'} onClick={() => {
                     document.querySelector('iframe')?.requestFullscreen();

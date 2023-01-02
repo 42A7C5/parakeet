@@ -30,6 +30,11 @@ export default function Account() {
                         setUser(user.user)
                     }}>Sign In with Google</button>}
                     {user && <div>
+                        <Link href={`/`}>
+                        <span style={{ color: 'white', textDecoration: 'underline', fontSize: '1.5rem' }}>
+                                &larr; Back
+                            </span>
+                        </Link>
                         <h1>
                             <img src={`https://avatars.dicebear.com/api/bottts/${user.uid}.svg`} height={60} style={{ verticalAlign: 'middle', marginRight: '10px' }} />
                             {user.displayName || user.email || user.phoneNumber}

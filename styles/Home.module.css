@@ -35,6 +35,7 @@
     cursor: pointer;
     transition: all ease 0.3s;
     height: 300px;
+    margin: 40px;
 }
 
 .game:hover {
@@ -49,3 +50,33 @@
 .game:hover img, .gameotw:hover img {
     transform: scale(1.2);
 }
+
+.navLink {
+    font-size: 2.7rem;
+    height: 100%;
+    padding: 25px;
+    text-decoration: none;
+    color: white;
+    vertical-align: middle;
+}
+
+.navTitle {
+    font-size: 25pt;
+    margin-right: 20px;
+    padding: 25px;
+}
+
+.navTitleLink {
+    text-decoration: none;
+    color: white;
+}
+
+.nav {
+    height: 8vh;
+    margin: 2vw;
+    width: 96vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 99999999;
+  }
