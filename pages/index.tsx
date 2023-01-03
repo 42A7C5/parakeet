@@ -156,12 +156,6 @@ export async function getStaticProps() {
       games,
       picks: [
         {
-          ...require("../apps/dragondungeon.json"),
-          id: "dragondungeon",
-          reason:
-            "Claim the exclusive Elf Dragon and experience all new modes and maps. Plus, Santa makes a cameo appearance!",
-        },
-        {
           ...require("../apps/mapple.json"),
           id: "mapple",
           reason: "Can you guess the country?",
@@ -170,6 +164,11 @@ export async function getStaticProps() {
           ...require("../apps/wizards.json"),
           id: "wizards",
           reason: "New spells make this magical arena shooter even more fun!",
+        },
+        {
+          ...require("../apps/bulletz.json"),
+          id: "bulletz",
+          reason: "Celebrating over 10k active Bulletz users!",
         },
       ],
     },

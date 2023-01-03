@@ -46,7 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
         init={particlesInit}
         loaded={particlesLoaded}
       />
-      <AnimatePresence initial={false} exitBeforeEnter>
+      <AnimatePresence initial={false} mode={'wait'}>
         <motion.div
           key={asPath}
           variants={{
