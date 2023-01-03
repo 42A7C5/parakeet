@@ -30,15 +30,14 @@ function GamePage(props: any) {
       <div
         style={{
           position: "fixed",
-          bottom: 0,
-          right: 0,
-          borderRadius: "10px 0 0 0",
+          bottom: '20px',
+          right: '20px',
+          borderRadius: "10px",
           backdropFilter: "blur(10px)",
           zIndex: 10,
           background: "rgba(0, 0, 0, 0.3)",
-          borderLeft: "3px solid white",
-          borderTop: "3px solid white",
-          padding: "15px",
+          border: "3px solid white",
+          padding: "10[px",
         }}
       >
         <Link
@@ -49,7 +48,7 @@ function GamePage(props: any) {
         >
           <span
             className="material-symbols-outlined"
-            style={{ color: "white", fontSize: "25pt" }}
+            style={{ color: "white", fontSize: "25pt", padding: '5px' }}
           >
             home
           </span>
@@ -65,7 +64,7 @@ function GamePage(props: any) {
         >
           <span
             className="material-symbols-outlined"
-            style={{ color: "white", fontSize: "25pt" }}
+            style={{ color: "white", fontSize: "25pt", padding: '5px' }}
           >
             fullscreen
           </span>

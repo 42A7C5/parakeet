@@ -32,12 +32,12 @@ export default function Home(props: any) {
         <h1>Parakeet</h1>
         {userStateDetermined && !user && (
           <h2 className={"navTitle"}>
-            Why not <Link href={"/account"}>log in</Link>?
+            Why not <Link href={"/account"} onClick={() => new Audio("/page.wav").play()}>log in</Link>?
           </h2>
         )}
         {userStateDetermined && user && (
           <h2 className={"navTitle"}>
-            Welcome back, <Link href={"/account"}>{user.displayName}</Link>!
+            Welcome back, <Link href={"/account"} onClick={() => new Audio("/page.wav").play()}>{user.displayName}</Link>!
           </h2>
         )}
       </header>

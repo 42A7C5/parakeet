@@ -25,6 +25,8 @@ a {
   text-decoration: none;
 }
 
+/* Game display */
+
 .gameList {
   display: flex;
   flex-wrap: wrap;
@@ -71,6 +73,8 @@ a {
   transform: scale(1.2);
 }
 
+/* Navigation */
+
 .navTitle {
   font-size: 25pt;
   margin-right: 20px;
@@ -104,7 +108,11 @@ a {
 
   .nav {
     display: block;
-    text-align: center;
-    margin-top: 5vh;
+    padding: 20px;
+  }
+
+  .navTitle {
+    margin-right: unset;
+    padding: unset;  
   }
 }
