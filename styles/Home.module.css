@@ -53,28 +53,15 @@
   transform: scale(1.2);
 }
 
-.navLink {
-  font-size: 2.7rem;
-  height: 100%;
-  padding: 25px;
-  text-decoration: none;
-  color: white;
-  vertical-align: middle;
-}
-
 .navTitle {
   font-size: 25pt;
   margin-right: 20px;
   padding: 25px;
-}
-
-.navTitleLink {
-  text-decoration: none;
-  color: white;
+  vertical-align: middle;
 }
 
 .nav {
-  height: 8vh;
+  height: 10vh;
   margin: 2vw;
   width: 96vw;
   display: flex;

@@ -13,7 +13,6 @@ export default function Account() {
     useMemo(async () => {
         onAuthStateChanged(getAuth(), user => {
             if (user) {
-                console.log(user.photoURL)
                 setUser(user)
             }
         })

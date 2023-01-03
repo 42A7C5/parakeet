@@ -8,21 +8,74 @@ import { Carousel } from "react-responsive-carousel";
 import Link from "next/link";
 import Head from "next/head";
 import { readdirSync } from "fs";
+import { useMemo, useState } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function Home(props: any) {
+  let [user, setUser] = useState<any>();
+  let [userStateDetermined, setUserStateDetermined] = useState<any>();
+
+  useMemo(async () => {
+    onAuthStateChanged(getAuth(), (user) => {
+      if (user) {
+        setUser(user);
+      }
+      setUserStateDetermined(true);
+    });
+  }, []);
+
   return (
     <>
       <Head>
         <title>Explore | Parakeet Games</title>
       </Head>
       <header className={styles.nav}>
-        <span className={styles.navTitle}>
-          <Link href={"/"} className={styles.navTitleLink}>
-            Parakeet
-          </Link>
-        </span>
-        <Link href={"/account"} className={styles.navLink} onClick={() => { (new Audio('/page.wav')).play() }}>
-          <span className="material-symbols-outlined">person</span>
+        <h1 className={styles.navTitle}>Parakeet</h1>
+        <Link
+          href={"/account"}
+          onClick={() => {
+            new Audio("/page.wav").play();
+          }}
+        >
+          {userStateDetermined && (
+            <h1
+              style={{
+                border: '3px solid white',
+                color: "white",
+                borderRadius: "20px",
+                fontSize: "20pt",
+                verticalAlign: 'middle',
+                paddingRight: '20px'
+              }}
+            >
+              {user?.photoURL && !user.photoURL.startsWith("http") && (
+                <img
+                  src={`https://api.readyplayer.me/v1/avatars/${user.photoURL}.png`}
+                  height={60}
+                  style={{
+                    verticalAlign: "middle",
+                    marginRight: "10px",
+                    flexGrow: 1,
+                  }}
+                />
+              )}
+              <span
+                style={{
+                  verticalAlign: "middle",
+                  margin:
+                    user?.displayName ||
+                    user?.email ||
+                    user?.phoneNumber ||
+                    "20px",
+                }}
+              >
+                {user?.displayName ||
+                  user?.email ||
+                  user?.phoneNumber ||
+                  "Log In"}
+              </span>
+            </h1>
+          )}
         </Link>
       </header>
       <Carousel
@@ -36,11 +89,11 @@ export default function Home(props: any) {
             <div
               className={styles.gameotw}
               onClick={() => {
-                (new Audio('/launch.wav')).play()
+                new Audio("/launch.wav").play();
               }}
               style={{
                 background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${game.art.background}) center center no-repeat`,
-                borderRadius: "40px"
+                borderRadius: "40px",
               }}
             >
               <div>
@@ -73,7 +126,7 @@ export default function Home(props: any) {
             <div
               className={styles.game}
               onClick={() => {
-                (new Audio('/launch.wav')).play()
+                new Audio("/launch.wav").play();
               }}
               style={{
                 background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${game.art.background}) center center no-repeat`,
