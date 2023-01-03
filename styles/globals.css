@@ -2,11 +2,11 @@
 © 2019-present LeagueXP. All rights reserved.
 ****************************/
 
-@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0");
 
 * {
-  font-family: Dosis;
+  font-family: "Space Grotesk";
 }
 
 html {
@@ -25,14 +25,10 @@ a {
   text-decoration: none;
 }
 
-.carousel {
-  width: 100%;
-}
-
 .gameList {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px;
+  margin: 30px;
   text-align: center;
   justify-content: space-evenly;
 }
@@ -57,8 +53,7 @@ a {
   background-size: cover;
   cursor: pointer;
   transition: all ease 0.3s;
-  height: 300px;
-  margin: 40px;
+  min-height: 240px;
 }
 
 .game:hover {
@@ -81,20 +76,35 @@ a {
   margin-right: 20px;
   padding: 25px;
   vertical-align: middle;
+  font-weight: unset;
+}
+
+.navTitle a {
+  text-decoration: underline;
+  color: white;
 }
 
 .nav {
-  height: 10vh;
-  margin: 2vw;
-  width: 96vw;
+  min-height: 7vh;
+  width: 98vw;
+  margin-left: 2vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 99999999;
+}
+
+.nav h2 {
+  font-size: 18pt;
 }
 
 @media screen and (max-width: 800px) {
   .gameotw {
     display: none;
+  }
+
+  .nav {
+    display: block;
+    text-align: center;
+    margin-top: 5vh;
   }
 }

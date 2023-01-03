@@ -29,58 +29,22 @@ export default function Home(props: any) {
         <title>Explore | Parakeet Games</title>
       </Head>
       <header className={"nav"}>
-        <h1 className={"navTitle"}>Parakeet</h1>
-        <Link
-          href={"/account"}
-          onClick={() => {
-            new Audio("/page.wav").play();
-          }}
-        >
-          {userStateDetermined && (
-            <h1
-              style={{
-                border: "3px solid white",
-                color: "white",
-                borderRadius: "20px",
-                fontSize: "20pt",
-                verticalAlign: "middle",
-                paddingRight: "20px",
-              }}
-            >
-              {user?.photoURL && !user.photoURL.startsWith("http") && (
-                <img
-                  src={`https://api.readyplayer.me/v1/avatars/${user.photoURL}.png`}
-                  height={60}
-                  style={{
-                    verticalAlign: "middle",
-                    marginRight: "10px",
-                    flexGrow: 1,
-                  }}
-                />
-              )}
-              <span
-                style={{
-                  verticalAlign: "middle",
-                  margin:
-                    user?.displayName ||
-                    user?.email ||
-                    user?.phoneNumber ||
-                    "20px",
-                }}
-              >
-                {user?.displayName ||
-                  user?.email ||
-                  user?.phoneNumber ||
-                  "Log In"}
-              </span>
-            </h1>
-          )}
-        </Link>
+        <h1>Parakeet</h1>
+        {userStateDetermined && !user && (
+          <h2 className={"navTitle"}>
+            Why not <Link href={"/account"}>log in</Link>?
+          </h2>
+        )}
+        {userStateDetermined && user && (
+          <h2 className={"navTitle"}>
+            Welcome back, <Link href={"/account"}>{user.displayName}</Link>!
+          </h2>
+        )}
       </header>
       <Carousel
-        className={"carousel"}
         showThumbs={false}
         showStatus={false}
+        showArrows={false}
         autoPlay={true}
       >
         {props.picks.map((game: any) => (
@@ -92,7 +56,6 @@ export default function Home(props: any) {
               }}
               style={{
                 background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${game.art.background}) center center no-repeat`,
-                borderRadius: "40px",
               }}
             >
               <div>
@@ -155,19 +118,9 @@ export async function getStaticProps() {
       games,
       picks: [
         {
-          ...require("../apps/mapple.json"),
-          id: "mapple",
-          reason: "Can you guess the country?",
-        },
-        {
           ...require("../apps/wizards.json"),
           id: "wizards",
           reason: "New spells make this magical arena shooter even more fun!",
-        },
-        {
-          ...require("../apps/bulletz.json"),
-          id: "bulletz",
-          reason: "Celebrating over 10k active Bulletz users!",
         },
       ],
     },
