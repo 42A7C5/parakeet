@@ -2,7 +2,7 @@
 © 2019-present LeagueXP. All rights reserved.
 ****************************/
 
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Page.module.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Link from "next/link";

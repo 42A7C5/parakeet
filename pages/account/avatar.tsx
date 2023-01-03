@@ -3,6 +3,7 @@
 ****************************/
 
 import Head from 'next/head'
+import styles from "../../styles/Page.module.css";
 import { useMemo, useState } from 'react'
 import { getAuth, onAuthStateChanged, updateProfile } from 'firebase/auth'
 import { useRouter } from 'next/router'

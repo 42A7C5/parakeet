@@ -4,6 +4,7 @@
 
 import Head from 'next/head'
 import Link from 'next/link'
+import styles from "../../styles/Page.module.css";
 import { useMemo, useState } from 'react'
 import { signInWithPopup, GoogleAuthProvider, getAuth, updateProfile, onAuthStateChanged } from 'firebase/auth'
 
