@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { readdirSync } from "fs";
-import styles from "../../styles/Page.module.css";
 import { useEffect } from "react";
 
 function GamePage(props: any) {

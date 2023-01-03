@@ -2,7 +2,6 @@
 © 2019-present LeagueXP. All rights reserved.
 ****************************/
 
-import styles from "../styles/Page.module.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import Link from "next/link";
@@ -29,8 +28,8 @@ export default function Home(props: any) {
       <Head>
         <title>Explore | Parakeet Games</title>
       </Head>
-      <header className={styles.nav}>
-        <h1 className={styles.navTitle}>Parakeet</h1>
+      <header className={"nav"}>
+        <h1 className={"navTitle"}>Parakeet</h1>
         <Link
           href={"/account"}
           onClick={() => {
@@ -40,12 +39,12 @@ export default function Home(props: any) {
           {userStateDetermined && (
             <h1
               style={{
-                border: '3px solid white',
+                border: "3px solid white",
                 color: "white",
                 borderRadius: "20px",
                 fontSize: "20pt",
-                verticalAlign: 'middle',
-                paddingRight: '20px'
+                verticalAlign: "middle",
+                paddingRight: "20px",
               }}
             >
               {user?.photoURL && !user.photoURL.startsWith("http") && (
@@ -79,7 +78,7 @@ export default function Home(props: any) {
         </Link>
       </header>
       <Carousel
-        className={styles.carousel}
+        className={"carousel"}
         showThumbs={false}
         showStatus={false}
         autoPlay={true}
@@ -87,7 +86,7 @@ export default function Home(props: any) {
         {props.picks.map((game: any) => (
           <Link key={game.id} href={`/play/${game.id}`}>
             <div
-              className={styles.gameotw}
+              className={"gameotw"}
               onClick={() => {
                 new Audio("/launch.wav").play();
               }}
@@ -116,7 +115,7 @@ export default function Home(props: any) {
           </Link>
         ))}
       </Carousel>
-      <div className={styles.gameList}>
+      <div className={"gameList"}>
         {props.games.map((game: any) => (
           <Link
             key={game.id}
@@ -124,7 +123,7 @@ export default function Home(props: any) {
             style={{ flex: "300px" }}
           >
             <div
-              className={styles.game}
+              className={"game"}
               onClick={() => {
                 new Audio("/launch.wav").play();
               }}

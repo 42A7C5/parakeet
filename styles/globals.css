@@ -2,8 +2,8 @@
 © 2019-present LeagueXP. All rights reserved.
 ****************************/
 
-@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0');
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0");
 
 * {
   font-family: Dosis;
@@ -23,4 +23,78 @@ html {
 
 a {
   text-decoration: none;
+}
+
+.carousel {
+  width: 100%;
+}
+
+.gameList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.game {
+  border-radius: 50px;
+  margin: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover !important;
+  cursor: pointer;
+  transition: all ease 0.7s;
+  height: 300px;
+  box-sizing: border-box;
+}
+
+.gameotw {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  height: 300px;
+  margin: 40px;
+}
+
+.game:hover {
+  transform: scale(1.1);
+  border-width: 6px !important;
+}
+
+.game img,
+.gameotw img {
+  transition: all ease 0.5s;
+}
+
+.game:hover img,
+.gameotw:hover img {
+  transform: scale(1.2);
+}
+
+.navTitle {
+  font-size: 25pt;
+  margin-right: 20px;
+  padding: 25px;
+  vertical-align: middle;
+}
+
+.nav {
+  height: 10vh;
+  margin: 2vw;
+  width: 96vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99999999;
+}
+
+@media screen and (max-width: 800px) {
+  .gameotw {
+    display: none;
+  }
 }
