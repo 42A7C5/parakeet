@@ -21,22 +21,10 @@ export default function Home(props: any) {
             Parakeet
           </Link>
         </span>
-        <Link href={"/account"} className={styles.navLink}>
+        <Link href={"/account"} className={styles.navLink} onClick={() => { (new Audio('/page.wav')).play() }}>
           <span className="material-symbols-outlined">person</span>
         </Link>
       </header>
-      <Link href={"/"}>
-        <div
-          style={{
-            textAlign: "center",
-            background: "#389cff",
-            padding: "10px",
-            color: "white",
-          }}
-        >
-          <h2>Happy new year from Parakeet!</h2>
-        </div>
-      </Link>
       <Carousel
         className={styles.carousel}
         showThumbs={false}
@@ -47,10 +35,12 @@ export default function Home(props: any) {
           <Link key={game.id} href={`/play/${game.id}`}>
             <div
               className={styles.gameotw}
+              onClick={() => {
+                (new Audio('/launch.wav')).play()
+              }}
               style={{
                 background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${game.art.background}) center center no-repeat`,
-                boxShadow: `0 0 30px ${game.color} !important`,
-                borderRadius: "40px",
+                borderRadius: "40px"
               }}
             >
               <div>
@@ -82,6 +72,9 @@ export default function Home(props: any) {
           >
             <div
               className={styles.game}
+              onClick={() => {
+                (new Audio('/launch.wav')).play()
+              }}
               style={{
                 background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${game.art.background}) center center no-repeat`,
                 boxShadow: `0 0 30px ${game.color}`,

@@ -4,7 +4,7 @@
 
 import Head from 'next/head'
 import { useMemo, useState } from 'react'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { getAuth, onAuthStateChanged, updateProfile } from 'firebase/auth'
 import { useRouter } from 'next/router'
 
 export default function Account() {
@@ -31,7 +31,8 @@ export default function Account() {
                             )
                         }
                         if (json.eventName === 'v1.avatar.exported') {
-                            console.log(json.data.url)
+                            console.log(json.data.url.replace('https://models.readyplayer.me/', '').replace('.glb', ''))
+                            updateProfile(user, { photoURL: json.data.url.replace('https://models.readyplayer.me/', '').replace('.glb', '') })
                             router.push('/account')
                         }
                     } catch {}
@@ -51,8 +52,8 @@ export default function Account() {
                 <title>Account | Parakeet Games</title>
             </Head>
             <div style={{ textAlign: 'center' }}>
-                <div style={{ border: 'none', width: '100vw', height: '94vh', position: 'fixed', left: 0, background: 'white' }} />
-                {user && <iframe style={{ border: 'none', width: '100vw', height: '94vh', position: 'fixed', left: 0 }} src='https://parakeet.readyplayer.me/avatar?frameApi' allow='microphone *; camera *'></iframe>}
+                <div style={{ border: 'none', width: '100vw', height: '100vh', position: 'fixed', left: 0, background: '#0f101f' }} />
+                {user && <iframe style={{ border: 'none', width: '100vw', height: '100vh', position: 'fixed', left: 0 }} src='https://parakeet.readyplayer.me/avatar?frameApi' allow='microphone *; camera *'></iframe>}
             </div>
         </>
     )

@@ -13,6 +13,7 @@ export default function Account() {
     useMemo(async () => {
         onAuthStateChanged(getAuth(), user => {
             if (user) {
+                console.log(user.photoURL)
                 setUser(user)
             }
         })
@@ -35,8 +36,8 @@ export default function Account() {
                                 &larr; Back
                             </span>
                         </Link>
-                        <h1>
-                            <img src={`https://avatars.dicebear.com/api/bottts/${user.uid}.svg`} height={60} style={{ verticalAlign: 'middle', marginRight: '10px' }} />
+                        <h1 style={{ background: 'white', color: 'black', borderRadius: '40px' }}>
+                            {(user.photoURL && !user.photoURL.startsWith('http')) && <img src={`https://api.readyplayer.me/v1/avatars/${user.photoURL}.png`} height={90} style={{ verticalAlign: 'middle', marginRight: '10px' }} />}
                             {user.displayName || user.email || user.phoneNumber}
                         </h1>
                         <h2>{user.email}</h2>

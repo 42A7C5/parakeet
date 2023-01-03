@@ -3,80 +3,88 @@
 ****************************/
 
 .carousel {
-    width: 100%;
+  width: 100%;
 }
 
 .gameList {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px;
-    text-align: center;
-    justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  text-align: center;
+  justify-content: space-evenly;
 }
 
 .game {
-    border-radius: 50px;
-    margin: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover !important;
-    cursor: pointer;
-    transition: all ease 0.7s;
-    height: 300px;
-    box-sizing: border-box;
+  border-radius: 50px;
+  margin: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover !important;
+  cursor: pointer;
+  transition: all ease 0.7s;
+  height: 300px;
+  box-sizing: border-box;
 }
 
 .gameotw {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    cursor: pointer;
-    transition: all ease 0.3s;
-    height: 300px;
-    margin: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  height: 300px;
+  margin: 40px;
 }
 
 .game:hover {
-    transform: scale(1.1);
-    border-width: 6px !important;
+  transform: scale(1.1);
+  border-width: 6px !important;
 }
 
-.game img, .gameotw img {
-    transition: all ease 0.5s;
+.game img,
+.gameotw img {
+  transition: all ease 0.5s;
 }
 
-.game:hover img, .gameotw:hover img {
-    transform: scale(1.2);
+.game:hover img,
+.gameotw:hover img {
+  transform: scale(1.2);
 }
 
 .navLink {
-    font-size: 2.7rem;
-    height: 100%;
-    padding: 25px;
-    text-decoration: none;
-    color: white;
-    vertical-align: middle;
+  font-size: 2.7rem;
+  height: 100%;
+  padding: 25px;
+  text-decoration: none;
+  color: white;
+  vertical-align: middle;
 }
 
 .navTitle {
-    font-size: 25pt;
-    margin-right: 20px;
-    padding: 25px;
+  font-size: 25pt;
+  margin-right: 20px;
+  padding: 25px;
 }
 
 .navTitleLink {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .nav {
-    height: 8vh;
-    margin: 2vw;
-    width: 96vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 99999999;
-  }
+  height: 8vh;
+  margin: 2vw;
+  width: 96vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99999999;
+}
+
+@media screen and (max-width: 800px) {
+    .gameotw {
+        display: none;
+    }
+}
