@@ -2,117 +2,117 @@
 © 2019-present LeagueXP. All rights reserved.
 ****************************/
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0");
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0');
 
 * {
-  font-family: "Space Grotesk";
+	font-family: 'Space Grotesk';
 }
 
 html {
-  background: black;
+	background: black;
 }
 
 body,
 html {
-  padding: 0;
-  margin: 0;
-  color: white;
-  overflow-x: hidden;
+	padding: 0;
+	margin: 0;
+	color: white;
+	overflow-x: hidden;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 /* Game display */
 
 .gameList {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 30px;
-  text-align: center;
-  justify-content: space-evenly;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 30px;
+	text-align: center;
+	justify-content: space-evenly;
 }
 
 .game {
-  border-radius: 50px;
-  margin: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover !important;
-  cursor: pointer;
-  transition: all ease 0.7s;
-  height: 300px;
-  box-sizing: border-box;
+	border-radius: 50px;
+	margin: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-size: cover !important;
+	cursor: pointer;
+	transition: all ease 0.7s;
+	height: 300px;
+	box-sizing: border-box;
 }
 
 .gameotw {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  cursor: pointer;
-  transition: all ease 0.3s;
-  min-height: 240px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-size: cover;
+	cursor: pointer;
+	transition: all ease 0.3s;
+	min-height: 240px;
 }
 
 .game:hover {
-  transform: scale(1.1);
-  border-width: 6px !important;
+	transform: scale(1.1);
+	border-width: 6px !important;
 }
 
 .game img,
 .gameotw img {
-  transition: all ease 0.5s;
+	transition: all ease 0.5s;
 }
 
 .game:hover img,
 .gameotw:hover img {
-  transform: scale(1.2);
+	transform: scale(1.2);
 }
 
 /* Navigation */
 
 .navTitle {
-  font-size: 25pt;
-  margin-right: 20px;
-  padding: 25px;
-  vertical-align: middle;
-  font-weight: unset;
+	font-size: 25pt;
+	margin-right: 20px;
+	padding: 25px;
+	vertical-align: middle;
+	font-weight: unset;
 }
 
 .navTitle a {
-  text-decoration: underline;
-  color: white;
+	text-decoration: underline;
+	color: white;
 }
 
 .nav {
-  min-height: 7vh;
-  width: 98vw;
-  margin-left: 2vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+	min-height: 7vh;
+	width: 98vw;
+	margin-left: 2vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .nav h2 {
-  font-size: 18pt;
+	font-size: 18pt;
 }
 
 @media screen and (max-width: 800px) {
-  .gameotw {
-    display: none;
-  }
+	.gameotw {
+		display: none;
+	}
 
-  .nav {
-    display: block;
-    padding: 20px;
-  }
+	.nav {
+		display: block;
+		padding: 20px;
+	}
 
-  .navTitle {
-    margin-right: unset;
-    padding: unset;  
-  }
+	.navTitle {
+		margin-right: unset;
+		padding: unset;
+	}
 }
