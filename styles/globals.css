@@ -49,9 +49,7 @@ a {
 }
 
 .gameotw {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  padding: 80px;
 	background-size: cover;
 	cursor: pointer;
 	transition: all ease 0.3s;
