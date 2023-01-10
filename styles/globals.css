@@ -52,8 +52,6 @@ a {
   padding: 80px;
 	background-size: cover;
 	cursor: pointer;
-	transition: all ease 0.3s;
-	min-height: 240px;
 }
 
 .game:hover {
