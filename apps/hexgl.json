@@ -1,0 +1,9 @@
+{
+    "name": "HexGL",
+    "color": "#DCF5FF",
+    "art": {
+        "background": "https://hexgl.bkcore.com/play/css/bg.jpg",
+        "logo": "https://github.com/BKcore/HexGL/blob/master/icon_256.png?raw=true"
+    },
+    "frame": "https://hexgl.bkcore.com/play/"
+}
