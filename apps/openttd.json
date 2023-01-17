@@ -1,0 +1,10 @@
+{
+    "name": "OpenTTD (Beta)",
+    "prerel": true,
+    "color": "#FD7908",
+    "art": {
+        "background": "https://parakeethosting.github.io/openttd/splash.png",
+        "logo": "https://parakeethosting.github.io/openttd/logo.gif"
+    },
+    "frame": "https://parakeethosting.github.io/openttd/"
+}

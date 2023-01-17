@@ -110,7 +110,7 @@ export default function Home(props: any) {
 								border: `0px solid ${game.color}`,
 							}}
 						>
-							<img src={game.art.logo} width={350} alt={game.name} />
+							<img src={game.art.logo} height={140} alt={game.name} />
 						</div>
 					</Link>
 				))}

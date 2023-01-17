@@ -49,7 +49,8 @@ function GamePage(props: any) {
 					zIndex: 10,
 					background: 'rgba(0, 0, 0, 0.3)',
 					border: '3px solid white',
-					padding: '10px',
+					padding: '15px',
+					textAlign: 'center'
 				}}
 			>
 				<Link
@@ -81,8 +82,10 @@ function GamePage(props: any) {
 						fullscreen
 					</span>
 				</Link>
+				<br />
 				{/* <Link href={'/play/${props.game.id}/about'}><span className="material-symbols-outlined" style={{ color: 'white', padding: '10px', fontSize: '20pt' }}>info</span></Link> */}
 			</div>
+			{props.game.prerel && <p style={{ color: 'yellow', position: 'fixed', zIndex: 9999, bottom: 0, left: 0, padding: '10px', margin: '10px', background: 'rgba(0, 0, 0, 0.6)', borderRadius: '10px' }}>This game is in beta. Some functionality may not work as intended or be unavailable.</p>}
 		</>
 	)
 }
