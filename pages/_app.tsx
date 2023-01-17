@@ -3,7 +3,6 @@
 ****************************/
 
 import '../styles/globals.css'
-import { motion, AnimatePresence } from 'framer-motion'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useCallback, useMemo } from 'react'
@@ -36,32 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				<title>Parakeet Games</title>
 			</Head>
 			<Particles id='tsparticles' url='/particles.json' init={particlesInit} />
-			<AnimatePresence initial={false} mode={'wait'}>
-				<motion.div
-					key={asPath}
-					variants={{
-						out: {
-							opacity: 0,
-							scale: 1.3,
-							transition: {
-								duration: 0.4,
-							},
-						},
-						in: {
-							opacity: 1,
-							scale: 1,
-							transition: {
-								duration: 0.4,
-							},
-						},
-					}}
-					animate='in'
-					initial='out'
-					exit='out'
-				>
-					<Component {...pageProps} />
-				</motion.div>
-			</AnimatePresence>
+			<Component {...pageProps} />
 		</>
 	)
 }
