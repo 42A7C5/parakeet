@@ -3,8 +3,8 @@
     "prerel": true,
     "color": "#FD7908",
     "art": {
-        "background": "https://parakeethosting.github.io/openttd/splash.png",
-        "logo": "https://parakeethosting.github.io/openttd/logo.gif"
+        "background": "https://www.openttd.org/screenshots/1.9-coldice_4.png",
+        "logo": "https://www.openttd.org/static/img/layout/openttd-logo.png"
     },
-    "frame": "https://parakeethosting.github.io/openttd/"
+    "frame": "https://milek7.pl/openttd-wasm/"
 }
