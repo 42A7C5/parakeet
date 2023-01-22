@@ -1,0 +1,10 @@
+{
+    "name": "Cube 2 (Beta)",
+    "dev": "dot3 labs",
+    "color": "#2F2C27",
+    "art": {
+        "background": "https://sourga.me/background.png",
+        "logo": "http://sauerbraten.org/cube2logo_wide.png"
+    },
+    "frame": "https://sourga.me/"
+}

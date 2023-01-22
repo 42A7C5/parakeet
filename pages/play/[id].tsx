@@ -5,87 +5,43 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { readdirSync } from 'fs'
-import { useEffect, useRef } from 'react'
+import { useMemo, useState } from 'react'
+import Atropos from 'atropos/react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 function GamePage(props: any) {
-	const frame = useRef()
+	let [user, setUser] = useState<any>()
+	let [userStateDetermined, setUserStateDetermined] = useState<any>()
 
-	useEffect(() => {
-    onAuthStateChanged(getAuth(), async (user) => {
-      if (user) {
-        let token = await user.getIdToken()
-        if (typeof frame.current == 'object') {
-          ;(frame.current as unknown as HTMLIFrameElement).src = `${props.game.frame}?user=${token}`
-        }
-      }
-    })
-	})
+	useMemo(async () => {
+		onAuthStateChanged(getAuth(), (user) => {
+			if (user) {
+				setUser(user)
+			}
+			setUserStateDetermined(true)
+		})
+	}, [])
+
+	let game = props.game
 
 	return (
 		<>
 			<Head>
-				<title>{`Play ${props.game.name} | Parakeet Games`}</title>
+				<title>{`Play ${game.name} | Parakeet Games`}</title>
 			</Head>
 			<iframe
-				id={`frame-${props.game.id}`}
+				src={game.frame}
 				style={{
-					height: '100vh',
 					width: '100vw',
+					height: '100%',
+					position: 'fixed',
+					bottom: '0',
+					// boxShadow: '0 0 10px white',
 					border: 'none',
-					zIndex: 9,
-					position: 'fixed',
+					zIndex: 99999,
+					// borderRadius: '20px',
 				}}
-				// @ts-expect-error
-				ref={frame}
 			></iframe>
-			<div
-				style={{
-					position: 'fixed',
-					bottom: '20px',
-					right: '20px',
-					borderRadius: '10px',
-					backdropFilter: 'blur(10px)',
-					zIndex: 10,
-					background: 'rgba(0, 0, 0, 0.3)',
-					border: '3px solid white',
-					padding: '15px',
-					textAlign: 'center'
-				}}
-			>
-				<Link
-					href={'/'}
-					onClick={() => {
-						new Audio('/page.wav').play()
-					}}
-				>
-					<span
-						className='material-symbols-outlined'
-						style={{ color: 'white', fontSize: '25pt', padding: '5px' }}
-					>
-						home
-					</span>
-				</Link>
-				<Link
-					href={'#'}
-					onClick={(e) => {
-						e.preventDefault()
-						new Audio('/fullscreen.wav').play()
-						document.querySelector('iframe')?.requestFullscreen()
-						;(navigator as any).keyboard.lock()
-					}}
-				>
-					<span
-						className='material-symbols-outlined'
-						style={{ color: 'white', fontSize: '25pt', padding: '5px' }}
-					>
-						fullscreen
-					</span>
-				</Link>
-				<br />
-				{/* <Link href={'/play/${props.game.id}/about'}><span className="material-symbols-outlined" style={{ color: 'white', padding: '10px', fontSize: '20pt' }}>info</span></Link> */}
-			</div>
-			{props.game.prerel && <p style={{ color: 'yellow', position: 'fixed', zIndex: 9999, bottom: 0, left: 0, padding: '10px', margin: '10px', background: 'rgba(0, 0, 0, 0.6)', borderRadius: '10px' }}>This game is in beta. Some functionality may not work as intended or be unavailable.</p>}
 		</>
 	)
 }

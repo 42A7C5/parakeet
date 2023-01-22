@@ -2,13 +2,12 @@
 © 2019-present LeagueXP. All rights reserved.
 ****************************/
 
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import { Carousel } from 'react-responsive-carousel'
 import Link from 'next/link'
 import Head from 'next/head'
 import { readdirSync } from 'fs'
 import { useMemo, useState } from 'react'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { Carousel } from 'react-responsive-carousel'
 
 export default function Home(props: any) {
 	let [user, setUser] = useState<any>()
@@ -28,39 +27,7 @@ export default function Home(props: any) {
 			<Head>
 				<title>Explore | Parakeet Games</title>
 			</Head>
-			<header className={'nav'}>
-				<h1>Parakeet</h1>
-				{userStateDetermined && !user && (
-					<h2 className={'navTitle'}>
-						Why not{' '}
-						<Link
-							href={'/account'}
-							onClick={() => new Audio('/page.wav').play()}
-						>
-							log in
-						</Link>
-						?
-					</h2>
-				)}
-				{userStateDetermined && user && (
-					<h2 className={'navTitle'}>
-						Welcome back,{' '}
-						<Link
-							href={'/account'}
-							onClick={() => new Audio('/page.wav').play()}
-						>
-							{user.displayName}
-						</Link>
-						!
-					</h2>
-				)}
-			</header>
-			<Carousel
-				showThumbs={false}
-				showStatus={false}
-				showArrows={false}
-				autoPlay={true}
-			>
+			<Carousel showStatus={false} showThumbs={false} showArrows={false} autoPlay={true} className='gameotwcontainer'>
 				{props.picks.map((game: any) => (
 					<Link key={game.id} href={`/play/${game.id}`}>
 						<div
@@ -69,13 +36,13 @@ export default function Home(props: any) {
 								new Audio('/launch.wav').play()
 							}}
 							style={{
-								background: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${game.art.background}) center center no-repeat`,
+								background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${game.art.background}) center center no-repeat`,
 							}}
 						>
 							<div>
 								<img
 									src={game.art.logo}
-									style={{ height: '120px', width: 'auto' }}
+									style={{ minHeight: '140px', width: 'auto' }}
 									alt={game.name}
 								/>
 								<p
@@ -92,29 +59,6 @@ export default function Home(props: any) {
 					</Link>
 				))}
 			</Carousel>
-			<div className={'gameList'}>
-				{props.games.map((game: any) => (
-					<Link
-						key={game.id}
-						href={`/play/${game.id}`}
-						style={{ flex: '300px' }}
-					>
-						<div
-							className={'game'}
-							onClick={() => {
-								new Audio('/launch.wav').play()
-							}}
-							style={{
-								background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${game.art.background}) center center no-repeat`,
-								boxShadow: `0 0 30px ${game.color}`,
-								border: `0px solid ${game.color}`,
-							}}
-						>
-							<img src={game.art.logo} height={140} alt={game.name} />
-						</div>
-					</Link>
-				))}
-			</div>
 		</>
 	)
 }
@@ -129,12 +73,21 @@ export async function getStaticProps() {
 	})
 	return {
 		props: {
-			games,
 			picks: [
 				{
 					...require('../apps/wizards.json'),
 					id: 'wizards',
 					reason: 'New spells make this magical arena shooter even more fun!',
+				},
+				{
+					...require('../apps/mapple.json'),
+					id: 'mapple',
+					reason: 'Can you guess the country?',
+				},
+				{
+					...require('../apps/openttd.json'),
+					id: 'openttd',
+					reason: 'Classic transit sim comes to Parakeet, better than ever.',
 				},
 			],
 		},

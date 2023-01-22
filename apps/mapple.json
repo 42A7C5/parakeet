@@ -1,5 +1,6 @@
 {
     "name": "Mapple",
+    "dev": "WriterArtistCoder",
     "color": "#0ca0ff",
     "art": {
         "background": "https://mapplegame.netlify.app/map-keysize.png",

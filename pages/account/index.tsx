@@ -33,8 +33,6 @@ export default function Account() {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
-          height: "90vh",
         }}
       >
         <div style={{ textAlign: "center" }}>
@@ -43,7 +41,6 @@ export default function Account() {
               href={"#"}
               onClick={async (e) => {
                 e.preventDefault();
-                new Audio("/page.wav").play();
                 let user = await signInWithPopup(
                   getAuth(),
                   new GoogleAuthProvider()
@@ -57,7 +54,6 @@ export default function Account() {
                   textDecoration: "underline",
                   fontSize: "1.5rem",
                 }}
-                onClick={() => new Audio("/page.wav").play()}
               >
                 Sign in with Google
               </span>
@@ -65,18 +61,6 @@ export default function Account() {
           )}
           {user && (
             <div>
-              <Link href={`/`}>
-                <span
-                  style={{
-                    color: "white",
-                    textDecoration: "underline",
-                    fontSize: "1.5rem",
-                  }}
-                  onClick={() => new Audio("/page.wav").play()}
-                >
-                  &larr; Back
-                </span>
-              </Link>
               <h1
                 style={{
                   background: "white",
@@ -97,7 +81,6 @@ export default function Account() {
               <Link
                 href={`#`}
                 onClick={(e) => {
-                  new Audio("/page.wav").play();
                   e.preventDefault();
                   setUser(undefined);
                 }}
@@ -109,7 +92,6 @@ export default function Account() {
               <Link
                 href={`#`}
                 onClick={(e) => {
-                  new Audio("/page.wav").play();
                   e.preventDefault();
                   updateProfile(user, {
                     displayName: prompt("Enter your new display name:"),
@@ -128,7 +110,6 @@ export default function Account() {
               </Link>
               <Link
                 href={`/account/avatar`}
-                onClick={() => new Audio("/page.wav").play()}
               >
                 <span style={{ color: "white", textDecoration: "underline" }}>
                   Change Avatar

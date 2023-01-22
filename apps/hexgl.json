@@ -1,9 +1,11 @@
 {
     "name": "HexGL",
+    "dev": "BKCore",
     "color": "#DCF5FF",
     "art": {
         "background": "https://hexgl.bkcore.com/play/css/bg.jpg",
-        "logo": "https://github.com/BKcore/HexGL/blob/master/icon_256.png?raw=true"
+        "emblem": "https://github.com/BKcore/HexGL/blob/master/icon_256.png?raw=true",
+        "logo": "https://docs.google.com/drawings/d/e/2PACX-1vSyN-NmjqbNEeNT0IM9xXETrVlzJp7jLsl_PuSX8K3zAtVGWBlIbJnenM8JaB_J9U4KPOSm1hw0-f0c/pub?w=989&h=421"
     },
     "frame": "https://hexgl.bkcore.com/play/"
 }

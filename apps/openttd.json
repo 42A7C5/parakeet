@@ -1,9 +1,9 @@
 {
     "name": "OpenTTD (Beta)",
-    "prerel": true,
     "color": "#FD7908",
     "art": {
         "background": "https://www.openttd.org/screenshots/1.9-coldice_4.png",
+        "emblem": "https://www.openttd.org/static/img/layout/openttd-128.gif",
         "logo": "https://www.openttd.org/static/img/layout/openttd-logo.png"
     },
     "frame": "https://milek7.pl/openttd-wasm/"

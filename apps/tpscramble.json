@@ -1,5 +1,6 @@
 {
     "name": "TP-Scramble",
+    "dev": "Luke Wood",
     "color": "lightblue",
     "art": {
         "background": "https://lit.games/img/tpscramble/keyart.png",
