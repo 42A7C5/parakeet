@@ -31,17 +31,56 @@ function GamePage(props: any) {
 			</Head>
 			<iframe
 				src={game.frame}
+				id={`frame-${props.game.id}`}
 				style={{
 					width: '100vw',
 					height: '100%',
 					position: 'fixed',
 					bottom: '0',
-					// boxShadow: '0 0 10px white',
 					border: 'none',
-					zIndex: 99999,
-					// borderRadius: '20px',
+					zIndex: 999,
 				}}
 			></iframe>
+			<div
+				style={{
+					position: 'fixed',
+					bottom: '20px',
+					right: '20px',
+					borderRadius: '10px',
+					backdropFilter: 'blur(10px)',
+					zIndex: 99999,
+					background: 'rgba(0, 0, 0, 0.3)',
+					border: '1px solid white',
+					padding: '15px',
+					textAlign: 'center',
+					boxShadow: '0 0 10px white'
+				}}
+			>
+				<Link href={'/'}>
+					<span
+						className='material-symbols-outlined'
+						style={{ color: 'white', fontSize: '25pt', padding: '5px' }}
+					>
+						home
+					</span>
+				</Link>
+				<Link href={'#'}
+					onClick={(e) => {
+						e.preventDefault()
+						document.querySelector('iframe')?.requestFullscreen()
+						;(navigator as any).keyboard.lock()
+					}}
+				>
+					<span
+						className='material-symbols-outlined'
+						style={{ color: 'white', fontSize: '25pt', padding: '5px' }}
+					>
+						fullscreen
+					</span>
+				</Link>
+				<br />
+				{/* <Link href={'/play/${props.game.id}/about'}><span className="material-symbols-outlined" style={{ color: 'white', padding: '10px', fontSize: '20pt' }}>info</span></Link> */}
+			</div>
 		</>
 	)
 }
