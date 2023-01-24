@@ -29,6 +29,61 @@ function GamePage(props: any) {
 			<Head>
 				<title>{`Play ${game.name} | Parakeet Games`}</title>
 			</Head>
+			<div
+				style={{
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					position: 'fixed',
+					top: 0,
+					left: 0,
+					width: '100vw',
+					height: '100vh',
+				}}
+			>
+				<Atropos
+					key={game.id}
+					className='game hideMeOnMobile'
+					highlight={false}
+					shadow={false}
+				>
+					<img className='game-bgart' src={game.art.background} alt='' />
+					{game.art.emblem && (
+						<img
+							className='game-emblemart'
+							src={game.art.emblem}
+							data-atropos-offset='5'
+							alt=''
+						/>
+					)}
+				</Atropos>
+				<div style={{ textAlign: 'center' }}>
+					<img src={game.art.logo} height={120} />
+					<h2>{game.dev}</h2>
+					<button
+						className='playbtn'
+						style={{
+							borderColor: game.color,
+							boxShadow: `0 0 10px ${game.color}`,
+						}}
+						onClick={() => {
+							if (document.fullscreenEnabled) {
+								;(
+									document.querySelector(`#frame-${props.game.id}`) as any
+								).style.display = 'block'
+								document
+									.querySelector(`#frame-${props.game.id}`)
+									?.requestFullscreen()
+								;(navigator as any).keyboard.lock()
+							} else {
+								window.location.href = game.frame
+							}
+						}}
+					>
+						Play
+					</button>
+				</div>
+			</div>
 			<iframe
 				src={game.frame}
 				id={`frame-${props.game.id}`}
@@ -39,48 +94,9 @@ function GamePage(props: any) {
 					bottom: '0',
 					border: 'none',
 					zIndex: 999,
+					display: 'none',
 				}}
 			></iframe>
-			<div
-				style={{
-					position: 'fixed',
-					bottom: '20px',
-					right: '20px',
-					borderRadius: '10px',
-					backdropFilter: 'blur(10px)',
-					zIndex: 99999,
-					background: 'rgba(0, 0, 0, 0.3)',
-					border: '1px solid white',
-					padding: '15px',
-					textAlign: 'center',
-					boxShadow: '0 0 10px white'
-				}}
-			>
-				<Link href={'/'}>
-					<span
-						className='material-symbols-outlined'
-						style={{ color: 'white', fontSize: '25pt', padding: '5px' }}
-					>
-						home
-					</span>
-				</Link>
-				<Link href={'#'}
-					onClick={(e) => {
-						e.preventDefault()
-						document.querySelector('iframe')?.requestFullscreen()
-						;(navigator as any).keyboard.lock()
-					}}
-				>
-					<span
-						className='material-symbols-outlined'
-						style={{ color: 'white', fontSize: '25pt', padding: '5px' }}
-					>
-						fullscreen
-					</span>
-				</Link>
-				<br />
-				{/* <Link href={'/play/${props.game.id}/about'}><span className="material-symbols-outlined" style={{ color: 'white', padding: '10px', fontSize: '20pt' }}>info</span></Link> */}
-			</div>
 		</>
 	)
 }

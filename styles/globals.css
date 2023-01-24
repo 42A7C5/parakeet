@@ -192,4 +192,7 @@ a {
 		margin-right: unset;
 		padding: unset;
 	}
+	.hideMeOnMobile {
+		display: none !important;
+	}
 }
