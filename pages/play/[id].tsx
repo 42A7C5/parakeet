@@ -35,6 +35,7 @@ function GamePage(props: any) {
 					alignItems: 'center',
 					justifyContent: 'center',
 					width: '100vw',
+					marginBottom: '30px'
 				}}
 			>
 				<Atropos
@@ -64,9 +65,9 @@ function GamePage(props: any) {
 						}}
 						onClick={() => {
 							if (document.fullscreenEnabled) {
-								;(
-									document.querySelector(`#frame-${props.game.id}`) as any
-								).style.display = 'block'
+								// ;(
+								// 	document.querySelector(`#frame-${props.game.id}`) as any
+								// ).style.display = 'block'
 								document
 									.querySelector(`#frame-${props.game.id}`)
 									?.requestFullscreen()
@@ -84,13 +85,12 @@ function GamePage(props: any) {
 				src={game.frame}
 				id={`frame-${props.game.id}`}
 				style={{
-					width: '100vw',
-					height: '100%',
+					width: '0',
+					height: '0',
 					position: 'fixed',
 					bottom: '0',
 					border: 'none',
 					zIndex: 999,
-					display: 'none',
 				}}
 			></iframe>
 		</>
