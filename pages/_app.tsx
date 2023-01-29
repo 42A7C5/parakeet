@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				init={particlesInit}
 			/>
 			<header className={'nav'}>
-				<Link href={'/play'}><h1 style={{ verticalAlign: 'middle', color: 'white' }}><img src="/logo.png" alt="Parakeet logo" height={70} style={{ verticalAlign: 'middle', marginRight: '20px' }} /> Parakeet</h1></Link>
+				<Link href={'/'}><h1 style={{ verticalAlign: 'middle', color: 'white' }}><img src="/logo.png" alt="Parakeet logo" height={70} style={{ verticalAlign: 'middle', marginRight: '20px' }} /> Parakeet</h1></Link>
 				<h2
 					className='navLinks'
 					style={{

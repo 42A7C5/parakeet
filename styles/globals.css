@@ -10,9 +10,9 @@
 }
 
 html {
-	background: linear-gradient(-45deg, #FC6CEA, #CC10AC, #38DDA1, #23d5ab), white;
+	background: linear-gradient(-45deg, #fc6ce959, #cc10adc6, #38dda1c9, #38dda1c9), black;
 	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+	animation: gradient 17s ease infinite;
 	height: 100vh;
 }
 
@@ -126,20 +126,18 @@ a {
 }
 
 .gameotwcontainer {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
+	padding: 20px;
 }
 
 .gameotw {
-	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	background-size: cover !important;
 	cursor: pointer;
+	border-radius: 20px;
+	min-height: 70vh;
+	max-height: 80vh;
 }
 
 .gameotw img {
