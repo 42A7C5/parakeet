@@ -27,7 +27,7 @@ export default function Home(props: any) {
 			<Head>
 				<title>Explore | Parakeet Games</title>
 			</Head>
-			<Carousel showStatus={false} showThumbs={false} showArrows={false} autoPlay={true} className='gameotwcontainer'>
+			<Carousel showStatus={false} showThumbs={false} showArrows={true} autoPlay={true} className='gameotwcontainer'>
 				{props.picks.map((game: any) => (
 					<Link key={game.id} href={`/play/${game.id}`}>
 						<div

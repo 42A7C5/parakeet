@@ -66,7 +66,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					key={asPath}
 					variants={{
 						out: {
-							opacity: 0,
+							opacity: 0.3,
 							transition: {
 								duration: 0.2,
 							},
