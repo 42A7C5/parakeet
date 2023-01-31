@@ -1,0 +1,10 @@
+{
+    "name": "Mazmorra",
+    "dev": "endel",
+    "color": "white",
+    "art": {
+        "background": "https://mazmorra.io/background.jpg",
+        "logo": "https://mazmorra.io/images/logo.png"
+    },
+    "frame": "https://mazmorra.io"
+}
