@@ -126,7 +126,6 @@ a {
 }
 
 .gameotwcontainer {
-	/* padding: 20px; */
 	width: 100vw;
 	margin: 0;
 }
@@ -142,16 +141,15 @@ control-arrow {
 	background-size: cover !important;
 	cursor: pointer;
 	border-radius: 30px;
-	min-height: 70vh;
-	max-height: 80vh;
-	margin: 30px;
+	height: 40vh;
+	margin: 60px;
 	box-shadow: 0 0 15px white;
 	transition: all 1s ease;
 }
 
 .gameotw:hover {
 	box-shadow: 0 0 20px white;
-	transform: scale(1.02);
+	transform: scale(1.01);
 }
 
 .gameotw img {

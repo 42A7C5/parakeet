@@ -13,6 +13,7 @@ import Link from 'next/link'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { useRouter } from 'next/router'
 import { loadStarsPreset } from 'tsparticles-preset-stars'
+import Script from 'next/script'
 import 'atropos/css'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -37,6 +38,19 @@ export default function App({ Component, pageProps }: AppProps) {
 
 	return (
 		<>
+			<Script
+				src="https://www.googletagmanager.com/gtag/js?id=G-SRKKML9PDX"
+				strategy="afterInteractive"
+			/>
+			<Script id="google-analytics" strategy="afterInteractive">
+				{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-SRKKML9PDX');
+        `}
+			</Script>
 			<Head>
 				<title>Parakeet Games</title>
 				<link rel="shortcut icon" href="/logo.png" type="image/x-icon" />

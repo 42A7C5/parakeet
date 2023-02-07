@@ -27,6 +27,7 @@ export default function Home(props: any) {
 			<Head>
 				<title>Featured | Parakeet Games</title>
 			</Head>
+			<div style={{ textAlign: 'center' }}>
 			<Carousel showStatus={false} showThumbs={false} showArrows={true} autoPlay={true} className='gameotwcontainer'>
 				{props.picks.map((game: any) => (
 					<Link key={game.id} href={`/play/${game.id}`}>
@@ -42,7 +43,7 @@ export default function Home(props: any) {
 							<div>
 								<img
 									src={game.art.logo}
-									style={{ minHeight: '140px', width: 'auto' }}
+									style={{ minHeight: '120px', width: 'auto' }}
 									alt={game.name}
 								/>
 								<p
@@ -59,6 +60,11 @@ export default function Home(props: any) {
 					</Link>
 				))}
 			</Carousel>
+			<br /><br />
+			<Link href='/explore'>
+				<button style={{ padding: '16px', borderRadius: '16px', border: '3px solid #00a1de', boxShadow: '0 0 20px #00a1de', fontWeight: 'bold', fontSize: '18pt', cursor: 'pointer' }}>See More Games</button>
+			</Link>
+			</div>
 		</>
 	)
 }
