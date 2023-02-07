@@ -6,5 +6,7 @@
         "background": "https://mazmorra.io/background.jpg",
         "logo": "https://mazmorra.io/images/logo.png"
     },
-    "frame": "https://mazmorra.io"
+    "frame": "https://mazmorra.io",
+    "tags": ["dungeon-crawler"],
+    "features": ["mobile"]
 }

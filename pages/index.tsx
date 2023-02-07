@@ -25,7 +25,7 @@ export default function Home(props: any) {
 	return (
 		<>
 			<Head>
-				<title>Explore | Parakeet Games</title>
+				<title>Featured | Parakeet Games</title>
 			</Head>
 			<Carousel showStatus={false} showThumbs={false} showArrows={true} autoPlay={true} className='gameotwcontainer'>
 				{props.picks.map((game: any) => (

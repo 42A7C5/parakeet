@@ -9,7 +9,7 @@
 	font-family: 'Unbounded';
 }
 
-html {
+html, body {
 	background: linear-gradient(-45deg, #fc6ce959, #cc10adc6, #38dda1c9, #38dda1c9), black;
 	background-size: 400% 400%;
 	animation: gradient 17s ease infinite;

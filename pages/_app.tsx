@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			</Head>
 			<Particles
 				id='tsparticles'
-				options={{ preset: 'stars6', background: { opacity: 0 } }}
+				options={{ preset: 'stars', background: { opacity: 0 } }}
 				init={particlesInit}
 			/>
 			<header className={'nav'}>
@@ -56,8 +56,8 @@ export default function App({ Component, pageProps }: AppProps) {
 						color: 'white',
 					}}
 				>
-					<Link href={'/'}>Explore</Link>
-					<Link href={'/play'}>Play</Link>
+					<Link href={'/'}>Featured</Link>
+					<Link href={'/explore'}>Explore</Link>
 					<Link href={'/account'}>Account</Link>
 				</h2>
 			</header>

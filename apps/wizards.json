@@ -7,7 +7,6 @@
         "logo": "https://docs.google.com/drawings/d/e/2PACX-1vRq0-0G8gY1GKSVdidPGo2PrwhW01NoscHI5_2kZd8dVgjhr_PS80Wz-m5NePhdYVBTllp2pYxVu28W/pub?w=350&h=100"
     },
     "frame": "https://wizardwars.online",
-    "features": [
-        "login"
-    ]
+    "tags": ["shooter", "top-down"],
+    "features": ["online", "mobile"]
 }

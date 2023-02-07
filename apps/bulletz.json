@@ -8,7 +8,6 @@
         "logo": "https://github.com/LukeWood/bulletz.io/raw/master/media/bulletz.png"
     },
     "frame": "https://bulletz.io",
-    "features": [
-        "login"
-    ]
+    "tags": ["shooter", "top-down"],
+    "features": ["online", "mobile"]
 }

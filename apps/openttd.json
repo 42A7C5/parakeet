@@ -6,5 +6,6 @@
         "emblem": "https://www.openttd.org/static/img/layout/openttd-128.gif",
         "logo": "https://www.openttd.org/static/img/layout/openttd-logo.png"
     },
-    "frame": "https://milek7.pl/openttd-wasm/"
+    "frame": "https://parakeethosting.github.io/openttd/",
+    "tags": ["simulation"]
 }
