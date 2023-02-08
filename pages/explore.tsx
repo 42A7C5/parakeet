@@ -40,9 +40,6 @@ export default function Home(props: any) {
 							className='game'
 							highlight={false}
 							shadow={false}
-							onClick={() => {
-								new Audio('/launch.wav').play()
-							}}
 						>
 							<img className='game-bgart' src={game.art.background} alt='' />
 							{game.art.emblem && (
@@ -53,12 +50,14 @@ export default function Home(props: any) {
 									alt=''
 								/>
 							)}
-							<img
-								className='game-logoart'
-								data-atropos-offset='10'
-								src={game.art.logo}
-								alt={game.name}
-							/>
+							{game.art.logo && (
+								<img
+									className='game-logoart'
+									data-atropos-offset='10'
+									src={game.art.logo}
+									alt={game.name}
+								/>
+							)}
 						</Atropos>
 					</Link>
 				})}

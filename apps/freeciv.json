@@ -1,0 +1,9 @@
+{
+    "name": "Freeciv",
+    "color": "#494A49",
+    "art": {
+        "background": "https://www.fciv.net/images/backgrounds/5.jpg"
+    },
+    "frame": "https://www.fciv.net/",
+    "tags": ["simulation"]
+}

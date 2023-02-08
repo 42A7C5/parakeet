@@ -33,9 +33,6 @@ export default function Home(props: any) {
 					<Link key={game.id} href={`/play/${game.id}`}>
 						<div
 							className={'gameotw'}
-							onClick={() => {
-								new Audio('/launch.wav').play()
-							}}
 							style={{
 								background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${game.art.background}) center center no-repeat`,
 							}}

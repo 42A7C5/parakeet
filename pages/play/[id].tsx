@@ -55,7 +55,8 @@ function GamePage(props: any) {
 					)}
 				</Atropos>
 				<div style={{ textAlign: 'center' }}>
-					<img src={game.art.logo} height={120} />
+					{game.art.logo && <img src={game.art.logo} height={120} />}
+					{!game.art.logo && <h1>{game.name}</h1>}
 					<h2>{game.dev}</h2>
 					<button
 						className='playbtn'
