@@ -4,63 +4,63 @@
 
 import Link from 'next/link'
 import Head from 'next/head'
+import Atropos from 'atropos/react'
 import { readdirSync } from 'fs'
-import { useMemo, useState } from 'react'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import { Carousel } from 'react-responsive-carousel'
+import { useState } from 'react'
 
 export default function Home(props: any) {
-	let [user, setUser] = useState<any>()
-	let [userStateDetermined, setUserStateDetermined] = useState<any>()
-
-	useMemo(async () => {
-		onAuthStateChanged(getAuth(), (user) => {
-			if (user) {
-				setUser(user)
-			}
-			setUserStateDetermined(true)
-		})
-	}, [])
+	let [searchTerm, setSearchTerm] = useState<string>('')
+	let [searchTag, setSearchTag] = useState<string>('')
 
 	return (
 		<>
 			<Head>
-				<title>Featured | Parakeet Games</title>
+				<title>Explore | Parakeet Games</title>
 			</Head>
-			<div style={{ textAlign: 'center' }}>
-			<Carousel showStatus={false} showThumbs={false} showArrows={true} autoPlay={true} className='gameotwcontainer'>
-				{props.picks.map((game: any) => (
-					<Link key={game.id} href={`/play/${game.id}`}>
-						<div
-							className={'gameotw'}
-							style={{
-								background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${game.art.background}) center center no-repeat`,
-							}}
+			<input type="text" placeholder='Search' style={{ width: '30%', margin: '20px', padding: '10px', borderRadius: '16px', border: '3px solid white', boxShadow: '0 0 10px white' }} onChange={(e) => {
+				setSearchTerm(e.target.value)
+			}} />
+			<br />
+			<div style={{ margin: '20px' }}>
+				{props.tags.map((tag: String) => {
+					return <button onClick={() => {
+						if (searchTag !== tag.toString()) {
+							setSearchTag(tag.toString())
+						} else {
+							setSearchTag('')
+						}
+					}} key={tag.toString()} style={{ margin: '10px', padding: '12px', borderRadius: '12px', border: 'none', boxShadow: '0 0 10px white', cursor: "pointer", background: searchTag == tag ? '#00a1de' : 'white', color: searchTag == tag ? "white": "black", transition: 'all 0.2s ease' }}>{tag}</button>
+				})}
+			</div>
+			<div className={'gameList'}>
+				{props.games.map((game: any) => {
+					if ((game.name.toLowerCase().includes(searchTerm.toLowerCase()) || searchTerm == '') && (game.tags.includes(searchTag) || searchTag == '')) return <Link key={game.id} href={`/play/${game.id}`}>
+						<Atropos
+							key={game.id}
+							className='game'
+							highlight={false}
+							shadow={false}
 						>
-							<div>
+							<img className='game-bgart' src={game.art.background} alt='' />
+							{game.art.emblem && (
 								<img
+									className='game-emblemart'
+									src={game.art.emblem}
+									data-atropos-offset='5'
+									alt=''
+								/>
+							)}
+							{game.art.logo && (
+								<img
+									className='game-logoart'
+									data-atropos-offset='10'
 									src={game.art.logo}
-									style={{ minHeight: '120px', width: 'auto' }}
 									alt={game.name}
 								/>
-								<p
-									style={{
-										fontSize: '18pt',
-										fontWeight: 'bold',
-										color: 'white',
-									}}
-								>
-									{game.reason}
-								</p>
-							</div>
-						</div>
+							)}
+						</Atropos>
 					</Link>
-				))}
-			</Carousel>
-			<br /><br />
-			<Link href='/explore'>
-				<button style={{ padding: '16px', borderRadius: '16px', border: '3px solid #00a1de', boxShadow: '0 0 20px #00a1de', fontWeight: 'bold', fontSize: '18pt', cursor: 'pointer' }}>See More Games</button>
-			</Link>
+				})}
 			</div>
 		</>
 	)
@@ -68,31 +68,22 @@ export default function Home(props: any) {
 
 export async function getStaticProps() {
 	let games: any[] = []
+	let uniqueTags: String[] = []
 	readdirSync('apps').forEach((game) => {
+		let gameData = require('../apps/' + game)
 		games.push({
-			...require('../apps/' + game),
+			...gameData,
 			id: game.replace('.json', ''),
+		})
+
+		gameData.tags.forEach((tag: String) => {
+			if (!uniqueTags.includes(tag)) uniqueTags.push(tag)
 		})
 	})
 	return {
 		props: {
-			picks: [
-				{
-					...require('../apps/wizards.json'),
-					id: 'wizards',
-					reason: 'New spells make this magical arena shooter even more fun!',
-				},
-				{
-					...require('../apps/mapple.json'),
-					id: 'mapple',
-					reason: 'Can you guess the country?',
-				},
-				{
-					...require('../apps/openttd.json'),
-					id: 'openttd',
-					reason: 'Classic transit sim comes to Parakeet, better than ever.',
-				},
-			],
+			games,
+			tags: uniqueTags
 		},
 	}
 }

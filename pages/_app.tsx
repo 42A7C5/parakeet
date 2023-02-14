@@ -70,7 +70,7 @@ export default function App({ Component, pageProps }: AppProps) {
 						color: 'white',
 					}}
 				>
-					<Link href={'/'}>Featured</Link>
+					<Link href={'/'}>Play</Link>
 					<Link href={'/explore'}>Explore</Link>
 					<Link href={'/account'}>Account</Link>
 				</h2>
