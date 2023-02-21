@@ -34,7 +34,7 @@ export default function Home(props: any) {
 			</div>
 			<div className={'gameList'}>
 				{props.games.map((game: any) => {
-					if ((game.name.toLowerCase().includes(searchTerm.toLowerCase()) || searchTerm == '') && (game.tags.includes(searchTag) || searchTag == '')) return <Link key={game.id} href={`/play/${game.id}`}>
+					if ((game.name.toLowerCase().includes(searchTerm.toLowerCase()) || searchTerm == '') && (game.tags.includes(searchTag) || searchTag == '')) return <Link key={game.id} href={`/game/${game.id}`}>
 						<Atropos
 							key={game.id}
 							className='game'

@@ -61,23 +61,8 @@ export default function Account() {
           )}
           {user && (
             <div>
-              <h1
-                style={{
-                  background: "white",
-                  color: "black",
-                  borderRadius: "40px",
-                }}
-              >
-                {user.photoURL && !user.photoURL.startsWith("http") && (
-                  <img
-                    src={`https://api.readyplayer.me/v1/avatars/${user.photoURL}.png`}
-                    height={90}
-                    style={{ verticalAlign: "middle", marginRight: "10px" }}
-                  />
-                )}
-                {user.displayName || user.email || user.phoneNumber}
-              </h1>
-              <h2>{user.email}</h2>
+              <img src={user.photoURL} height="130px" style={{ borderRadius: '10px' }} />
+              <h2>{user.displayName || user.email || user.phoneNumber}</h2>
               <Link
                 href={`#`}
                 onClick={(e) => {
@@ -109,10 +94,10 @@ export default function Account() {
                 </span>
               </Link>
               <Link
-                href={`/account/avatar`}
+                href={`/account/nameplate`}
               >
                 <span style={{ color: "white", textDecoration: "underline" }}>
-                  Change Avatar
+                  Change Nameplate
                 </span>
               </Link>
             </div>

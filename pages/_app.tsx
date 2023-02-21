@@ -60,7 +60,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				options={{ preset: 'stars', background: { opacity: 0 } }}
 				init={particlesInit}
 			/>
-			<header className={'nav'}>
+			{!(router.pathname.endsWith('/play/') || router.pathname.endsWith('/play')) && <header className={'nav'}>
 				<Link href={'/'}><h1 style={{ verticalAlign: 'middle', color: 'white' }}><img src="/logo.png" alt="Parakeet logo" height={70} style={{ verticalAlign: 'middle', marginRight: '20px' }} /> Parakeet</h1></Link>
 				<h2
 					className='navLinks'
@@ -74,7 +74,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					<Link href={'/explore'}>Explore</Link>
 					<Link href={'/account'}>Account</Link>
 				</h2>
-			</header>
+			</header>}
 			<AnimatePresence initial={false} mode={'wait'}>
 				<motion.div
 					key={asPath}

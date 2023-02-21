@@ -58,42 +58,19 @@ function GamePage(props: any) {
 					{game.art.logo && <img src={game.art.logo} height={120} />}
 					{!game.art.logo && <h1>{game.name}</h1>}
 					<h2>{game.dev}</h2>
-					<button
-						className='playbtn'
-						style={{
-							borderColor: game.color,
-							boxShadow: `0 0 10px ${game.color}`,
-						}}
-						onClick={() => {
-							if (document.fullscreenEnabled) {
-								// ;(
-								// 	document.querySelector(`#frame-${props.game.id}`) as any
-								// ).style.display = 'block'
-								document
-									.querySelector(`#frame-${props.game.id}`)
-									?.requestFullscreen()
-								;(navigator as any).keyboard.lock()
-							} else {
-								window.location.href = game.frame
-							}
-						}}
-					>
-						Play
-					</button>
+					<Link href={`/game/${game.id}/play`}>
+						<button
+							className='playbtn'
+							style={{
+								borderColor: game.color,
+								boxShadow: `0 0 10px ${game.color}`,
+							}}
+						>
+							Play
+						</button>
+					</Link>
 				</div>
 			</div>
-			<iframe
-				src={game.frame}
-				id={`frame-${props.game.id}`}
-				style={{
-					width: '0',
-					height: '0',
-					position: 'fixed',
-					bottom: '0',
-					border: 'none',
-					zIndex: 999,
-				}}
-			></iframe>
 		</>
 	)
 }
@@ -119,7 +96,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: any) {
 	return {
 		props: {
-			game: { ...require(`../../apps/${params.id}.json`), id: params.id },
+			game: { ...require(`../../../apps/${params.id}.json`), id: params.id },
 		},
 	}
 }

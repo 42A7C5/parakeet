@@ -30,7 +30,7 @@ export default function Home(props: any) {
 			<div style={{ textAlign: 'center' }}>
 			<Carousel showStatus={false} showThumbs={false} showArrows={true} autoPlay={true} className='gameotwcontainer'>
 				{props.picks.map((game: any) => (
-					<Link key={game.id} href={`/play/${game.id}`}>
+					<Link key={game.id} href={`/game/${game.id}`}>
 						<div
 							className={'gameotw'}
 							style={{
