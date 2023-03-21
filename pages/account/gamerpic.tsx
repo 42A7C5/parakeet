@@ -50,21 +50,19 @@ export default function Account() {
                 )}
                 {user && (
                     <>
-                        <h1>Change nameplate for {user.displayName || user.email || user.phoneNumber}</h1>
+                        <h1>Change picture for {user.displayName || user.email || user.phoneNumber}</h1>
                         <button style={{ borderRadius: '10px', height: '70px', padding: '3px', background: 'transparent', border: 'none', cursor: 'pointer' }} onClick={
                             () => {
-                                updateProfile(user, { photoURL: 'https://docs.google.com/drawings/d/e/2PACX-1vTuVUx_Ksmp9zo-fFB9jPw06DDOLOsI2ayvk1VvvJS-_oJR9_KZI9HKnmrXvsWug2hEwL-J_U34evw3/pub?w=700&amp;h=200' })
+                                updateProfile(user, { photoURL: 'https://docs.google.com/drawings/d/e/2PACX-1vTibkmEAleuRdJjh2XmHV9qU3nhotZsRRGa-0Gxdf8kF-kwFogdtrSFEU60y4lM0kDO7mNDpB6t4y7d/pub?w=512&h=512' })
                                 router.push('/account');
                             }
-                        }><img src="https://docs.google.com/drawings/d/e/2PACX-1vTuVUx_Ksmp9zo-fFB9jPw06DDOLOsI2ayvk1VvvJS-_oJR9_KZI9HKnmrXvsWug2hEwL-J_U34evw3/pub?w=700&amp;h=200" style={{
+                        }><img src="https://docs.google.com/drawings/d/e/2PACX-1vTibkmEAleuRdJjh2XmHV9qU3nhotZsRRGa-0Gxdf8kF-kwFogdtrSFEU60y4lM0kDO7mNDpB6t4y7d/pub?w=512&h=512" style={{
                             height: '100%',
                             width: '100%',
                             padding: 'none',
                             margin: 'none',
-                            borderRadius: '10px'
-                        }} alt="Where It All Began" /></button>
-                        <h3>Where It All Began</h3>
-                        <p>Remember.</p>
+                            borderRadius: '500px'
+                        }} /></button>
                     </>
                 )}
             </div>

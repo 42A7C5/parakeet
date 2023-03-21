@@ -61,8 +61,10 @@ export default function Account() {
           )}
           {user && (
             <div>
-              <img src={user.photoURL} height="130px" style={{ borderRadius: '10px' }} />
-              <h2>{user.displayName || user.email || user.phoneNumber}</h2>
+              <h2 style={{ fontSize: '25pt' }}>
+                <img src={user.photoURL} height="90px" style={{ borderRadius: '500px', verticalAlign: 'middle', marginRight: '20px' }} />
+                {user.displayName || user.email || user.phoneNumber}
+              </h2>
               <Link
                 href={`#`}
                 onClick={(e) => {
@@ -94,10 +96,10 @@ export default function Account() {
                 </span>
               </Link>
               <Link
-                href={`/account/nameplate`}
+                href={`/account/gamerpic`}
               >
                 <span style={{ color: "white", textDecoration: "underline" }}>
-                  Change Nameplate
+                  Change Picture
                 </span>
               </Link>
             </div>
