@@ -7,6 +7,7 @@ import Head from 'next/head'
 import Atropos from 'atropos/react'
 import { readdirSync } from 'fs'
 import { useState } from 'react'
+import { Carousel } from 'react-responsive-carousel'
 
 export default function Home(props: any) {
 	let [searchTerm, setSearchTerm] = useState<string>('')
@@ -15,22 +16,53 @@ export default function Home(props: any) {
 	return (
 		<>
 			<Head>
-				<title>Explore | Parakeet Games</title>
+				<title>Play | Parakeet Games</title>
 			</Head>
-			<input type="text" placeholder='Search' style={{ width: '30%', margin: '20px', padding: '10px', borderRadius: '16px', border: '3px solid white', boxShadow: '0 0 10px white' }} onChange={(e) => {
-				setSearchTerm(e.target.value)
-			}} />
-			<br />
-			<div style={{ margin: '20px' }}>
-				{props.tags.map((tag: String) => {
-					return <button onClick={() => {
-						if (searchTag !== tag.toString()) {
-							setSearchTag(tag.toString())
-						} else {
-							setSearchTag('')
-						}
-					}} key={tag.toString()} style={{ margin: '10px', padding: '12px', borderRadius: '12px', border: 'none', boxShadow: '0 0 10px white', cursor: "pointer", background: searchTag == tag ? '#00a1de' : 'white', color: searchTag == tag ? "white": "black", transition: 'all 0.2s ease' }}>{tag}</button>
-				})}
+			<Carousel showStatus={false} showThumbs={false} showArrows={true} autoPlay={true} className='gameotwcontainer'>
+				{props.picks.map((game: any) => (
+					<Link key={game.id} href={`/game/${game.id}`}>
+						<div
+							className={'gameotw'}
+							style={{
+								background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${game.art.background}) center center no-repeat`,
+							}}
+						>
+							<div>
+								<img
+									src={game.art.logo}
+									style={{ maxHeight: '120px', width: 'auto' }}
+									alt={game.name}
+								/>
+								<p
+									style={{
+										fontSize: '18pt',
+										fontWeight: 'bold',
+										color: 'white',
+									}}
+								>
+									{game.reason}
+								</p>
+							</div>
+						</div>
+					</Link>
+				))}
+			</Carousel>
+			<div style={{ textAlign: 'center' }}>
+				<input type="text" placeholder='Search' style={{ width: '30%', margin: '20px', padding: '10px', borderRadius: '16px', border: '3px solid white', boxShadow: '0 0 10px white' }} onChange={(e) => {
+					setSearchTerm(e.target.value)
+				}} />
+				<br />
+				<div style={{ margin: '20px' }}>
+					{props.tags.map((tag: String) => {
+						return <button onClick={() => {
+							if (searchTag !== tag.toString()) {
+								setSearchTag(tag.toString())
+							} else {
+								setSearchTag('')
+							}
+						}} key={tag.toString()} style={{ margin: '10px', padding: '12px', borderRadius: '12px', border: 'none', boxShadow: '0 0 10px white', cursor: "pointer", background: searchTag == tag ? '#00a1de' : 'white', color: searchTag == tag ? "white" : "black", transition: 'all 0.2s ease' }}>{tag}</button>
+					})}
+				</div>
 			</div>
 			<div className={'gameList'}>
 				{props.games.map((game: any) => {
@@ -83,7 +115,24 @@ export async function getStaticProps() {
 	return {
 		props: {
 			games,
-			tags: uniqueTags
+			tags: uniqueTags,
+			picks: [
+				{
+					...require('../apps/wizards.json'),
+					id: 'wizards',
+					reason: 'New spells make this magical arena shooter even more fun!',
+				},
+				{
+					...require('../apps/mapple.json'),
+					id: 'mapple',
+					reason: 'Can you guess the country?',
+				},
+				{
+					...require('../apps/openttd.json'),
+					id: 'openttd',
+					reason: 'Classic transit sim comes to Parakeet, better than ever.',
+				},
+			],
 		},
 	}
 }

@@ -71,7 +71,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					}}
 				>
 					<Link href={'/'}>Play</Link>
-					<Link href={'/explore'}>Explore</Link>
+					{/* <Link href={'/explore'}>Explore</Link> */}
 					<Link href={'/account'}>Account</Link>
 				</h2>
 			</header>}
