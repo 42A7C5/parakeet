@@ -1,0 +1,11 @@
+{
+    "name": "Egg Sim",
+    "dev": "James Lelgon",
+    "color": "#FFDE00",
+    "art": {
+        "background": "/gameassets/eggsim/background.png",
+        "logo": "/gameassets/eggsim/logo.png"
+    },
+    "frame": "https://eggsim.netlify.app/",
+    "tags": ["simulation"]
+}
