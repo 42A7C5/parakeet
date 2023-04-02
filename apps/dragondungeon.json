@@ -7,7 +7,7 @@
         "emblem": "https://dragondungeon.io/assets/img/skins/basic.png",
         "logo": "https://docs.google.com/drawings/d/e/2PACX-1vShbrx2GpIMS_6Nxk2PeZHIl5GAAdgpHNsnou2qjuPNCXjhyvuU51rKvULxB2gzoFG4-7Pe1PfNkA5h/pub?w=525&h=150"
     },
-    "frame": "https://dragondungeon.io",
+    "frame": "https://dragondungeon.netlify.app",
     "tags": ["shooter", "top-down"],
     "features": ["online", "mobile"]
 }
