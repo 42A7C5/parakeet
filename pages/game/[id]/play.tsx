@@ -2,25 +2,43 @@
 © 2019-present LeagueXP. All rights reserved.
 ****************************/
 
-import Link from 'next/link'
 import Head from 'next/head'
 import { readdirSync } from 'fs'
 import { useMemo, useState } from 'react'
-import Atropos from 'atropos/react'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
+import { User, getAuth, onAuthStateChanged } from 'firebase/auth'
+import { useRouter } from 'next/router'
+import Mousetrap from 'mousetrap'
 
 function GamePage(props: any) {
-	let [user, setUser] = useState<any>()
-	let [userStateDetermined, setUserStateDetermined] = useState<any>()
+	let [user, setUser] = useState<User>()
+	let [userStateDetermined, setUserStateDetermined] = useState<boolean>(false)
+	let [guideOpened, setGuideOpened] = useState<boolean>(false)
 
 	useMemo(async () => {
-		onAuthStateChanged(getAuth(), (user) => {
+		Mousetrap.bind('shift+p', () => {
+			if (!guideOpened) {
+				setGuideOpened(true)
+			} else {
+				((document.querySelector(`#frame-${props.game.id}`) as HTMLIFrameElement).contentWindow as any).focus()
+				setGuideOpened(false)
+			}
+		})
+		onAuthStateChanged(getAuth(), async (user) => {
 			if (user) {
 				setUser(user)
+				if (typeof document.querySelector('#frame-' + props.game.id) !== 'undefined') {
+					(document.querySelector('#frame-' + props.game.id) as HTMLIFrameElement).setAttribute('src', `${props.game.frame}?user=${await user.getIdToken()}`)
+				}
+			} else {
+				if (typeof document.querySelector('#frame-' + props.game.id) !== 'undefined') {
+					(document.querySelector('#frame-' + props.game.id) as HTMLIFrameElement).setAttribute('src', props.game.frame)
+				}
 			}
 			setUserStateDetermined(true)
 		})
 	}, [])
+
+	let router = useRouter()
 
 	let game = props.game
 
@@ -35,55 +53,51 @@ function GamePage(props: any) {
 					alignItems: 'center',
 					justifyContent: 'center',
 					width: '100vw',
-					marginBottom: '30px'
+					height: '100vh',
+					position: 'fixed',
+					top: 0,
+					left: 0
 				}}
 			>
-				<Atropos
-					key={game.id}
-					className='game hideMeOnMobile'
-					highlight={false}
-					shadow={false}
-				>
-					<img className='game-bgart' src={game.art.background} alt='' />
-					{game.art.emblem && (
-						<img
-							className='game-emblemart'
-							src={game.art.emblem}
-							data-atropos-offset='5'
-							alt=''
-						/>
-					)}
-				</Atropos>
-				<div style={{ textAlign: 'center' }}>
-					{game.art.logo && <img src={game.art.logo} height={120} />}
-					{!game.art.logo && <h1>{game.name}</h1>}
-					<h2>{game.dev}</h2>
-					<button
-						className='playbtn'
-						style={{
-							borderColor: game.color,
-							boxShadow: `0 0 10px ${game.color}`,
-						}}
-						onClick={() => {
-							if (document.fullscreenEnabled) {
-								// ;(
-								// 	document.querySelector(`#frame-${props.game.id}`) as any
-								// ).style.display = 'block'
-								document
-									.querySelector(`#frame-${props.game.id}`)
-									?.requestFullscreen()
-								;(navigator as any).keyboard.lock()
-							} else {
-								window.location.href = game.frame
-							}
-						}}
-					>
-						Play
-					</button>
-				</div>
+				<img src="/logo.png" className='loadingIndicator' />
 			</div>
+			{guideOpened && <div className='guideBox'>
+				<img src={props.game.art.logo} className='guideGameLogo' />
+				<div className='guideMainContent'>
+					{user && <div style={{ fontSize: '1.7rem', color: '#38dda1', borderColor: '#38dda1', background: 'linear-gradient(purple, #cc10ad)' }} className='guideMainButton' onClick={() => { }}>
+						{user.displayName}
+						<img src={user.photoURL?.toString()} height={40} style={{ borderRadius: '999999px' }} />
+					</div>}
+					{/* <div className='guideMainButton' onClick={() => { }}>
+						Achievements
+						<span className='material-symbols-outlined'>social_leaderboard</span>
+					</div>
+					<div className='guideMainButton' onClick={() => { }}>
+						Friends
+						<span className='material-symbols-outlined'>face</span>
+					</div> */}
+					<div className='guideMainButton' onClick={() => router.push('/')}>
+						Exit game
+						<span className='material-symbols-outlined'>logout</span>
+					</div>
+					<div className='guideMainButton' onClick={() => {
+						((document.querySelector(`#frame-${props.game.id}`) as HTMLIFrameElement).contentWindow as any).focus()
+						setGuideOpened(false)
+					}}>
+						Return to game
+						<span className='material-symbols-outlined'>keyboard_return</span>
+					</div>
+				</div>
+			</div>}
+			<img src="/logo.png" className='guideTrigger' onClick={() => {
+				if (!guideOpened) {
+					setGuideOpened(true)
+				} else {
+					((document.querySelector(`#frame-${props.game.id}`) as HTMLIFrameElement).contentWindow as any).focus()
+					setGuideOpened(false)
+				}
+			}} />
 			<iframe
-				src={game.frame}
 				id={`frame-${props.game.id}`}
 				style={{
 					width: '100vw',
@@ -91,7 +105,7 @@ function GamePage(props: any) {
 					position: 'fixed',
 					bottom: '0',
 					border: 'none',
-					zIndex: 999,
+					zIndex: 1,
 				}}
 			></iframe>
 		</>
