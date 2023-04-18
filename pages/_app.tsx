@@ -71,8 +71,8 @@ export default function App({ Component, pageProps }: AppProps) {
 					}}
 				>
 					<Link href={'/'}>Play</Link>
-					{/* <Link href={'/explore'}>Explore</Link> */}
 					<Link href={'/account'}>Account</Link>
+					<Link href={'/dev'}>Developers</Link>
 				</h2>
 			</header>}
 			<AnimatePresence initial={false} mode={'wait'}>

@@ -118,19 +118,19 @@ export async function getStaticProps() {
 			tags: uniqueTags,
 			picks: [
 				{
+					...require('../apps/dragondungeon.json'),
+					id: 'dragondungeon',
+					reason: 'Battle for control against other dragons in this fun multiplayer game!',
+				},
+				{
 					...require('../apps/wizards.json'),
 					id: 'wizards',
-					reason: 'New spells make this magical arena shooter even more fun!',
+					reason: 'Loot boxes make this magical arena shooter even more fun!',
 				},
 				{
-					...require('../apps/mapple.json'),
-					id: 'mapple',
-					reason: 'Can you guess the country?',
-				},
-				{
-					...require('../apps/openttd.json'),
-					id: 'openttd',
-					reason: 'Classic transit sim comes to Parakeet, better than ever.',
+					...require('../apps/cube.json'),
+					id: 'cube',
+					reason: 'Immersive first-person shooter looks and plays great on Parakeet.',
 				},
 			],
 		},
