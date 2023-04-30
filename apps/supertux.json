@@ -5,7 +5,7 @@
     "art": {
         "background": "https://cdn.akamai.steamstatic.com/steam/apps/1572920/capsule_616x353.jpg?t=1642785170"
     },
-    "frame": "https://v6p9d9t4.ssl.hwcdn.net/html/7657895/index.html",
+    "frame": "https://parakeet-supertuxanniversary.netlify.app/",
     "tags": ["platformer"],
     "features": ["online", "mobile"]
 }

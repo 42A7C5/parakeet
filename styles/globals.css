@@ -268,10 +268,29 @@ control-arrow {
 	box-shadow: 0 0 20px #cc10ad;
 }
 
+.heroVideo {
+	filter: url(#blur);
+}
+
+.bigButton {
+	background: linear-gradient(160deg, rgba(44,180,131,1) 0%, rgba(151,24,129,1) 100%);
+	padding: 30px;
+	color: white;
+	border: 3px solid white;
+	border-radius: 10px;
+	font-size: 1.6rem;
+	z-index: 9999;
+	position: relative;
+}
+
 /* Responsive */
 
 @media screen and (max-width: 850px) {
 	.nav {
+		display: block;
+	}
+
+	.navLinks * {
 		display: block;
 	}
 
@@ -285,5 +304,11 @@ control-arrow {
 
 	.guideBox {
 		width: 100vw;
+	}
+
+	.bigButton {
+		background: transparent;
+		border: unset;
+		text-decoration: underline;
 	}
 }

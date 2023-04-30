@@ -3,8 +3,8 @@
     "dev": "Parakeet Studios",
     "color": "red",
     "art": {
-        "background": "/gameassets/dragondungeon/background.png",
-        "emblem": "https://dragondungeon.netlify.app/assets/img/game/coin.png",
+        "background": "https://dragondungeon.netlify.app/assets/img/game/tile.png",
+        "emblem": "https://dragondungeon.netlify.app/assets/img/skins/basic.png",
         "logo": "https://docs.google.com/drawings/d/e/2PACX-1vShbrx2GpIMS_6Nxk2PeZHIl5GAAdgpHNsnou2qjuPNCXjhyvuU51rKvULxB2gzoFG4-7Pe1PfNkA5h/pub?w=525&h=150"
     },
     "frame": "https://dragondungeon.netlify.app",
