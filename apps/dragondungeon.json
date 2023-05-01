@@ -1,7 +1,7 @@
 {
     "name": "DragonDungeon",
     "dev": "Parakeet Studios",
-    "color": "red",
+    "color": "#afb42b",
     "art": {
         "background": "https://dragondungeon.netlify.app/assets/img/game/tile.png",
         "emblem": "https://dragondungeon.netlify.app/assets/img/skins/basic.png",

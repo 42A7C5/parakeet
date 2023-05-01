@@ -18,7 +18,7 @@ export default function Home(props: any) {
 			<Head>
 				<title>Play | Parakeet Games</title>
 			</Head>
-			<Carousel showStatus={false} showThumbs={false} showArrows={true} autoPlay={true} className='gameotwcontainer'>
+			<Carousel showStatus={false} showThumbs={false} showArrows={true} autoPlay={true} className='gameotwcontainer hideMeOnMobile'>
 				{props.picks.map((game: any) => (
 					<Link key={game.id} href={`/game/${game.id}`}>
 						<div
@@ -72,6 +72,7 @@ export default function Home(props: any) {
 							className='game'
 							highlight={false}
 							shadow={false}
+							rotateTouch={false}
 						>
 							<img className='game-bgart' src={game.art.background} alt='' />
 							{game.art.emblem && (
@@ -118,6 +119,11 @@ export async function getStaticProps() {
 			tags: uniqueTags,
 			picks: [
 				{
+					...require('../apps/eggsim.json'),
+					id: 'eggsim',
+					reason: 'New Release | Become an egg and evade the bacon in this fun take on jumping games!',
+				},
+				{
 					...require('../apps/dragondungeon.json'),
 					id: 'dragondungeon',
 					reason: 'Battle for control against other dragons in this fun multiplayer game!',
@@ -125,12 +131,7 @@ export async function getStaticProps() {
 				{
 					...require('../apps/wizards.json'),
 					id: 'wizards',
-					reason: 'Loot boxes make this magical arena shooter even more fun!',
-				},
-				{
-					...require('../apps/cube.json'),
-					id: 'cube',
-					reason: 'Immersive first-person shooter looks and plays great on Parakeet.',
+					reason: 'Step into a world of wonder and adventure in this exciting tactical 2D shooter!',
 				},
 			],
 		},

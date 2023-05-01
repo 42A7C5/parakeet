@@ -88,16 +88,6 @@ a {
 	border-width: 3px;
 }
 
-@media screen and (max-width: 900px) {
-	.gameList {
-		flex-direction: column;
-	}
-	.game {
-		width: 94vw;
-		padding: 3vw;
-	}
-}
-
 .atropos-inner {
 	box-shadow: 0 0 15px whitesmoke;
 	transition: box-shadow ease 1s;
@@ -310,5 +300,13 @@ control-arrow {
 		background: transparent;
 		border: unset;
 		text-decoration: underline;
+	}
+
+	.gameList {
+		flex-direction: column;
+	}
+	.game {
+		width: 94vw;
+		padding: 3vw;
 	}
 }
