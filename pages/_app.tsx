@@ -72,7 +72,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				>
 					<Link href={'/'}>Play</Link>
 					<Link href={'/account'}>Account</Link>
-					<Link href={'/dev'}>Developers</Link>
+					<Link href={'/dev'}>Publish</Link>
 				</h2>
 			</header>}
 			<AnimatePresence initial={false} mode={'wait'}>

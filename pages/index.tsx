@@ -119,6 +119,11 @@ export async function getStaticProps() {
 			tags: uniqueTags,
 			picks: [
 				{
+					...require('../apps/monstr.json'),
+					id: 'monstr',
+					reason: 'New Release | Nobody\'s stopping this party!',
+				},
+				{
 					...require('../apps/eggsim.json'),
 					id: 'eggsim',
 					reason: 'New Release | Become an egg and evade the bacon in this fun take on jumping games!',

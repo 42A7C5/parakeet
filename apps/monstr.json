@@ -1,0 +1,12 @@
+{
+    "name": "Mapple",
+    "dev": "Luke Wood",
+    "color": "white",
+    "art": {
+        "background": "/gameassets/monstr/background.png",
+        "logo": "/gameassets/monstr/logo.png"
+    },
+    "frame": "https://monstr.party",
+    "tags": ["party", "knockout", "arena"],
+    "features": ["mobile"]
+}
