@@ -1,7 +1,7 @@
 {
     "name": "monstr.party",
     "dev": "Luke Wood",
-    "color": "white",
+    
     "art": {
         "background": "/gameassets/monstr/background.png",
         "logo": "/gameassets/monstr/logo.png"

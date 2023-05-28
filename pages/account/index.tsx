@@ -50,7 +50,7 @@ export default function Account() {
             >
               <span
                 style={{
-                  color: "white",
+                  color: "var(--arc-palette-maxContrastColor, white)",
                   textDecoration: "underline",
                   fontSize: "1.5rem",
                 }}
@@ -72,7 +72,7 @@ export default function Account() {
                   setUser(undefined);
                 }}
               >
-                <span style={{ color: "white", textDecoration: "underline" }}>
+                <span style={{ color: "var(--arc-palette-maxContrastColor, white)", textDecoration: "underline" }}>
                   Switch Account
                 </span>
               </Link>
@@ -87,7 +87,7 @@ export default function Account() {
               >
                 <span
                   style={{
-                    color: "white",
+                    color: "var(--arc-palette-maxContrastColor, white)",
                     textDecoration: "underline",
                     padding: "20px",
                   }}
@@ -98,7 +98,7 @@ export default function Account() {
               <Link
                 href={`/account/gamerpic`}
               >
-                <span style={{ color: "white", textDecoration: "underline" }}>
+                <span style={{ color: "var(--arc-palette-maxContrastColor, white)", textDecoration: "underline" }}>
                   Change Picture
                 </span>
               </Link>

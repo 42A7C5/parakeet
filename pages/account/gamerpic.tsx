@@ -39,7 +39,7 @@ export default function Account() {
                     >
                         <span
                             style={{
-                                color: "white",
+                                color: "var(--arc-palette-maxContrastColor, white)",
                                 textDecoration: "underline",
                                 fontSize: "1.5rem",
                             }}
