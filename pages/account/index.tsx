@@ -69,17 +69,6 @@ export default function Account() {
                 href={`#`}
                 onClick={(e) => {
                   e.preventDefault();
-                  setUser(undefined);
-                }}
-              >
-                <span style={{ color: "var(--arc-palette-maxContrastColor, white)", textDecoration: "underline" }}>
-                  Switch Account
-                </span>
-              </Link>
-              <Link
-                href={`#`}
-                onClick={(e) => {
-                  e.preventDefault();
                   updateProfile(user, {
                     displayName: prompt("Enter your new display name:"),
                   });
@@ -96,10 +85,39 @@ export default function Account() {
                 </span>
               </Link>
               <Link
-                href={`/account/gamerpic`}
+                href={`#`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  updateProfile(user, {
+                    photoURL: prompt("Enter the URL for your new display picture:"),
+                  });
+                }}
               >
-                <span style={{ color: "var(--arc-palette-maxContrastColor, white)", textDecoration: "underline" }}>
+                <span
+                  style={{
+                    color: "var(--arc-palette-maxContrastColor, white)",
+                    textDecoration: "underline",
+                    padding: "20px",
+                  }}
+                >
                   Change Picture
+                </span>
+              </Link>
+              <Link
+                href={`#`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setUser(null)
+                }}
+              >
+                <span
+                  style={{
+                    color: "var(--arc-palette-maxContrastColor, white)",
+                    textDecoration: "underline",
+                    padding: "20px",
+                  }}
+                >
+                  Log Out
                 </span>
               </Link>
             </div>
