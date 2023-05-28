@@ -79,7 +79,7 @@ function GamePage(props: any) {
 							{user.displayName}
 						</div>
 					</div>}
-					{!user && <div style={{ fontSize: '1.7rem', color: '#38dda1', borderColor: '#38dda1', background: 'linear-gradient(purple, #cc10ad)' }} className='guideMainButton' onClick={() => {
+					{!user && <div className='guideMainButton' onClick={() => {
 						router.push('/account')
 					}}>
 						<div className='guideButtonContent'>
