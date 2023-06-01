@@ -1,7 +1,6 @@
 {
-    "name": "SuperTux Classic",
-    "dev": "Alzter",
-    
+    "name": "SuperTux",
+    "dev": "Parakeet Studios",
     "art": {
         "background": "https://cdn.akamai.steamstatic.com/steam/apps/1572920/capsule_616x353.jpg?t=1642785170"
     },
