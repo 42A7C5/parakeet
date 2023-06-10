@@ -1,0 +1,12 @@
+{
+    "name": "Cube 2: Sauerbraten",
+    "dev": "Caleb Foust and others",
+    
+    "art": {
+        "background": "/gameassets/cube/background.png",
+        "logo": "http://sauerbraten.org/cube2logo_wide.png"
+    },
+    "frame": "https://sourga.me",
+    "tags": ["shooter"],
+    "features": ["online"]
+}

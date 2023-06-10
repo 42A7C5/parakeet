@@ -62,7 +62,7 @@ function GamePage(props: any) {
 						<button
 							className='playbtn'
 							style={{
-								borderColor: `var(--arc-palette-maxContrastColor, white)`,
+								borderColor: `var(--white)`,
 								boxShadow: `0 0 20px var(--arc-palette-maxContrastColor, white`,
 							}}
 						>

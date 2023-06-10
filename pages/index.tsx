@@ -24,7 +24,7 @@ export default function Home(props: any) {
 						<div
 							className={'gameotw'}
 							style={{
-								background: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${game.art.background}) center center no-repeat`,
+								background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${game.art.background}) center center no-repeat`,
 							}}
 						>
 							<div>
@@ -37,7 +37,7 @@ export default function Home(props: any) {
 									style={{
 										fontSize: '18pt',
 										fontWeight: 'bold',
-										color: 'var(--arc-palette-maxContrastColor, white)',
+										color: 'white',
 									}}
 								>
 									{game.reason}
@@ -48,7 +48,7 @@ export default function Home(props: any) {
 				))}
 			</Carousel>
 			<div style={{ textAlign: 'center' }}>
-				<input type="text" placeholder='Search' style={{ width: '30%', margin: '20px', padding: '10px', borderRadius: '16px', border: '3px solid var(--arc-palette-maxContrastColor, white)', boxShadow: '0 0 10px var(--arc-palette-maxContrastColor, white)' }} onChange={(e) => {
+				<input type="text" placeholder='Search' className='searchBar' onChange={(e) => {
 					setSearchTerm(e.target.value)
 				}} />
 				<br />
@@ -60,7 +60,7 @@ export default function Home(props: any) {
 							} else {
 								setSearchTag('')
 							}
-						}} key={tag.toString()} style={{ margin: '10px', padding: '12px', borderRadius: '12px', border: 'none', boxShadow: '0 0 10px var(--arc-palette-maxContrastColor, white)', cursor: "pointer", background: searchTag == tag ? '#00a1de' : 'var(--arc-palette-maxContrastColor, white)', color: searchTag == tag ? "var(--arc-palette-maxContrastColor, white)" : "black", transition: 'all 0.2s ease' }}>{tag}</button>
+						}} key={tag.toString()} className='searchTag'>{tag}</button>
 					})}
 				</div>
 			</div>

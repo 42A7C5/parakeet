@@ -28,6 +28,30 @@ export default function App({ Component, pageProps }: AppProps) {
 			messagingSenderId: '163437557468',
 			appId: '1:163437557468:web:ca1358397b5b9da133a619',
 		})
+
+		if (typeof window !== 'undefined') {
+			var r = document.querySelector(':root') as any
+
+			if (window.localStorage.customThemeWhite) {
+				r.style.setProperty('--white', window.localStorage.customThemeWhite)
+			}
+
+			if (window.localStorage.customThemePrimary) {
+				r.style.setProperty('--primary', window.localStorage.customThemePrimary)
+			}
+
+			if (window.localStorage.customThemeSecondary) {
+				r.style.setProperty('--secondary', window.localStorage.customThemeSecondary)
+			}
+
+			if (window.localStorage.customThemeBackground) {
+				r.style.setProperty('--background', window.localStorage.customThemeBackground)
+			}
+
+			if (window.localStorage.customThemeGradient) {
+				r.style.setProperty('--gradient', window.localStorage.customThemeGradient)
+			}
+		}
 	}, [])
 
 	const particlesInit = useCallback(async (engine: any) => {
@@ -61,18 +85,18 @@ export default function App({ Component, pageProps }: AppProps) {
 				init={particlesInit}
 			/>
 			{!(router.pathname.endsWith('/play/') || router.pathname.endsWith('/play')) && <header className={'nav'}>
-				<Link href={'/'}><h1 style={{ verticalAlign: 'middle', color: 'var(--arc-palette-maxContrastColor, white)' }}><img src="/logo.png" alt="Parakeet logo" height={70} style={{ verticalAlign: 'middle', marginRight: '20px' }} /> Parakeet</h1></Link>
+				<Link href={'/'}><h1 style={{ verticalAlign: 'middle', color: 'var(--white)' }}><img src="/logo.png" alt="Parakeet logo" height={70} style={{ verticalAlign: 'middle', marginRight: '20px' }} /> Parakeet</h1></Link>
 				<h2
 					className='navLinks'
 					style={{
 						paddingRight: '20px',
 						verticalAlign: 'middle',
-						color: 'var(--arc-palette-maxContrastColor, white)',
+						color: 'var(--white)',
 					}}
 				>
 					<Link href={'/'}>Play</Link>
-					<Link href={'/account'}>Account</Link>
-					<Link href={'/dev'}>Publish</Link>
+					<Link href={'/settings'}>Settings</Link>
+					<Link href={'/dev'}>Devs</Link>
 				</h2>
 			</header>}
 			<AnimatePresence initial={false} mode={'wait'}>
@@ -99,7 +123,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					<Component {...pageProps} />
 				</motion.div>
 			</AnimatePresence>
-			<svg width="0" height="0"><filter id="blur" width="300%" height="300%" x="-0.75" y="-0.75" color-interpolation-filters="sRGB"><feOffset in="SourceGraphic" result="source-copy"></feOffset><feColorMatrix in="source-copy" type="saturate" values="3" result="saturated-copy"></feColorMatrix><feColorMatrix in="saturated-copy" type="matrix" values="1 0 0 0 0
+			<svg width="0" height="0"><filter id="blur" width="300%" height="300%" x="-0.75" y="-0.75" colorInterpolationFilters="sRGB"><feOffset in="SourceGraphic" result="source-copy"></feOffset><feColorMatrix in="source-copy" type="saturate" values="3" result="saturated-copy"></feColorMatrix><feColorMatrix in="saturated-copy" type="matrix" values="1 0 0 0 0
                      0 1 0 0 0
                      0 0 1 0 0
                      33 33 33 101 -132" result="bright-colors"></feColorMatrix><feMorphology in="bright-colors" operator="dilate" radius="10" result="spread"></feMorphology><feGaussianBlur in="spread" stdDeviation="30" result="ambilight-light"></feGaussianBlur><feOffset in="SourceGraphic" result="source"></feOffset><feComposite in="source" in2="ambilight-light" operator="over"></feComposite></filter></svg>
