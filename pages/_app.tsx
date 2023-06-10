@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			var r = document.querySelector(':root') as any
 
 			if (window.localStorage.customThemeWhite) {
-				r.style.setProperty('--white', window.localStorage.customThemeWhite)
+				r.style.setProperty('--text', window.localStorage.customThemeWhite)
 			}
 
 			if (window.localStorage.customThemePrimary) {
@@ -85,13 +85,13 @@ export default function App({ Component, pageProps }: AppProps) {
 				init={particlesInit}
 			/>
 			{!(router.pathname.endsWith('/play/') || router.pathname.endsWith('/play')) && <header className={'nav'}>
-				<Link href={'/'}><h1 style={{ verticalAlign: 'middle', color: 'var(--white)' }}><img src="/logo.png" alt="Parakeet logo" height={70} style={{ verticalAlign: 'middle', marginRight: '20px' }} /> Parakeet</h1></Link>
+				<Link href={'/'}><h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }}><img src="/logo.png" alt="Parakeet logo" height={70} style={{ verticalAlign: 'middle', marginRight: '20px' }} /> Parakeet</h1></Link>
 				<h2
 					className='navLinks'
 					style={{
 						paddingRight: '20px',
 						verticalAlign: 'middle',
-						color: 'var(--white)',
+						color: 'var(--text)',
 					}}
 				>
 					<Link href={'/'}>Play</Link>

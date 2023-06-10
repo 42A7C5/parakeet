@@ -45,7 +45,7 @@ export default function Account() {
           >
             <span
               style={{
-                color: "var(--white)",
+                color: "var(--text)",
                 textDecoration: "underline",
                 fontSize: "1.5rem",
               }}
@@ -73,7 +73,7 @@ export default function Account() {
               >
                 <span
                   style={{
-                    color: "var(--white)",
+                    color: "var(--text)",
                     textDecoration: "underline",
                     padding: "20px",
                   }}
@@ -92,7 +92,7 @@ export default function Account() {
               >
                 <span
                   style={{
-                    color: "var(--white)",
+                    color: "var(--text)",
                     textDecoration: "underline",
                     padding: "20px",
                   }}
@@ -109,7 +109,7 @@ export default function Account() {
               >
                 <span
                   style={{
-                    color: "var(--white)",
+                    color: "var(--text)",
                     textDecoration: "underline",
                     padding: "20px",
                   }}

@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0');
 
 :root {
-	--white: var(--arc-palette-maxContrastColor, #fff);
+	--text: var(--arc-palette-minContrastColor, #fff);
 	--primary: var(--arc-palette-foregroundPrimary, #cc10ad);
 	--secondary: var(--arc-palette-foregroundSecondary, #38dda1);
 	--background: var(--arc-palette-background, purple);
@@ -39,7 +39,7 @@ body,
 html {
 	padding: 0;
 	margin: 0;
-	color: var(--white);
+	color: var(--text);
 	overflow-x: hidden;
 	min-height: 100dvh;
 }
@@ -96,13 +96,13 @@ a {
 }
 
 .atropos-inner {
-	box-shadow: 0 0 15px var(--white);
+	box-shadow: 0 0 15px var(--text);
 	transition: box-shadow ease 1s;
 	border-radius: 30px;
 }
 
 .atropos-inner:hover {
-	box-shadow: 0 0 50px var(--white);
+	box-shadow: 0 0 50px var(--text);
 }
 
 .playbtn {
@@ -113,8 +113,8 @@ a {
 	border-width: 4px;
 	border-radius: 20px;
 	border-style: solid;
-	background: rgba(0, 0, 0, 0.4);
-	color: var(--white);
+	background: var(--primary);
+	color: var(--text);
 	transition: all ease 1s;
 }
 
@@ -133,7 +133,7 @@ control-arrow {
 
 .searchTag, .searchBar {
 	background-color: var(--primary);
-	color: var(--white);
+	color: var(--text);
 	border: var(--secondary) 2px solid;
 	padding: 10px;
 	border-radius: 10px;
@@ -143,7 +143,7 @@ control-arrow {
 }
 
 .searchBar::placeholder {
-	color: var(--white);
+	color: var(--text);
 }
 
 .gameotw {
@@ -155,12 +155,12 @@ control-arrow {
 	border-radius: 30px;
 	height: 40vh;
 	margin: 60px;
-	box-shadow: 0 0 15px var(--white);
+	box-shadow: 0 0 15px var(--text);
 	transition: all 1s ease;
 }
 
 .gameotw:hover {
-	box-shadow: 0 0 20px var(--white);
+	box-shadow: 0 0 20px var(--text);
 	transform: scale(1.01);
 }
 
@@ -186,7 +186,7 @@ control-arrow {
 .nav h2 a {
 	text-decoration: underline;
 	padding: 10px;
-	color: var(--white);
+	color: var(--text);
 }
 
 .nav {
@@ -263,8 +263,8 @@ control-arrow {
 
 .guideMainButton {
 	cursor: pointer;
-	border: 5px solid var(--white);
-	box-shadow: 0 0 30px var(--white);
+	border: 5px solid var(--text);
+	box-shadow: 0 0 30px var(--text);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -285,7 +285,7 @@ control-arrow {
 }
 
 .rws-container {
-	background-color: var(--white) !important;
+	background-color: var(--text) !important;
 }
 .rws-close {
 	background-color: var(--arc-palette-foregroundSecondary, #cc10ad) !important;
@@ -318,9 +318,6 @@ control-arrow {
 	left: 20px;
 	min-width: 35vw;
 	transition: all 0.3s ease;
-	border: 3px solid var(--arc-palette-foregroundPrimary, #cc10ad);
-	box-shadow: 0 0 30px var(--arc-palette-foregroundSecondary, #cc10ad);
-	background: linear-gradient(160deg, var(--arc-background-gradient-color0, #cc10ad), var(--arc-background-gradient-color1, #cc10ad));
 }
 
 .popupIcon {
@@ -340,8 +337,8 @@ control-arrow {
 .bigButton {
 	background: linear-gradient(160deg, rgba(44,180,131,1) 0%, rgba(151,24,129,1) 100%);
 	padding: 30px;
-	color: var(--white);
-	border: 3px solid var(--white);
+	color: var(--text);
+	border: 3px solid var(--text);
 	border-radius: 10px;
 	font-size: 1.6rem;
 	z-index: 9999;
