@@ -119,6 +119,11 @@ export async function getStaticProps() {
 			tags: uniqueTags,
 			picks: [
 				{
+					...require('../apps/mazmorra.json'),
+					id: 'mazmorra',
+					reason: 'New Release | Explore the depths and make it out alive- if you can!',
+				},
+				{
 					...require('../apps/monstr.json'),
 					id: 'monstr',
 					reason: 'New Release | Nobody\'s stopping this party!',
@@ -132,12 +137,7 @@ export async function getStaticProps() {
 					...require('../apps/dragondungeon.json'),
 					id: 'dragondungeon',
 					reason: 'Battle for control against other dragons in this fun multiplayer game!',
-				},
-				{
-					...require('../apps/wizards.json'),
-					id: 'wizards',
-					reason: 'Step into a world of wonder and adventure in this exciting tactical 2D shooter!',
-				},
+				}
 			],
 		},
 	}
