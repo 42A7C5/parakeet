@@ -2,10 +2,10 @@
     "name": "Wizard Wars",
     "dev": "Luke Wood",
     "art": {
-        "background": "https://wizardwars.online/static/media/worlds-85-quality.d5ee9ec4.jpg",
+        "background": "https://wizardwars.online/static/media/worlds-85-quality.5aef7cca22430741b75a.jpg",
         "logo": "/gameassets/wizards/logo.png"
     },
-    "frame": "ht`tps://wizardwars.online",
+    "frame": "https://wizardwars.online",
     "tags": [
         "shooter",
         "top-down"

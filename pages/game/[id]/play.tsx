@@ -29,6 +29,13 @@ function GamePage(props: any) {
 				}
 			}
 		})
+
+		// Make sure iframe stays in focus
+		if (typeof document !== 'undefined') {
+			setInterval(() => {
+				((document.getElementById(`frame-${game.id}`) as HTMLIFrameElement).contentWindow as any).focus()
+			}, 400)
+		}
 	})
 
 	useMemo(async () => {

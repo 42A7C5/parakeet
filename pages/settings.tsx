@@ -198,7 +198,20 @@ export default function Account() {
           window.localStorage.setItem('customThemeBackground', 'red')
           window.localStorage.removeItem('customThemeGradient')
           window.location.reload()
-        }}>Rapture Red</button>
+        }}>Ravenous Red</button>
+        <button style={{
+          background: '#794c0b',
+          color: '#fcedd8',
+          boxShadow: '0 0 10px #d28512',
+          borderColor: '#d28512'
+        }} className="searchTag" onClick={() => {
+          window.localStorage.setItem('customThemeWhite', '#794c0b')
+          window.localStorage.setItem('customThemePrimary', '#fcedd8')
+          window.localStorage.setItem('customThemeSecondary', '#d28512')
+          window.localStorage.setItem('customThemeBackground', '#241700')
+          window.localStorage.removeItem('customThemeGradient')
+          window.location.reload()
+        }}>Rusted Metal</button>
       </div>
     </>
   );
