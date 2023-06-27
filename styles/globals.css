@@ -8,16 +8,29 @@
 :root {
 	--text: var(--arc-palette-minContrastColor, #fff);
 	--primary: var(--arc-palette-foregroundPrimary, #cc10ad);
-	--secondary: var(--arc-palette-foregroundSecondary, #38dda1);
+	--secondary: var(--arc-palette-maxContrastColor, #38dda1);
 	--background: var(--arc-palette-background, purple);
+	--gradientPrimary: var(
+		--arc-background-gradient-color1,
+		var(--arc-background-simple-color, #cc10ad)
+	);
+	--gradientSecondary: var(
+		--arc-background-gradient-color0,
+		var(--arc-background-simple-color, #38dda1)
+	);
 }
 
 * {
 	font-family: 'Unbounded';
 }
 
-html, body {
-	background: var(--gradient, linear-gradient(-45deg, var(--primary), var(--secondary)), var(--background));
+html,
+body {
+	background: var(
+		--gradient,
+		linear-gradient(-45deg, var(--gradientPrimary), var(--gradientSecondary)),
+		var(--background)
+	);
 	background-size: 100% 100%;
 	animation: gradient 10s ease infinite;
 }
@@ -33,7 +46,6 @@ html, body {
 		background-position: 0% 50%;
 	}
 }
-
 
 body,
 html {
@@ -131,7 +143,8 @@ control-arrow {
 	background: none !important;
 }
 
-.searchTag, .searchBar {
+.searchTag,
+.searchBar {
 	background-color: var(--primary);
 	color: var(--text);
 	border: var(--secondary) 2px solid;
@@ -140,6 +153,10 @@ control-arrow {
 	margin: 10px;
 	transition: all 0.2s ease;
 	box-shadow: 0 0 10px var(--secondary);
+}
+
+.searchTag:hover {
+	cursor: grab;
 }
 
 .searchBar::placeholder {
@@ -275,7 +292,7 @@ control-arrow {
 	aspect-ratio: 1 / 1;
 	background-color: var(--secondary);
 	backdrop-filter: blur(100px);
-	color: var(--primary);
+	color: var(--text);
 	margin: 20px;
 	transition: all 0.3s ease;
 }
@@ -335,7 +352,11 @@ control-arrow {
 }
 
 .bigButton {
-	background: linear-gradient(160deg, rgba(44,180,131,1) 0%, rgba(151,24,129,1) 100%);
+	background: linear-gradient(
+		160deg,
+		rgba(44, 180, 131, 1) 0%,
+		rgba(151, 24, 129, 1) 100%
+	);
 	padding: 30px;
 	color: var(--text);
 	border: 3px solid var(--text);

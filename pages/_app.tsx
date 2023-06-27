@@ -38,18 +38,35 @@ export default function App({ Component, pageProps }: AppProps) {
 
 			if (window.localStorage.customThemePrimary) {
 				r.style.setProperty('--primary', window.localStorage.customThemePrimary)
+				r.style.setProperty(
+					'--gradientPrimary',
+					window.localStorage.customThemePrimary
+				)
 			}
 
 			if (window.localStorage.customThemeSecondary) {
-				r.style.setProperty('--secondary', window.localStorage.customThemeSecondary)
+				r.style.setProperty(
+					'--secondary',
+					window.localStorage.customThemeSecondary
+				)
+				r.style.setProperty(
+					'--gradientSecondary',
+					window.localStorage.customThemeSecondary
+				)
 			}
 
 			if (window.localStorage.customThemeBackground) {
-				r.style.setProperty('--background', window.localStorage.customThemeBackground)
+				r.style.setProperty(
+					'--background',
+					window.localStorage.customThemeBackground
+				)
 			}
 
 			if (window.localStorage.customThemeGradient) {
-				r.style.setProperty('--gradient', window.localStorage.customThemeGradient)
+				r.style.setProperty(
+					'--gradient',
+					window.localStorage.customThemeGradient
+				)
 			}
 		}
 	}, [])
@@ -63,10 +80,10 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Script
-				src="https://www.googletagmanager.com/gtag/js?id=G-SRKKML9PDX"
-				strategy="afterInteractive"
+				src='https://www.googletagmanager.com/gtag/js?id=G-SRKKML9PDX'
+				strategy='afterInteractive'
 			/>
-			<Script id="google-analytics" strategy="afterInteractive">
+			<Script id='google-analytics' strategy='afterInteractive'>
 				{`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
@@ -77,28 +94,42 @@ export default function App({ Component, pageProps }: AppProps) {
 			</Script>
 			<Head>
 				<title>Parakeet Games</title>
-				<link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
+				<link rel='shortcut icon' href='/logo.png' type='image/x-icon' />
 			</Head>
 			<Particles
 				id='tsparticles'
 				options={{ preset: 'stars', background: { opacity: 0 } }}
 				init={particlesInit}
 			/>
-			{!(router.pathname.endsWith('/play/') || router.pathname.endsWith('/play')) && <header className={'nav'}>
-				<Link href={'/'}><h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }}><img src="/logo.png" alt="Parakeet logo" height={70} style={{ verticalAlign: 'middle', marginRight: '20px' }} /> Parakeet</h1></Link>
-				<h2
-					className='navLinks'
-					style={{
-						paddingRight: '20px',
-						verticalAlign: 'middle',
-						color: 'var(--text)',
-					}}
-				>
-					<Link href={'/'}>Play</Link>
-					<Link href={'/settings'}>Settings</Link>
-					<Link href={'/dev'}>Devs</Link>
-				</h2>
-			</header>}
+			{!(
+				router.pathname.endsWith('/play/') || router.pathname.endsWith('/play')
+			) && (
+				<header className={'nav'}>
+					<Link href={'/'}>
+						<h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }}>
+							<img
+								src='/logo.png'
+								alt='Parakeet logo'
+								height={70}
+								style={{ verticalAlign: 'middle', marginRight: '20px' }}
+							/>{' '}
+							Parakeet
+						</h1>
+					</Link>
+					<h2
+						className='navLinks'
+						style={{
+							paddingRight: '20px',
+							verticalAlign: 'middle',
+							color: 'var(--text)',
+						}}
+					>
+						<Link href={'/'}>Play</Link>
+						<Link href={'/settings'}>Settings</Link>
+						<Link href={'/dev'}>Devs</Link>
+					</h2>
+				</header>
+			)}
 			<AnimatePresence initial={false} mode={'wait'}>
 				<motion.div
 					key={asPath}
@@ -123,10 +154,50 @@ export default function App({ Component, pageProps }: AppProps) {
 					<Component {...pageProps} />
 				</motion.div>
 			</AnimatePresence>
-			<svg width="0" height="0"><filter id="blur" width="300%" height="300%" x="-0.75" y="-0.75" colorInterpolationFilters="sRGB"><feOffset in="SourceGraphic" result="source-copy"></feOffset><feColorMatrix in="source-copy" type="saturate" values="3" result="saturated-copy"></feColorMatrix><feColorMatrix in="saturated-copy" type="matrix" values="1 0 0 0 0
+			<svg width='0' height='0'>
+				<filter
+					id='blur'
+					width='300%'
+					height='300%'
+					x='-0.75'
+					y='-0.75'
+					colorInterpolationFilters='sRGB'
+				>
+					<feOffset in='SourceGraphic' result='source-copy'></feOffset>
+					<feColorMatrix
+						in='source-copy'
+						type='saturate'
+						values='3'
+						result='saturated-copy'
+					></feColorMatrix>
+					<feColorMatrix
+						in='saturated-copy'
+						type='matrix'
+						values='1 0 0 0 0
                      0 1 0 0 0
                      0 0 1 0 0
-                     33 33 33 101 -132" result="bright-colors"></feColorMatrix><feMorphology in="bright-colors" operator="dilate" radius="10" result="spread"></feMorphology><feGaussianBlur in="spread" stdDeviation="30" result="ambilight-light"></feGaussianBlur><feOffset in="SourceGraphic" result="source"></feOffset><feComposite in="source" in2="ambilight-light" operator="over"></feComposite></filter></svg>
+                     33 33 33 101 -132'
+						result='bright-colors'
+					></feColorMatrix>
+					<feMorphology
+						in='bright-colors'
+						operator='dilate'
+						radius='10'
+						result='spread'
+					></feMorphology>
+					<feGaussianBlur
+						in='spread'
+						stdDeviation='30'
+						result='ambilight-light'
+					></feGaussianBlur>
+					<feOffset in='SourceGraphic' result='source'></feOffset>
+					<feComposite
+						in='source'
+						in2='ambilight-light'
+						operator='over'
+					></feComposite>
+				</filter>
+			</svg>
 		</>
 	)
 }
