@@ -24,7 +24,7 @@ jobs:
       - name: 🧰 Dependencies
         run: yarn install --prefer-offline --pure-lockfile
       - name: 🔨 Build
-        run: yarn build --if-present
+        run: yarn build
       - name: 🦜 Deploy
         id: deploy-netlify
         uses: netlify/actions/cli@master
