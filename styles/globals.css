@@ -7,9 +7,9 @@
 
 :root {
 	--text: var(--arc-palette-minContrastColor, white);
-	--primary: var(--arc-palette-foregroundPrimary, black);
-	--secondary: var(--arc-palette-maxContrastColor, white);
-	--background: var(--arc-palette-background, black);
+	--primary: var(--arc-palette-foregroundPrimary, purple);
+	--secondary: var(--arc-palette-maxContrastColor, #cc10ad);
+	--background: var(--arc-palette-background, linear-gradient(180deg, #8a0d75 0%, black 100%));
 }
 
 * {
