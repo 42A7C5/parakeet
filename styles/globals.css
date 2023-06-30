@@ -6,10 +6,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0');
 
 :root {
-	--text: var(--arc-palette-minContrastColor, white);
-	--primary: var(--arc-palette-foregroundPrimary, purple);
-	--secondary: var(--arc-palette-maxContrastColor, #cc10ad);
-	--background: var(--arc-palette-background, linear-gradient(180deg, #8a0d75 0%, black 100%));
+	--text: white;
+	--primary: purple;
+	--secondary: #cc10ad;
+	--background: linear-gradient(180deg, #8a0d75 0%, black 100%);
 }
 
 * {
