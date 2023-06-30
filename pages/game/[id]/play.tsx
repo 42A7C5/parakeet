@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import { RWebShare } from 'react-web-share'
 import { readdirSync } from 'fs'
 import $ from 'jquery'
+import { initializeApp } from 'firebase/app'
 
 function GamePage(props: any) {
 	let [user, setUser] = useState<User>()
@@ -33,24 +34,37 @@ function GamePage(props: any) {
 		// Make sure iframe stays in focus
 		if (typeof document !== 'undefined') {
 			setInterval(() => {
-				((document.getElementById(`frame-${game.id}`) as HTMLIFrameElement).contentWindow as any).focus()
+				try {
+					((document.getElementById(`frame-${game.id}`) as HTMLIFrameElement).contentWindow as any).focus()
+				} catch {}
 			}, 400)
 		}
 	})
 
 	useMemo(async () => {
+		initializeApp({
+			apiKey: 'AIzaSyCVRdvjxtTS5DV__if3-81t_fYp5GUod-U',
+			authDomain: 'parakeetapi.firebaseapp.com',
+			projectId: 'parakeetapi',
+			storageBucket: 'parakeetapi.appspot.com',
+			messagingSenderId: '163437557468',
+			appId: '1:163437557468:web:ca1358397b5b9da133a619',
+		})
+
 		onAuthStateChanged(getAuth(), async (user) => {
-			if (user) {
-				setUser(user)
-				if (typeof document !== 'undefined') {
-					(document.querySelector('#frame-' + props.game.id) as HTMLIFrameElement).setAttribute('src', `${props.game.frame}?user=${await user.getIdToken()}`)
+			try {
+				if (user) {
+					setUser(user)
+					if (typeof document !== 'undefined') {
+						(document.querySelector('#frame-' + props.game.id) as HTMLIFrameElement).setAttribute('src', `${props.game.frame}?user=${await user.getIdToken()}`)
+					}
+				} else {
+					if (typeof document !== 'undefined') {
+						(document.querySelector('#frame-' + props.game.id) as HTMLIFrameElement).setAttribute('src', props.game.frame)
+					}
 				}
-			} else {
-				if (typeof document !== 'undefined') {
-					(document.querySelector('#frame-' + props.game.id) as HTMLIFrameElement).setAttribute('src', props.game.frame)
-				}
-			}
-			setUserStateDetermined(true)
+				setUserStateDetermined(true)
+			} catch {}
 		})
 	}, [])
 

@@ -11,12 +11,22 @@ import {
   getAuth,
   updateProfile,
   onAuthStateChanged,
-} from "firebase/auth";
+} from "firebase/auth"
+import { initializeApp } from 'firebase/app'
 
 export default function Account() {
   let [user, setUser] = useState<any>();
 
   useMemo(async () => {
+    initializeApp({
+			apiKey: 'AIzaSyCVRdvjxtTS5DV__if3-81t_fYp5GUod-U',
+			authDomain: 'parakeetapi.firebaseapp.com',
+			projectId: 'parakeetapi',
+			storageBucket: 'parakeetapi.appspot.com',
+			messagingSenderId: '163437557468',
+			appId: '1:163437557468:web:ca1358397b5b9da133a619',
+		})
+
     onAuthStateChanged(getAuth(), (user) => {
       if (user) {
         setUser(user);
@@ -121,6 +131,16 @@ export default function Account() {
           </>
         )}
         <h2>Custom Theme</h2>
+        <ThemeOption name="DragonDungeon" text="#fff9c4" primary="#afb42b" secondary="gold" background="linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://dragondungeon.netlify.app/assets/img/game/tile.png')" />
+        <ThemeOption name="WizardWars" text="#acfef6" primary="#bf5fff" secondary="#03dac4" background="linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/gameassets/wizards/background.jpg') center center fixed no-repeat" />
+        <ThemeOption name="Pride" text="black" primary="#e49ad8" secondary="#44ffbb" background="linear-gradient(90deg, #ff1313, #ff9007, #feee0c, #08f850, #3c68e2, #c745e1)" logo="/themes/pride/logo.png" />
+        <br />
+        <ThemeOption name="Neon" text="white" primary="#cc10ad" secondary="#38dda1" background="linear-gradient(-45deg, #cc10ad, #38dda1)" />
+        <ThemeOption name="Forest" text="#e6ffe9" primary="#0a4713" secondary="#009b3a" background="linear-gradient(-45deg, #0a4713, #009b3a)" />
+        <ThemeOption name="Snow" text="#bfcdf5" primary="#00a1de" secondary="#05206b" background="linear-gradient(-45deg, #00a1de, #05206b)" />
+        <ThemeOption name="Red" text="#e6ffe9" primary="#c60c30" secondary="#960505" background="linear-gradient(45deg, #ff0000, #000000)" />
+        <ThemeOption name="Rust" text="#794c0b" primary="#fcedd8" secondary="#d28512" background="linear-gradient(-45deg, #fcedd8, #d28512)" />
+        <br /><br />
         <button style={{
           background: 'white',
           color: 'black',
@@ -131,88 +151,39 @@ export default function Account() {
           window.localStorage.removeItem('customThemePrimary')
           window.localStorage.removeItem('customThemeSecondary')
           window.localStorage.removeItem('customThemeBackground')
-          window.localStorage.removeItem('customThemeGradient')
+          window.localStorage.removeItem('customThemeLogo')
           window.location.reload()
-        }}>Auto (Default)</button>
-        <button style={{
-          background: '#cc10ad',
-          color: 'white',
-          boxShadow: '0 0 10px #38dda1',
-          borderColor: '#38dda1'
-        }} className="searchTag" onClick={() => {
-          window.localStorage.setItem('customThemeWhite', 'white')
-          window.localStorage.setItem('customThemePrimary', '#cc10ad')
-          window.localStorage.setItem('customThemeSecondary', '#38dda1')
-          window.localStorage.setItem('customThemeBackground', 'purple')
-          window.localStorage.removeItem('customThemeGradient')
-          window.location.reload()
-        }}>Classic</button>
-        <button style={{
-          background: 'linear-gradient(90deg, #5e0707, #8a4d03, #746d03, #008026, #24408E, #732982)',
-          color: 'white',
-          boxShadow: '0 0 10px white',
-          borderColor: 'white'
-        }} className="searchTag" onClick={() => {
-          window.localStorage.setItem('customThemeWhite', 'black')
-          window.localStorage.setItem('customThemePrimary', '#e49ad8')
-          window.localStorage.setItem('customThemeSecondary', '#44ffbb')
-          window.localStorage.setItem('customThemeBackground', 'white')
-          window.localStorage.setItem('customThemeGradient', 'linear-gradient(90deg, #ff1313, #ff9007, #feee0c, #08f850, #3c68e2, #c745e1), var(--background)')
-          window.location.reload()
-        }}>Pride</button>
-        <button style={{
-          background: '#0a4713',
-          color: '#e6ffe9',
-          boxShadow: '0 0 10px #009b3a',
-          borderColor: '#009b3a'
-        }} className="searchTag" onClick={() => {
-          window.localStorage.setItem('customThemeWhite', '#e6ffe9')
-          window.localStorage.setItem('customThemePrimary', '#0a4713')
-          window.localStorage.setItem('customThemeSecondary', '#009b3a')
-          window.localStorage.setItem('customThemeBackground', 'green')
-          window.localStorage.removeItem('customThemeGradient')
-          window.location.reload()
-        }}>Forest Green</button>
-        <button style={{
-          background: '#00a1de',
-          color: '#bfcdf5',
-          boxShadow: '0 0 10px #05206b',
-          borderColor: '#05206b'
-        }} className="searchTag" onClick={() => {
-          window.localStorage.setItem('customThemeWhite', '#bfcdf5')
-          window.localStorage.setItem('customThemePrimary', '#00a1de')
-          window.localStorage.setItem('customThemeSecondary', '#05206b')
-          window.localStorage.setItem('customThemeBackground', 'blue')
-          window.localStorage.removeItem('customThemeGradient')
-          window.location.reload()
-        }}>Beach Blue</button>
-        <button style={{
-          background: '#c60c30',
-          color: '#e6ffe9',
-          boxShadow: '0 0 10px #960505',
-          borderColor: '#960505'
-        }} className="searchTag" onClick={() => {
-          window.localStorage.setItem('customThemeWhite', '#e6ffe9')
-          window.localStorage.setItem('customThemePrimary', '#c60c30')
-          window.localStorage.setItem('customThemeSecondary', '#960505')
-          window.localStorage.setItem('customThemeBackground', 'red')
-          window.localStorage.removeItem('customThemeGradient')
-          window.location.reload()
-        }}>Ravenous Red</button>
-        <button style={{
-          background: '#794c0b',
-          color: '#fcedd8',
-          boxShadow: '0 0 10px #d28512',
-          borderColor: '#d28512'
-        }} className="searchTag" onClick={() => {
-          window.localStorage.setItem('customThemeWhite', '#794c0b')
-          window.localStorage.setItem('customThemePrimary', '#fcedd8')
-          window.localStorage.setItem('customThemeSecondary', '#d28512')
-          window.localStorage.setItem('customThemeBackground', '#241700')
-          window.localStorage.removeItem('customThemeGradient')
-          window.location.reload()
-        }}>Rusted Metal</button>
+        }}>Reset Theme</button>
       </div>
     </>
   );
+}
+
+function ThemeOption(props: {
+  name: string,
+  text: string,
+  primary: string,
+  secondary: string,
+  background: string,
+  logo?: string,
+}) {
+  return (
+    <button style={{
+      background: props.primary,
+      color: props.text,
+      boxShadow: `0 0 15px ${props.secondary}`,
+      borderColor: props.secondary
+    }} className="searchTag" onClick={() => {
+      window.localStorage.setItem('customThemeWhite', props.text)
+      window.localStorage.setItem('customThemePrimary', props.primary)
+      window.localStorage.setItem('customThemeSecondary', props.secondary)
+      window.localStorage.setItem('customThemeBackground', props.background)
+      if (props.logo) {
+        window.localStorage.setItem('customThemeLogo', props.logo)
+      } else {
+        window.localStorage.removeItem('customThemeLogo')
+      }
+      window.location.reload()
+    }}>{props.name}</button>
+  )
 }

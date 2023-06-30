@@ -18,19 +18,13 @@ export default function Home(props: any) {
 			<Head>
 				<title>Play | Parakeet Games</title>
 			</Head>
-			<Carousel
-				showStatus={false}
-				showThumbs={false}
-				showArrows={true}
-				autoPlay={true}
-				className='gameotwcontainer hideMeOnMobile'
-			>
+			<Carousel showStatus={false} showThumbs={false} showArrows={false} autoPlay={true} className='gameotwcontainer hideMeOnMobile'>
 				{props.picks.map((game: any) => (
 					<Link key={game.id} href={`/game/${game.id}`}>
 						<div
 							className={'gameotw'}
 							style={{
-								background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${game.art.background}) center center no-repeat`,
+								background: `url(${game.art.background})`,
 							}}
 						>
 							<div>
@@ -39,15 +33,6 @@ export default function Home(props: any) {
 									style={{ maxHeight: '120px', width: 'auto' }}
 									alt={game.name}
 								/>
-								<p
-									style={{
-										fontSize: '18pt',
-										fontWeight: 'bold',
-										color: 'white',
-									}}
-								>
-									{game.reason}
-								</p>
 							</div>
 						</div>
 					</Link>
@@ -168,28 +153,21 @@ export async function getStaticProps() {
 			tags: uniqueTags,
 			picks: [
 				{
+					...require('../apps/wizards.json'),
+					id: 'wizards',
+				},
+				{
 					...require('../apps/mazmorra.json'),
 					id: 'mazmorra',
-					reason:
-						'New Release | Explore the depths and make it out alive- if you can!',
 				},
 				{
 					...require('../apps/monstr.json'),
 					id: 'monstr',
-					reason: "New Release | Nobody's stopping this party!",
-				},
-				{
-					...require('../apps/eggsim.json'),
-					id: 'eggsim',
-					reason:
-						'New Release | Become an egg and evade the bacon in this fun take on jumping games!',
 				},
 				{
 					...require('../apps/dragondungeon.json'),
 					id: 'dragondungeon',
-					reason:
-						'Battle for control against other dragons in this fun multiplayer game!',
-				},
+				}
 			],
 		},
 	}

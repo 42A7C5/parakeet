@@ -5,10 +5,8 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { useCallback, useMemo } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Particles from 'react-tsparticles'
-import { initializeApp } from 'firebase/app'
-import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { useRouter } from 'next/router'
@@ -18,17 +16,9 @@ import 'atropos/css'
 
 export default function App({ Component, pageProps }: AppProps) {
 	let { asPath } = useRouter()
+	let [logoSrc, setLogoSrc] = useState('/logo.png')
 
-	useMemo(() => {
-		initializeApp({
-			apiKey: 'AIzaSyCVRdvjxtTS5DV__if3-81t_fYp5GUod-U',
-			authDomain: 'parakeetapi.firebaseapp.com',
-			projectId: 'parakeetapi',
-			storageBucket: 'parakeetapi.appspot.com',
-			messagingSenderId: '163437557468',
-			appId: '1:163437557468:web:ca1358397b5b9da133a619',
-		})
-
+	useEffect(() => {
 		if (typeof window !== 'undefined') {
 			var r = document.querySelector(':root') as any
 
@@ -62,14 +52,11 @@ export default function App({ Component, pageProps }: AppProps) {
 				)
 			}
 
-			if (window.localStorage.customThemeGradient) {
-				r.style.setProperty(
-					'--gradient',
-					window.localStorage.customThemeGradient
-				)
+			if (window.localStorage.customThemeLogo) {
+				setLogoSrc(window.localStorage.customThemeLogo)
 			}
 		}
-	}, [])
+	})
 
 	const particlesInit = useCallback(async (engine: any) => {
 		await loadStarsPreset(engine)
@@ -101,103 +88,30 @@ export default function App({ Component, pageProps }: AppProps) {
 				options={{ preset: 'stars', background: { opacity: 0 } }}
 				init={particlesInit}
 			/>
-			{!(
-				router.pathname.endsWith('/play/') || router.pathname.endsWith('/play')
-			) && (
-				<header className={'nav'}>
-					<Link href={'/'}>
-						<h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }}>
-							<img
-								src='/logo.png'
-								alt='Parakeet logo'
-								height={70}
-								style={{ verticalAlign: 'middle', marginRight: '20px' }}
-							/>{' '}
-							Parakeet
-						</h1>
-					</Link>
-					<h2
-						className='navLinks'
-						style={{
-							paddingRight: '20px',
-							verticalAlign: 'middle',
-							color: 'var(--text)',
-						}}
-					>
-						<Link href={'/'}>Play</Link>
-						<Link href={'/settings'}>Settings</Link>
-						<Link href={'/dev'}>Devs</Link>
-					</h2>
-				</header>
-			)}
-			<AnimatePresence initial={false} mode={'wait'}>
-				<motion.div
-					key={asPath}
-					variants={{
-						out: {
-							opacity: 0.3,
-							transition: {
-								duration: 0.2,
-							},
-						},
-						in: {
-							opacity: 1,
-							transition: {
-								duration: 0.2,
-							},
-						},
+			{!(router.pathname.endsWith('/play/') || router.pathname.endsWith('/play')) && <nav>
+				<Link href={'/'}>
+					<h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }} className='navTitle'>
+						<img src={logoSrc} alt="Parakeet logo" height={70} className='navLogo' /> Parakeet
+					</h1>
+				</Link>
+				<h2
+					className='navLinks'
+					style={{
+						paddingRight: '20px',
+						verticalAlign: 'middle',
+						color: 'var(--text)',
 					}}
-					animate='in'
-					initial='out'
-					exit='out'
 				>
-					<Component {...pageProps} />
-				</motion.div>
-			</AnimatePresence>
-			<svg width='0' height='0'>
-				<filter
-					id='blur'
-					width='300%'
-					height='300%'
-					x='-0.75'
-					y='-0.75'
-					colorInterpolationFilters='sRGB'
-				>
-					<feOffset in='SourceGraphic' result='source-copy'></feOffset>
-					<feColorMatrix
-						in='source-copy'
-						type='saturate'
-						values='3'
-						result='saturated-copy'
-					></feColorMatrix>
-					<feColorMatrix
-						in='saturated-copy'
-						type='matrix'
-						values='1 0 0 0 0
+					<Link href={'/'}>Play</Link>
+					<Link href={'/settings'}>Settings</Link>
+					<Link href={'/dev'}>Devs</Link>
+				</h2>
+			</nav>}
+			<Component {...pageProps} />
+			<svg width="0" height="0"><filter id="blur" width="300%" height="300%" x="-0.75" y="-0.75" colorInterpolationFilters="sRGB"><feOffset in="SourceGraphic" result="source-copy"></feOffset><feColorMatrix in="source-copy" type="saturate" values="3" result="saturated-copy"></feColorMatrix><feColorMatrix in="saturated-copy" type="matrix" values="1 0 0 0 0
                      0 1 0 0 0
                      0 0 1 0 0
-                     33 33 33 101 -132'
-						result='bright-colors'
-					></feColorMatrix>
-					<feMorphology
-						in='bright-colors'
-						operator='dilate'
-						radius='10'
-						result='spread'
-					></feMorphology>
-					<feGaussianBlur
-						in='spread'
-						stdDeviation='30'
-						result='ambilight-light'
-					></feGaussianBlur>
-					<feOffset in='SourceGraphic' result='source'></feOffset>
-					<feComposite
-						in='source'
-						in2='ambilight-light'
-						operator='over'
-					></feComposite>
-				</filter>
-			</svg>
+                     33 33 33 101 -132" result="bright-colors"></feColorMatrix><feMorphology in="bright-colors" operator="dilate" radius="10" result="spread"></feMorphology><feGaussianBlur in="spread" stdDeviation="30" result="ambilight-light"></feGaussianBlur><feOffset in="SourceGraphic" result="source"></feOffset><feComposite in="source" in2="ambilight-light" operator="over"></feComposite></filter></svg>
 		</>
 	)
 }

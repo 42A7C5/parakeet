@@ -1,4 +1,4 @@
-/****************************
+/* ***************************
 © 2019-present LeagueXP. All rights reserved.
 ****************************/
 
@@ -6,45 +6,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0');
 
 :root {
-	--text: var(--arc-palette-minContrastColor, #fff);
-	--primary: var(--arc-palette-foregroundPrimary, #cc10ad);
-	--secondary: var(--arc-palette-maxContrastColor, #38dda1);
-	--background: var(--arc-palette-background, purple);
-	--gradientPrimary: var(
-		--arc-background-gradient-color1,
-		var(--arc-background-simple-color, #cc10ad)
-	);
-	--gradientSecondary: var(
-		--arc-background-gradient-color0,
-		var(--arc-background-simple-color, #38dda1)
-	);
+	--text: var(--arc-palette-minContrastColor, white);
+	--primary: var(--arc-palette-foregroundPrimary, black);
+	--secondary: var(--arc-palette-maxContrastColor, white);
+	--background: var(--arc-palette-background, black);
 }
 
 * {
 	font-family: 'Unbounded';
 }
 
-html,
-body {
-	background: var(
-		--gradient,
-		linear-gradient(-45deg, var(--gradientPrimary), var(--gradientSecondary)),
-		var(--background)
-	);
-	background-size: 100% 100%;
-	animation: gradient 10s ease infinite;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+html, body {
+	background: var(--background);
+	background-size: cover;
 }
 
 body,
@@ -90,7 +64,6 @@ a {
 
 .game-bgart {
 	object-fit: cover !important;
-	border-radius: 30px;
 }
 
 .game-logoart {
@@ -155,10 +128,6 @@ control-arrow {
 	box-shadow: 0 0 10px var(--secondary);
 }
 
-.searchTag:hover {
-	cursor: grab;
-}
-
 .searchBar::placeholder {
 	color: var(--text);
 }
@@ -172,53 +141,52 @@ control-arrow {
 	border-radius: 30px;
 	height: 40vh;
 	margin: 60px;
-	box-shadow: 0 0 15px var(--text);
 	transition: all 1s ease;
+	background-size: cover;
+	background-position-y: 0;
+	background-position-x: unset;
 }
 
 .gameotw:hover {
-	box-shadow: 0 0 20px var(--text);
-	transform: scale(1.01);
+	transform: scale(1.05);
+	background-position-y: center;
 }
 
 .gameotw img {
 	transition: all ease 0.5s;
-	max-width: 70vw;
+	max-width: 80vw;
 }
 
 .gameotw:hover img {
-	transform: scale(1.1);
+	transform: scale(1.2);
 }
 
 /* Navigation */
 
 .navTitle {
-	font-size: 25pt;
-	margin-right: 20px;
-	padding: 25px;
 	vertical-align: middle;
-	font-weight: unset;
+	font-size: 2rem;
 }
 
-.nav h2 a {
+.navLogo {
+	vertical-align: middle;
+	padding-left: 20px;
+	padding-right: 10px;
+}
+
+.navLinks a {
 	text-decoration: underline;
 	padding: 10px;
 	color: var(--text);
 }
 
-.nav {
-	min-height: 5vh;
-	width: 98vw;
-	margin-left: 2vw;
+nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	position: sticky;
-	z-index: 9999;
-	overflow: hidden;
 }
 
-.nav h2 {
+nav h2 {
 	font-size: 18pt;
 }
 
@@ -369,7 +337,7 @@ control-arrow {
 /* Responsive */
 
 @media screen and (max-width: 850px) {
-	.nav {
+	nav {
 		display: block;
 	}
 
@@ -394,8 +362,17 @@ control-arrow {
 	.gameList {
 		flex-direction: column;
 	}
+
 	.game {
-		width: 94vw;
-		padding: 3vw;
+		width: 100vw;
+		padding: 0;
+	}
+
+	.game .atropos-inner {
+		box-shadow: unset;
+	}
+
+	.game-bgart {
+		border-radius: 0;
 	}
 }

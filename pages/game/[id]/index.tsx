@@ -5,22 +5,9 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { readdirSync } from 'fs'
-import { useMemo, useState } from 'react'
 import Atropos from 'atropos/react'
-import { getAuth, onAuthStateChanged } from 'firebase/auth'
 
 function GamePage(props: any) {
-	let [user, setUser] = useState<any>()
-	let [userStateDetermined, setUserStateDetermined] = useState<any>()
-
-	useMemo(async () => {
-		onAuthStateChanged(getAuth(), (user) => {
-			if (user) {
-				setUser(user)
-			}
-			setUserStateDetermined(true)
-		})
-	}, [])
 
 	let game = props.game
 
