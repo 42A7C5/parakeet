@@ -102,9 +102,15 @@ export default function App({ Component, pageProps }: AppProps) {
 						color: 'var(--text)',
 					}}
 				>
-					<Link href={'/'}>Play</Link>
-					<Link href={'/settings'}>Settings</Link>
-					<Link href={'/dev'}>Devs</Link>
+					<Link href={'/'}>
+						<span className='material-symbols-outlined'>play_circle</span>
+					</Link>
+					<Link href={'/settings'}>
+						<span className='material-symbols-outlined'>settings</span>
+					</Link>
+					<Link href={'/dev'}>
+						<span className='material-symbols-outlined'>code</span>
+					</Link>
 				</h2>
 			</nav>}
 			<Component {...pageProps} />

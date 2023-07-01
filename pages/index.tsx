@@ -38,17 +38,18 @@ export default function Home(props: any) {
 					</Link>
 				))}
 			</Carousel>
-			<div style={{ textAlign: 'center' }}>
+			<br />
+			<div style={{ textAlign: 'center', verticalAlign: 'middle' }}>
 				<input
 					type='text'
-					placeholder='Search'
+					placeholder={'Search'}
 					className='searchBar'
 					onChange={(e) => {
 						setSearchTerm(e.target.value.replace(/\s+/g, '').toLowerCase())
 					}}
 				/>
 				<br />
-				<div style={{ margin: '20px' }}>
+				<div style={{ margin: '20px' }} className='hideMeOnMobile'>
 					<button
 						className='searchTag'
 						onClick={() => {
@@ -85,6 +86,7 @@ export default function Home(props: any) {
 						)
 					})}
 				</div>
+				<br />
 			</div>
 			<div className={'gameList'}>
 				{props.games.map((game: any) => {
