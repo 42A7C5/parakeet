@@ -3,7 +3,7 @@
     "name": "Parakeet.Games",
     "icons": [
       {
-        "src": "/appicon.png",
+        "src": "/logo.png",
         "type": "image/png",
         "sizes": "1024x1024"
       }
