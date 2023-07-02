@@ -119,6 +119,7 @@ control-arrow {
 .searchBar {
 	background: transparent;
 	border: unset;
+	border-radius: 0;
 	border-bottom: 2px solid var(--text);
 	vertical-align: middle;
 	margin-left: 10px;
@@ -185,7 +186,7 @@ control-arrow {
 }
 
 .navLinks a span {
-	padding: 8px;
+	padding: 10px;
 	font-size: 35px;
 	color: var(--text);
 }
@@ -346,10 +347,10 @@ nav h2 {
 
 /* Responsive */
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 700px) {
 	nav {
-		display: block;
-		text-align: center;
+		/* display: block; */
+		/* text-align: center; */
 	}
 
 	.navLogo {
@@ -357,9 +358,10 @@ nav h2 {
 		padding-right: 10px;
 	}
 
-	.navTitle {
-		padding-left: 0;
-		padding-right: 0;
+	.navTitleText {
+		display: none;
+		/* padding-left: 0; */
+		/* padding-right: 0; */
 	}
 
 	.hideMeOnMobile {

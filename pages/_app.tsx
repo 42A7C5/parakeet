@@ -82,6 +82,17 @@ export default function App({ Component, pageProps }: AppProps) {
 			<Head>
 				<title>Parakeet Games</title>
 				<link rel='shortcut icon' href='/logo.png' type='image/x-icon' />
+				<link rel="manifest" href="/manifest.json" />
+				<meta name="theme-color" content="#cc10ad" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<meta name="mobile-web-app-capable" content="yes" />
+				<meta name="apple-mobile-web-app-capable" content="yes" /> 
+				<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+				<meta name="apple-mobile-web-app-title" content="Parakeet" />
+				<meta name="msapplication-TileImage" content="/appicon.png" />
+				<meta name="apple-touch-fullscreen" content="yes" />
+				<meta name="description" content="Games that push the boundaries of the Web." />
+				<meta name="title" content="Parakeet.Games" />
 			</Head>
 			<Particles
 				id='tsparticles'
@@ -91,7 +102,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			{!(router.pathname.endsWith('/play/') || router.pathname.endsWith('/play')) && <nav>
 				<Link href={'/'}>
 					<h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }} className='navTitle'>
-						<img src={logoSrc} alt="Parakeet logo" height={70} className='navLogo' /> Parakeet
+						<img src={logoSrc} alt="Parakeet logo" height={70} className='navLogo' /> <span className='navTitleText'>Parakeet</span>
 					</h1>
 				</Link>
 				<h2
