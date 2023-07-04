@@ -22,6 +22,12 @@ export default function App({ Component, pageProps }: AppProps) {
 		if (typeof window !== 'undefined') {
 			var r = document.querySelector(':root') as any
 
+			r.style.setProperty('--text', 'white')
+			r.style.setProperty('--primary', '#00a1de')
+			r.style.setProperty('--secondary', '#c60c30')
+			r.style.setProperty('--background', "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/2880px-Flag_of_the_United_States.svg.png') center center fixed")
+			setLogoSrc('/themes/america/logo.png')
+
 			if (window.localStorage.customThemeWhite) {
 				r.style.setProperty('--text', window.localStorage.customThemeWhite)
 			}

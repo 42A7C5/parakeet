@@ -17,7 +17,7 @@
 }
 
 html, body {
-	background: var(--background);
+	background: var(--background), black;
 	background-size: cover;
 }
 
@@ -250,7 +250,6 @@ nav h2 {
 	top: 100px;
 	width: 90%;
 	padding: 5%;
-	overflow-y: scroll;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
