@@ -14,7 +14,6 @@ import {
     signOut,
     getIdToken
 } from "firebase/auth"
-import { initializeApp } from 'firebase/app'
 
 export default function Account() {
     let [user, setUser] = useState<any>();
@@ -22,15 +21,6 @@ export default function Account() {
     let [token, setToken] = useState<string | null>(null);
 
     useMemo(async () => {
-        initializeApp({
-            apiKey: 'AIzaSyCVRdvjxtTS5DV__if3-81t_fYp5GUod-U',
-            authDomain: 'cloudark.parakeet.games',
-            projectId: 'parakeetapi',
-            storageBucket: 'parakeetapi.appspot.com',
-            messagingSenderId: '163437557468',
-            appId: '1:163437557468:web:ca1358397b5b9da133a619',
-        })
-
         if (typeof window !== 'undefined') {
             setRedirectURL(new URLSearchParams(window.location.search)?.get('redirect'))
         }

@@ -5,7 +5,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import Particles from 'react-tsparticles'
 import Link from 'next/link'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
@@ -13,10 +13,29 @@ import { useRouter } from 'next/router'
 import { loadStarsPreset } from 'tsparticles-preset-stars'
 import Script from 'next/script'
 import 'atropos/css'
+import { initializeApp } from 'firebase/app'
+import { getAuth, onAuthStateChanged, signInAnonymously } from 'firebase/auth'
 
 export default function App({ Component, pageProps }: AppProps) {
 	let { asPath } = useRouter()
 	let [logoSrc, setLogoSrc] = useState('/logo.png')
+
+	useMemo(() => {
+		initializeApp({
+			apiKey: 'AIzaSyCVRdvjxtTS5DV__if3-81t_fYp5GUod-U',
+			authDomain: 'cloudark.parakeet.games',
+			projectId: 'parakeetapi',
+			storageBucket: 'parakeetapi.appspot.com',
+			messagingSenderId: '163437557468',
+			appId: '1:163437557468:web:ca1358397b5b9da133a619',
+		})
+
+		onAuthStateChanged(getAuth(), user => {
+			if (!user) {
+				signInAnonymously(getAuth())
+			}
+		})
+	}, [])
 
 	useEffect(() => {
 		if (typeof window !== 'undefined') {

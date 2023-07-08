@@ -13,21 +13,11 @@ import {
   onAuthStateChanged,
   signOut
 } from "firebase/auth"
-import { initializeApp } from 'firebase/app'
 
 export default function Account() {
   let [user, setUser] = useState<any>();
 
   useMemo(async () => {
-    initializeApp({
-			apiKey: 'AIzaSyCVRdvjxtTS5DV__if3-81t_fYp5GUod-U',
-			authDomain: 'cloudark.parakeet.games',
-			projectId: 'parakeetapi',
-			storageBucket: 'parakeetapi.appspot.com',
-			messagingSenderId: '163437557468',
-			appId: '1:163437557468:web:ca1358397b5b9da133a619',
-		})
-
     onAuthStateChanged(getAuth(), (user) => {
       if (user) {
         setUser(user);
@@ -43,27 +33,7 @@ export default function Account() {
       <div style={{ textAlign: "center" }}>
         <h1>Settings</h1>
         {!user && (
-          <Link
-            href={"#"}
-            onClick={async (e) => {
-              e.preventDefault();
-              let user = await signInWithPopup(
-                getAuth(),
-                new GoogleAuthProvider()
-              );
-              setUser(user.user);
-            }}
-          >
-            <span
-              style={{
-                color: "var(--text)",
-                textDecoration: "underline",
-                fontSize: "1.5rem",
-              }}
-            >
-              Sign in with Google
-            </span>
-          </Link>
+          <p>Loading...</p>
         )}
         {user && (
           <>
@@ -71,64 +41,88 @@ export default function Account() {
             <div>
               <h3 style={{ fontSize: '25pt' }}>
                 <img src={user.photoURL || 'https://api.parakeet.games/Content/Avatars/DefaultBird.png'} height="90px" style={{ borderRadius: '500px', verticalAlign: 'middle', marginRight: '20px' }} />
-                {user.displayName || user.email || user.phoneNumber}
+                {user.displayName || user.email || user.phoneNumber || 'Anonymous Parakeet'}
               </h3>
-              <Link
-                href={`#`}
-                onClick={(e) => {
+              {user.isAnonymous && <Link
+                href={"#"}
+                onClick={async (e) => {
                   e.preventDefault();
-                  updateProfile(user, {
-                    displayName: prompt("Enter your new display name:"),
-                  });
+                  let user = await signInWithPopup(
+                    getAuth(),
+                    new GoogleAuthProvider()
+                  );
+                  setUser(user.user);
                 }}
               >
                 <span
                   style={{
                     color: "var(--text)",
                     textDecoration: "underline",
-                    padding: "20px",
+                    fontSize: "1.5rem",
                   }}
                 >
-                  Change Name
+                  Sign in with Google
                 </span>
-              </Link>
-              <Link
-                href={`#`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  updateProfile(user, {
-                    photoURL: prompt("Enter the URL for your new display picture:"),
-                  });
-                }}
-              >
-                <span
-                  style={{
-                    color: "var(--text)",
-                    textDecoration: "underline",
-                    padding: "20px",
+              </Link>}
+              {!user.isAnonymous && <>
+                <Link
+                  href={`#`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    updateProfile(user, {
+                      displayName: prompt("Enter your new display name:"),
+                    });
                   }}
                 >
-                  Change Picture
-                </span>
-              </Link>
-              <Link
-                href={`#`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  signOut(getAuth())
-                  setUser(null)
-                }}
-              >
-                <span
-                  style={{
-                    color: "var(--text)",
-                    textDecoration: "underline",
-                    padding: "20px",
+                  <span
+                    style={{
+                      color: "var(--text)",
+                      textDecoration: "underline",
+                      padding: "20px",
+                    }}
+                  >
+                    Change Name
+                  </span>
+                </Link>
+                <Link
+                  href={`#`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    updateProfile(user, {
+                      photoURL: prompt("Enter the URL for your new display picture:"),
+                    });
                   }}
                 >
-                  Log Out
-                </span>
-              </Link>
+                  <span
+                    style={{
+                      color: "var(--text)",
+                      textDecoration: "underline",
+                      padding: "20px",
+                    }}
+                  >
+                    Change Picture
+                  </span>
+                </Link>
+                <Link
+                  href={`#`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    signOut(getAuth())
+                    setUser(null)
+                  }}
+                >
+                  <span
+                    style={{
+                      color: "var(--text)",
+                      textDecoration: "underline",
+                      padding: "20px",
+                    }}
+                  >
+                    Log Out
+                  </span>
+                </Link>
+              </>}
+              <br /><br /><br />
             </div>
           </>
         )}

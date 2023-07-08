@@ -9,7 +9,6 @@ import { useRouter } from 'next/router'
 import { RWebShare } from 'react-web-share'
 import { readdirSync } from 'fs'
 import $ from 'jquery'
-import { initializeApp } from 'firebase/app'
 
 function GamePage(props: any) {
 	let [user, setUser] = useState<User>()
@@ -42,15 +41,6 @@ function GamePage(props: any) {
 	})
 
 	useMemo(async () => {
-		initializeApp({
-			apiKey: 'AIzaSyCVRdvjxtTS5DV__if3-81t_fYp5GUod-U',
-			authDomain: 'cloudark.parakeet.games',
-			projectId: 'parakeetapi',
-			storageBucket: 'parakeetapi.appspot.com',
-			messagingSenderId: '163437557468',
-			appId: '1:163437557468:web:ca1358397b5b9da133a619',
-		})
-
 		onAuthStateChanged(getAuth(), async (user) => {
 			try {
 				if (user) {
