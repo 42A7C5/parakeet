@@ -44,7 +44,7 @@ function GamePage(props: any) {
 	useMemo(async () => {
 		initializeApp({
 			apiKey: 'AIzaSyCVRdvjxtTS5DV__if3-81t_fYp5GUod-U',
-			authDomain: 'parakeetapi.firebaseapp.com',
+			authDomain: 'cloudark.parakeet.games',
 			projectId: 'parakeetapi',
 			storageBucket: 'parakeetapi.appspot.com',
 			messagingSenderId: '163437557468',

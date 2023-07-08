@@ -11,6 +11,7 @@ import {
   getAuth,
   updateProfile,
   onAuthStateChanged,
+  signOut
 } from "firebase/auth"
 import { initializeApp } from 'firebase/app'
 
@@ -20,7 +21,7 @@ export default function Account() {
   useMemo(async () => {
     initializeApp({
 			apiKey: 'AIzaSyCVRdvjxtTS5DV__if3-81t_fYp5GUod-U',
-			authDomain: 'parakeetapi.firebaseapp.com',
+			authDomain: 'cloudark.parakeet.games',
 			projectId: 'parakeetapi',
 			storageBucket: 'parakeetapi.appspot.com',
 			messagingSenderId: '163437557468',
@@ -69,7 +70,7 @@ export default function Account() {
             <h2>My Account</h2>
             <div>
               <h3 style={{ fontSize: '25pt' }}>
-                <img src={user.photoURL} height="90px" style={{ borderRadius: '500px', verticalAlign: 'middle', marginRight: '20px' }} />
+                <img src={user.photoURL || 'https://api.parakeet.games/Content/Avatars/DefaultBird.png'} height="90px" style={{ borderRadius: '500px', verticalAlign: 'middle', marginRight: '20px' }} />
                 {user.displayName || user.email || user.phoneNumber}
               </h3>
               <Link
@@ -114,6 +115,7 @@ export default function Account() {
                 href={`#`}
                 onClick={(e) => {
                   e.preventDefault();
+                  signOut(getAuth())
                   setUser(null)
                 }}
               >
