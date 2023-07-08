@@ -31,7 +31,9 @@ export default function Account() {
             appId: '1:163437557468:web:ca1358397b5b9da133a619',
         })
 
-        setRedirectURL(new URLSearchParams(window.location.search)?.get('redirect'))
+        if (typeof window !== 'undefined') {
+            setRedirectURL(new URLSearchParams(window.location.search)?.get('redirect'))
+        }
 
         onAuthStateChanged(getAuth(), async (newUser) => {
             if (newUser) {
