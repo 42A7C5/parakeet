@@ -7,5 +7,6 @@
         "logo": "/gameassets/eggsim/logo.png"
     },
     "frame": "https://eggsim.netlify.app/",
-    "tags": ["simulation"]
+    "tags": ["simulation"],
+    "features": ["keyboard", "touch"]
 }

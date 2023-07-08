@@ -6,12 +6,6 @@
         "logo": "/gameassets/wizards/logo.png"
     },
     "frame": "https://wizardwars.online",
-    "tags": [
-        "shooter",
-        "top-down"
-    ],
-    "features": [
-        "online",
-        "mobile"
-    ]
+    "tags": ["shooter", "top-down"],
+    "features": ["online", "keyboard", "touch", "new"]
 }

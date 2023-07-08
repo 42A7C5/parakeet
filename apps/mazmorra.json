@@ -8,5 +8,5 @@
     },
     "frame": "https://mazmorra.io",
     "tags": ["dungeon-crawler"],
-    "features": ["mobile"]
+    "features": ["online", "keyboard", "touch", "ads"]
 }

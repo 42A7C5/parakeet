@@ -9,5 +9,5 @@
     },
     "frame": "https://hexgl.bkcore.com/play/",
     "tags": ["racing"],
-    "features": ["mobile", "gamepad"]
+    "features": ["keyboard", "gamepad", "touch"]
 }

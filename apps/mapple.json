@@ -8,5 +8,5 @@
     },
     "frame": "https://mapplegame.netlify.app",
     "tags": ["brain"],
-    "features": ["mobile"]
+    "features": ["keyboard", "touch"]
 }

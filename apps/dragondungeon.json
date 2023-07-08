@@ -9,5 +9,5 @@
     },
     "frame": "https://dragondungeon.netlify.app",
     "tags": ["shooter", "top-down"],
-    "features": ["online", "mobile"]
+    "features": ["online", "accounts", "keyboard", "touch", "featured"]
 }

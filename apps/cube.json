@@ -8,5 +8,5 @@
     },
     "frame": "https://sourga.me",
     "tags": ["shooter"],
-    "features": ["online"]
+    "features": ["online", "keyboard", "touch"]
 }

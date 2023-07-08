@@ -5,7 +5,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import Atropos from 'atropos/react'
-import { readdirSync } from 'fs'
+import { read, readdirSync } from 'fs'
 import { useState } from 'react'
 import { Carousel } from 'react-responsive-carousel'
 
@@ -126,6 +126,18 @@ export default function Home(props: any) {
 											alt={game.name}
 										/>
 									)}
+									{game.features && <div className='game-features' data-atropos-offset='0'>
+										{game.features.includes('featured') && <span className='material-symbols-outlined'>award_star</span>}
+										{game.features.includes('new') && <span className='material-symbols-outlined'>release_alert</span>}
+										{game.features.includes('local') && <span className='material-symbols-outlined'>weekend</span>}
+										{game.features.includes('online') && <span className='material-symbols-outlined'>public</span>}
+										{game.features.includes('accounts') && <span className='material-symbols-outlined'>person</span>}
+										{game.features.includes('keyboard') && <span className='material-symbols-outlined'>keyboard</span>}
+										{game.features.includes('gamepad') && <span className='material-symbols-outlined'>gamepad</span>}
+										{game.features.includes('touch') && <span className='material-symbols-outlined'>touch_app</span>}
+										{game.features.includes('ads') && <span className='material-symbols-outlined'>ads_click</span>}
+										{game.features.includes('realmoney') && <span className='material-symbols-outlined'>attach_money</span>}
+									</div>}
 								</Atropos>
 							</Link>
 						)
@@ -138,17 +150,66 @@ export default function Home(props: any) {
 export async function getStaticProps() {
 	let games: any[] = []
 	let uniqueTags: String[] = []
-	readdirSync('apps').forEach((game) => {
-		let gameData = require('../apps/' + game)
-		games.push({
-			...gameData,
-			id: game.replace('.json', ''),
-		})
+
+	let featuredGames: any[] = []
+	let newGames: any[] = []
+
+	let highSupportedGames: any[] = []
+	let mediumSupportedGames: any[] = []
+	let lowSupportedGames: any[] = []
+
+	let gamesWithAds: any[] = []
+
+	let allGames = readdirSync('apps')
+
+	for (let gameIndex = 0; gameIndex < allGames.length; gameIndex++) {
+		const gameData = require('../apps/' + allGames[gameIndex])
 
 		gameData.tags.forEach((tag: String) => {
 			if (!uniqueTags.includes(tag)) uniqueTags.push(tag)
 		})
-	})
+
+		if (gameData.features.includes('featured')) {
+			featuredGames.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
+			continue;
+		}
+
+		if (gameData.features.includes('new')) {
+			newGames.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
+			continue;
+		}
+
+		if (gameData.features.includes('ads')) {
+			gamesWithAds.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
+			continue;
+		}
+
+		if (gameData.features.includes('gamepad')) {
+			highSupportedGames.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
+			continue;
+		}
+
+		if (gameData.features.includes('touch')) {
+			mediumSupportedGames.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
+			continue;
+		}
+
+		if (gameData.features.includes('keyboard')) {
+			mediumSupportedGames.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
+			continue;
+		}
+
+		lowSupportedGames.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
+		
+	}
+
+	games.push(...featuredGames)
+	games.push(...newGames)
+	games.push(...highSupportedGames)
+	games.push(...mediumSupportedGames)
+	games.push(...lowSupportedGames)
+	games.push(...gamesWithAds)
+
 	return {
 		props: {
 			games,

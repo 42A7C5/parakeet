@@ -8,5 +8,5 @@
     },
     "frame": "https://brawlball.io",
     "tags": ["top-down", "sports"],
-    "features": ["online", "mobile"]
+    "features": ["online", "keyboard", "touch"]
 }

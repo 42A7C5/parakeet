@@ -8,5 +8,5 @@
     },
     "frame": "https://v6p9d9t4.ssl.hwcdn.net/html/5576707/index.html",
     "tags": ["party", "sports"],
-    "features": ["gamepad"]
+    "features": ["local", "keyboard", "gamepad"]
 }

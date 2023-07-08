@@ -8,5 +8,5 @@
     },
     "frame": "https://tp-scramble.io",
     "tags": ["top-down"],
-    "features": ["online", "mobile"]
+    "features": ["online", "keyboard", "touch"]
 }

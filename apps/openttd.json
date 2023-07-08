@@ -7,5 +7,6 @@
         "logo": "https://www.openttd.org/static/img/layout/openttd-logo.png"
     },
     "frame": "https://parakeethosting.github.io/openttd/",
-    "tags": ["simulation"]
+    "tags": ["simulation"],
+    "features": ["keyboard"]
 }

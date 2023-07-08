@@ -9,5 +9,5 @@
     },
     "frame": "https://bulletz.io",
     "tags": ["shooter", "top-down"],
-    "features": ["online", "mobile"]
+    "features": ["online", "keyboard", "touch"]
 }

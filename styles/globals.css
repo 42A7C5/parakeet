@@ -73,6 +73,24 @@ a {
 	border-width: 3px;
 }
 
+.game-features {
+	background: var(--primary);
+	color: var(--text);
+	border: 2px solid var(--secondary);
+	border-radius: 6px;
+	padding: 7px;
+	max-height: 50%;
+	position: fixed !important;
+	top: 5% !important;
+	right: 5% !important;
+	z-index: 999;
+}
+
+.game-features span {
+	font-size: 18pt;
+	padding: 3px;
+}
+
 .game-emblemart {
 	max-height: 50%;
 	position: fixed !important;

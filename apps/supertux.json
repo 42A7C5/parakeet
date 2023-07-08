@@ -6,5 +6,5 @@
     },
     "frame": "https://parakeet-supertuxanniversary.netlify.app/",
     "tags": ["platformer"],
-    "features": ["online", "mobile"]
+    "features": ["keyboard", "touch"]
 }

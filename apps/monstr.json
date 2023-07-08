@@ -8,5 +8,5 @@
     },
     "frame": "https://monstr.party",
     "tags": ["party", "knockout", "arena"],
-    "features": ["mobile"]
+    "features": ["online", "keyboard", "touch"]
 }
