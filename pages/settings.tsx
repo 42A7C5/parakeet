@@ -140,7 +140,7 @@ export default function Account() {
         <ThemeOption name="Neon" text="white" primary="#cc10ad" secondary="#38dda1" background="linear-gradient(-45deg, #cc10ad, #38dda1)" />
         <ThemeOption name="Forest" text="#e6ffe9" primary="#0a4713" secondary="#009b3a" background="linear-gradient(-45deg, #0a4713, #009b3a)" />
         <ThemeOption name="Snow" text="#bfcdf5" primary="#00a1de" secondary="#05206b" background="linear-gradient(-45deg, #00a1de, #05206b)" />
-        <ThemeOption name="Magma" text="#e6ffe9" primary="#c60c30" secondary="#960505" background="linear-gradient(45deg, #ff0000, #000000)" />
+        <ThemeOption name="Rapture" text="#e6ffe9" primary="#c60c30" secondary="#960505" background="linear-gradient(45deg, #ff0000, #000000)" />
         <ThemeOption name="Rust" text="#794c0b" primary="#fcedd8" secondary="#d28512" background="linear-gradient(-45deg, #fcedd8, #d28512)" />
         <ThemeOption name="Seafloor" text="white" primary="#0000ff" secondary="#00a1de" background="linear-gradient(0deg, black, #0000dd)" />
         <ThemeOption name="Void" text="white" primary="purple" secondary="#cc10ad" background="linear-gradient(0deg, black, black)" />

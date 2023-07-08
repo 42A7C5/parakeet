@@ -184,7 +184,7 @@ export async function getStaticProps() {
 			continue;
 		}
 
-		if (gameData.features.includes('gamepad')) {
+		if (gameData.features.includes('gamepad') && gameData.features.includes('touch')) {
 			highSupportedGames.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
 			continue;
 		}
@@ -195,12 +195,9 @@ export async function getStaticProps() {
 		}
 
 		if (gameData.features.includes('keyboard')) {
-			mediumSupportedGames.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
+			lowSupportedGames.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
 			continue;
 		}
-
-		lowSupportedGames.push({ ...gameData, id: allGames[gameIndex].replace('.json', '') })
-		
 	}
 
 	games.push(...featuredGames)
