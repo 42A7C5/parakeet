@@ -73,6 +73,10 @@ a {
 	border-width: 3px;
 }
 
+.smallBoxText {
+	font-size: 10pt !important;
+}
+
 .game-features {
 	background: var(--primary);
 	color: var(--text);
@@ -80,6 +84,7 @@ a {
 	border-radius: 6px;
 	padding: 7px;
 	max-height: 50%;
+	text-align: center;
 	position: fixed !important;
 	top: 5% !important;
 	right: 5% !important;

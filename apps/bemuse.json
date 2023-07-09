@@ -1,0 +1,11 @@
+{
+    "name": "Bemuse",
+    "dev": "flicknote",
+    "art": {
+        "background": "https://bemuse.ninja/build/assets/a-603b4275d603bc93dac1.jpg",
+        "logo": "https://bemuse.ninja/build/assets/logo-with-shadow-f78db43c1a8aabfbace5.svg"
+    },
+    "frame": "https://bemuse.ninja/",
+    "tags": ["rhythm"],
+    "features": ["keyboard"]
+}

@@ -127,16 +127,18 @@ export default function Home(props: any) {
 										/>
 									)}
 									{game.features && <div className='game-features' data-atropos-offset='0'>
-										{game.features.includes('featured') && <span className='material-symbols-outlined'>award_star</span>}
-										{game.features.includes('new') && <span className='material-symbols-outlined'>release_alert</span>}
+										{/* {game.features.includes('featured') && <span className='material-symbols-outlined'>workspace_premium</span>} */}
+										{/* {game.features.includes('new') && <span className='material-symbols-outlined'>release_alert</span>} */}
 										{game.features.includes('local') && <span className='material-symbols-outlined'>weekend</span>}
-										{game.features.includes('online') && <span className='material-symbols-outlined'>public</span>}
-										{game.features.includes('accounts') && <span className='material-symbols-outlined'>person</span>}
-										{game.features.includes('keyboard') && <span className='material-symbols-outlined'>keyboard</span>}
-										{game.features.includes('gamepad') && <span className='material-symbols-outlined'>gamepad</span>}
-										{game.features.includes('touch') && <span className='material-symbols-outlined'>touch_app</span>}
-										{game.features.includes('ads') && <span className='material-symbols-outlined'>ads_click</span>}
+										{game.features.includes('online') && <span className='material-symbols-outlined'>group</span>}
+										{game.features.includes('keyboard') && <span className='material-symbols-outlined'>laptop_chromebook</span>}
+										{game.features.includes('gamepad') && <span className='material-symbols-outlined'>sports_esports</span>}
+										{game.features.includes('touch') && <span className='material-symbols-outlined'>phone_iphone</span>}
 										{game.features.includes('realmoney') && <span className='material-symbols-outlined'>attach_money</span>}
+										<br />
+										{game.features.includes('new') && <span className='smallBoxText'>New to Parakeet</span>}
+										{game.features.includes('featured') && <span className='smallBoxText'>Featured game</span>}
+										{game.features.includes('ads') && <span className='smallBoxText'>Contains ads</span>}
 									</div>}
 								</Atropos>
 							</Link>
