@@ -15,6 +15,7 @@ import Script from 'next/script'
 import 'atropos/css'
 import { initializeApp } from 'firebase/app'
 import { getAuth, onAuthStateChanged, signInAnonymously } from 'firebase/auth'
+import $ from 'jquery'
 
 export default function App({ Component, pageProps }: AppProps) {
 	let { asPath } = useRouter()
@@ -82,6 +83,22 @@ export default function App({ Component, pageProps }: AppProps) {
 	}, [])
 
 	let router = useRouter()
+	let [gameID, setGameID] = useState('wizards')
+
+	useEffect(() => {
+		if (typeof window !== 'undefined' && router.pathname.includes('/play')) {
+			setGameID(window.location.href.replace('/play/', '').replace('/play', '').split('/game/')[1])
+			setTimeout(() => {
+				$('.app').fadeIn(1000)
+				$('.loading').fadeOut(2000)
+			}, 1000)
+		} else {
+			setTimeout(() => {
+				$('.loading').fadeOut(500)
+				$('.app').fadeIn(500)
+			}, 500)
+		}
+	})
 
 	return (
 		<>
@@ -105,7 +122,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name="theme-color" content="#cc10ad" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<meta name="mobile-web-app-capable" content="yes" />
-				<meta name="apple-mobile-web-app-capable" content="yes" /> 
+				<meta name="apple-mobile-web-app-capable" content="yes" />
 				<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 				<meta name="apple-mobile-web-app-title" content="Parakeet" />
 				<meta name="msapplication-TileImage" content="/appicon.png" />
@@ -115,35 +132,69 @@ export default function App({ Component, pageProps }: AppProps) {
 			</Head>
 			<Particles
 				id='tsparticles'
-				options={{ preset: 'stars', background: { opacity: 0 } }}
+				options={{ preset: 'stars', background: { opacity: 0 }, zLayers: 1 }}
 				init={particlesInit}
 			/>
-			{!(router.pathname.endsWith('/play/') || router.pathname.endsWith('/play')) && <nav>
-				<Link href={'/'}>
-					<h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }} className='navTitle'>
-						<img src={logoSrc} alt="Parakeet logo" height={70} className='navLogo' /> <span className='navTitleText'>Parakeet</span>
-					</h1>
-				</Link>
-				<h2
-					className='navLinks'
-					style={{
-						paddingRight: '20px',
-						verticalAlign: 'middle',
-						color: 'var(--text)',
-					}}
-				>
+			<div
+				className='loading'
+				style={{
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					width: '100vw',
+					height: '100vh',
+					position: 'fixed',
+					background: router.pathname.includes('/play') ? `url(${require(`../apps/${gameID}.json`).art.background}) center center fixed no-repeat` : 'url(/worlds.png) center center fixed no-repeat',
+					backgroundSize: 'cover',
+					color: 'white',
+					top: 0,
+					left: 0,
+					zIndex: 0
+				}}
+			>
+				{!router.pathname.includes('/play') && <img src="/logo.png" style={{ height: '370px', width: '370px' }} />}
+				{router.pathname.includes('/play') && <img src={require(`../apps/${gameID}.json`).art.logo} style={{ width: '370px' }} />}
+				{router.pathname.includes('/play') && <div style={{
+					position: 'fixed',
+					top: '15px',
+					left: '15px',
+					background: 'white',
+					padding: '5px',
+					paddingRight: '15px',
+					borderRadius: '10px',
+					boxShadow: `0 0 10px white`,
+				}}>
+					<img src="/logo.png" style={{ height: '80px', marginRight: '20px', verticalAlign: 'middle' }} /> <span style={{ fontSize: '1.5em', verticalAlign: 'middle', color: 'black' }}>Powered by <span style={{ color: 'purple' }}>Parakeet</span></span>
+				</div>}
+			</div>
+			<div className='app' style={{ display: 'none' }}>
+				{!(router.pathname.endsWith('/play/') || router.pathname.endsWith('/play')) && <nav>
 					<Link href={'/'}>
-						<span className='material-symbols-outlined'>play_circle</span>
+						<h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }} className='navTitle'>
+							<img src={logoSrc} alt="Parakeet logo" height={80} className='navLogo' /> <span className='navTitleText'>Parakeet</span>
+						</h1>
 					</Link>
-					<Link href={'/settings'}>
-						<span className='material-symbols-outlined'>settings</span>
-					</Link>
-					<Link href={'/dev'}>
-						<span className='material-symbols-outlined'>code</span>
-					</Link>
-				</h2>
-			</nav>}
-			<Component {...pageProps} />
+					<h2
+						className='navLinks'
+						style={{
+							paddingRight: '20px',
+							verticalAlign: 'middle',
+							color: 'var(--text)',
+						}}
+					>
+						<Link href={'/'}>
+							<span className='material-symbols-outlined'>play_circle</span>
+						</Link>
+						<Link href={'/settings'}>
+							<span className='material-symbols-outlined'>settings</span>
+						</Link>
+						<Link href={'/dev'}>
+							<span className='material-symbols-outlined'>code</span>
+						</Link>
+					</h2>
+				</nav>}
+				<Component {...pageProps} />
+			</div>
 			<svg width="0" height="0"><filter id="blur" width="300%" height="300%" x="-0.75" y="-0.75" colorInterpolationFilters="sRGB"><feOffset in="SourceGraphic" result="source-copy"></feOffset><feColorMatrix in="source-copy" type="saturate" values="3" result="saturated-copy"></feColorMatrix><feColorMatrix in="saturated-copy" type="matrix" values="1 0 0 0 0
                      0 1 0 0 0
                      0 0 1 0 0

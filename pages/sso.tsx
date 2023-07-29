@@ -36,7 +36,7 @@ export default function Account() {
     return (
         <>
             <Head>
-                <title>SSO | Parakeet Games</title>
+                <title>SSO | Parakeet</title>
             </Head>
             <div style={{ textAlign: "center" }}>
                 <h1>Developer Auth Tool</h1>

@@ -13,7 +13,7 @@ export default function Account() {
     return (
         <>
             <Head>
-                <title>Developers | Parakeet Games</title>
+                <title>Developers | Parakeet</title>
             </Head>
             <div style={{ textAlign: "center" }}>
                 <>

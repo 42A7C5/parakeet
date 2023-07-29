@@ -65,7 +65,7 @@ function GamePage(props: any) {
 	return (
 		<>
 			<Head>
-				<title>{`Play ${game.name} | Parakeet Games`}</title>
+				<title>{`${game.name} on Parakeet`}</title>
 			</Head>
 			<div
 				style={{
@@ -79,7 +79,7 @@ function GamePage(props: any) {
 					left: 0
 				}}
 			>
-				<img src="/logo.png" className='loadingIndicator' />
+				<p>Looks like your game is taking a while to load.</p>
 			</div>
 			<div className='guideBox'>
 				<img src={props.game.art.logo} className='guideGameLogo' />
@@ -87,15 +87,7 @@ function GamePage(props: any) {
 					{user && <div className='guideMainButton' onClick={() => { }}>
 						<div className='guideButtonContent'>
 							<span className='material-symbols-outlined'>face</span>
-							{user.displayName}
-						</div>
-					</div>}
-					{!user && <div className='guideMainButton' onClick={() => {
-						router.push('/account')
-					}}>
-						<div className='guideButtonContent'>
-							<span className='material-symbols-outlined'>face</span>
-							Log In
+							{user.displayName || 'Anonymous'}
 						</div>
 					</div>}
 					{/* <div className='guideMainButton' onClick={() => { }}>

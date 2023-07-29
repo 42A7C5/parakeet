@@ -9,16 +9,11 @@
 	--text: white;
 	--primary: purple;
 	--secondary: #cc10ad;
-	--background: linear-gradient(180deg, #8a0d75 0%, black 100%);
+	--background: purple;
 }
 
 * {
 	font-family: 'Unbounded';
-}
-
-html, body {
-	background: var(--background), black;
-	background-size: cover;
 }
 
 body,
@@ -28,6 +23,8 @@ html {
 	color: var(--text);
 	overflow-x: hidden;
 	min-height: 100dvh;
+	background: var(--background) center center no-repeat fixed;
+	background-size: cover;
 }
 
 a {
@@ -225,21 +222,6 @@ nav h2 {
 }
 
 /* Play page */
-.loadingIndicator {
-	width: 100px;
-	height: 100px;
-	animation: rotate 1s infinite;
-}
-
-@keyframes rotate {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
 .guideBox {
 	display: none;
 	z-index: 2;
@@ -254,7 +236,7 @@ nav h2 {
 
 .guideTrigger {
 	cursor: pointer;
-	height: 60px;
+	height: 80px;
 	position: fixed;
 	top: 20px;
 	left: 20px;

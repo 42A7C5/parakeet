@@ -28,7 +28,7 @@ export default function Account() {
   return (
     <>
       <Head>
-        <title>Settings | Parakeet Games</title>
+        <title>Settings | Parakeet</title>
       </Head>
       <div style={{ textAlign: "center" }}>
         <h1>Settings</h1>
@@ -130,9 +130,8 @@ export default function Account() {
         <ThemeOption name="DragonDungeon" text="#fff9c4" primary="#afb42b" secondary="gold" background="linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://dragondungeon.netlify.app/assets/img/game/tile.png')" />
         <ThemeOption name="WizardWars" text="#acfef6" primary="#bf5fff" secondary="#03dac4" background="linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/gameassets/wizards/background.jpg') center center fixed no-repeat" />
         <br />
+        <ThemeOption name="Stars & Stripes" text="white" primary="#00a1de" secondary="#c60c30" background="linear-gradient(45deg, red, blue)" logo="/themes/america/logo.png" />
         <ThemeOption name="Pride" text="black" primary="#e49ad8" secondary="#44ffbb" background="linear-gradient(90deg, #ff1313, #ff9007, #feee0c, #08f850, #3c68e2, #c745e1)" logo="/themes/pride/logo.png" />
-        <ThemeOption name="Stars & Stripes" text="white" primary="#00a1de" secondary="#c60c30" background="linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/2880px-Flag_of_the_United_States.svg.png') center center fixed" logo="/themes/america/logo.png" />
-        <br />
         <ThemeOption name="Neon" text="white" primary="#cc10ad" secondary="#38dda1" background="linear-gradient(-45deg, #cc10ad, #38dda1)" />
         <ThemeOption name="Forest" text="#e6ffe9" primary="#0a4713" secondary="#009b3a" background="linear-gradient(-45deg, #0a4713, #009b3a)" />
         <ThemeOption name="Snow" text="#bfcdf5" primary="#00a1de" secondary="#05206b" background="linear-gradient(-45deg, #00a1de, #05206b)" />
