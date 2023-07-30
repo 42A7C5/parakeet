@@ -45,10 +45,7 @@ function GamePage(props: any) {
 					{game.art.logo && <img src={game.art.logo} height={120} />}
 					{!game.art.logo && <h1>{game.name}</h1>}
 					<h2>{game.dev}</h2>
-					<a href={`/game/${game.id}/play`} onClick={(e) => {
-						e.preventDefault()
-						window.location.href = `/game/${game.id}/play`
-					}}>
+					<Link href={`/game/${game.id}/play`}>
 						<button
 							className='playbtn'
 							style={{
@@ -58,7 +55,7 @@ function GamePage(props: any) {
 						>
 							Play
 						</button>
-					</a>
+					</Link>
 				</div>
 			</div>
 		</>
