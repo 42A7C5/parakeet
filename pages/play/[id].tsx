@@ -79,7 +79,7 @@ function GamePage(props: any) {
 					left: 0
 				}}
 			>
-				<p>Looks like your game is taking a while to load.</p>
+				<img src="/logo.png" className='spin' style={{ height: '120px', marginRight: '20px', verticalAlign: 'middle' }} />
 			</div>
 			<div className='guideBox'>
 				<img src={props.game.art.logo} className='guideGameLogo' />
@@ -173,7 +173,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: any) {
 	return {
 		props: {
-			game: { ...require(`../../../apps/${params.id}.json`), id: params.id },
+			game: { ...require(`../../apps/${params.id}.json`), id: params.id },
 		},
 	}
 }

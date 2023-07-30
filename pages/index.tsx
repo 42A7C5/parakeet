@@ -18,9 +18,72 @@ export default function Home(props: any) {
 			<Head>
 				<title>Parakeet</title>
 			</Head>
+			<nav>
+				{/* <Link href={'/'}> */}
+					<h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }} className='navTitle'>
+						<img src={'/logo.png'} alt="Parakeet logo" height={80} className='navLogo' /> <span className='navTitleText'>Parakeet</span>
+					</h1>
+				{/* </Link> */}
+				<h2
+					className='navLinks'
+					style={{
+						paddingRight: '20px',
+						verticalAlign: 'middle',
+						color: 'var(--text)',
+					}}
+				>
+					{/* <a href={'#'}>
+						<span className='material-symbols-outlined'>face</span>
+					</a> */}
+					<a href={'#'} onClick={() => {
+						let themeSelectModal = document.querySelector('.themeSelectModal') as HTMLDialogElement
+						themeSelectModal.showModal()
+					}}>
+						<span className='material-symbols-outlined'>palette</span>
+					</a>
+					{/* <a href={'#'}>
+						<span className='material-symbols-outlined'>code</span>
+					</a> */}
+				</h2>
+			</nav>
+			<dialog className='themeSelectModal modal'>
+				<span className='material-symbols-outlined modalCloseButton' onClick={() => {
+					let themeSelectModal = document.querySelector('.themeSelectModal') as HTMLDialogElement
+					themeSelectModal.close()
+				}}>close</span>
+				<h1>
+					<span className="material-symbols-outlined">palette</span>
+					Select a Theme
+				</h1>
+				<button style={{
+					background: 'white',
+					color: 'black',
+					boxShadow: '0 0 10px white',
+					borderColor: 'white'
+				}} className="searchTag" onClick={() => {
+					window.localStorage.removeItem('customThemeWhite')
+					window.localStorage.removeItem('customThemePrimary')
+					window.localStorage.removeItem('customThemeSecondary')
+					window.localStorage.removeItem('customThemeBackground')
+					window.localStorage.removeItem('customThemeLogo')
+					window.location.reload()
+				}}>Worlds (default)</button>
+				<ThemeOption name="DragonDungeon" text="#fff9c4" primary="#afb42b" secondary="gold" background="linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://dragondungeon.netlify.app/assets/img/game/tile.png')" />
+				<ThemeOption name="WizardWars" text="#acfef6" primary="#bf5fff" secondary="#03dac4" background="linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/gameassets/wizards/background.jpg') center center fixed no-repeat" />
+				<br />
+				<ThemeOption name="Contrast" text="white" primary="#00a1de" secondary="#c60c30" background="linear-gradient(45deg, red, blue)" />
+				<ThemeOption name="Pride" text="black" primary="#e49ad8" secondary="#44ffbb" background="linear-gradient(90deg, #ff1313, #ff9007, #feee0c, #08f850, #3c68e2, #c745e1)" />
+				<ThemeOption name="Neon" text="white" primary="#cc10ad" secondary="#38dda1" background="linear-gradient(-45deg, #cc10ad, #38dda1)" />
+				<ThemeOption name="Forest" text="#e6ffe9" primary="#0a4713" secondary="#009b3a" background="linear-gradient(-45deg, #0a4713, #009b3a)" />
+				<ThemeOption name="Snow" text="#bfcdf5" primary="#00a1de" secondary="#05206b" background="linear-gradient(-45deg, #00a1de, #05206b)" />
+				<ThemeOption name="Rapture" text="#e6ffe9" primary="#c60c30" secondary="#960505" background="linear-gradient(45deg, #ff0000, #000000)" />
+				<ThemeOption name="Rust" text="#794c0b" primary="#fcedd8" secondary="#d28512" background="linear-gradient(-45deg, #fcedd8, #d28512)" />
+				<ThemeOption name="Seafloor" text="white" primary="#0000ff" secondary="#00a1de" background="linear-gradient(0deg, black, #0000dd)" />
+				<ThemeOption name="Void" text="white" primary="purple" secondary="#cc10ad" background="linear-gradient(0deg, black, black)" />
+			</dialog>
 			<Carousel showStatus={false} showThumbs={false} showArrows={false} autoPlay={true} className='gameotwcontainer hideMeOnMobile'>
 				{props.picks.map((game: any) => (
-					<Link key={game.id} href={`/game/${game.id}`}>
+					<Link key={game.id} href={`/play/${game.id}`}>
 						<div
 							className={'gameotw'}
 							style={{
@@ -97,7 +160,7 @@ export default function Home(props: any) {
 							searchTags.length === 0)
 					)
 						return (
-							<Link key={game.id} href={`/game/${game.id}`}>
+							<Link key={game.id} href={`/play/${game.id}`}>
 								<Atropos
 									key={game.id}
 									className='game'
@@ -146,6 +209,33 @@ export default function Home(props: any) {
 				})}
 			</div>
 		</>
+	)
+}
+
+function ThemeOption(props: {
+	name: string,
+	text: string,
+	primary: string,
+	secondary: string,
+	background: string,
+}) {
+	return (
+		<button style={{
+			background: props.primary,
+			color: props.text,
+			boxShadow: `0 0 15px ${props.secondary}`,
+			borderColor: props.secondary
+		}} className="searchTag" onClick={() => {
+			window.localStorage.setItem('customThemeWhite', props.text)
+			window.localStorage.setItem('customThemePrimary', props.primary)
+			window.localStorage.setItem('customThemeSecondary', props.secondary)
+			window.localStorage.setItem('customThemeBackground', props.background)
+			var r = document.querySelector(':root') as any
+			r.style.setProperty('--text', props.text)
+			r.style.setProperty('--primary', props.primary)
+			r.style.setProperty('--secondary', props.secondary)
+			r.style.setProperty('--background', props.background)
+		}}>{props.name}</button>
 	)
 }
 
