@@ -7,7 +7,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import Particles from 'react-tsparticles'
-import Link from 'next/link'
+import { AnimatePresence, motion } from 'framer-motion'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { useRouter } from 'next/router'
 import { loadStarsPreset } from 'tsparticles-preset-stars'
@@ -125,8 +125,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					width: '100vw',
 					height: '100vh',
 					position: 'fixed',
-					background: router.pathname.includes('/play') ? `url(${require(`../apps/${gameID}.json`).art.background}) center center fixed no-repeat` : 'url(/worlds.png), linear-gradient(#91EED7, #2AD1D9)',
-					// linear-gradient(#91EED7, #2AD1D9)
+					background: router.pathname.includes('/play') ? `url(${require(`../apps/${gameID}.json`).art.background}) center center fixed` : 'url(/worlds.png), linear-gradient(#91EED7, #2AD1D9)',
 					backgroundSize: 'cover',
 					color: 'white',
 					top: 0,
@@ -145,7 +144,24 @@ export default function App({ Component, pageProps }: AppProps) {
 				</div>}
 			</div>
 			<div className='app' style={{ display: 'none' }}>
-				<Component {...pageProps} />
+				<div style={{
+					position: 'absolute',
+					top: '20px',
+					left: '20px',
+				}}>
+					<img src="/logo.png" style={{ height: '80px', verticalAlign: 'middle' }} />
+				</div>
+				<AnimatePresence initial={false} mode="wait">
+					<motion.div
+						key={router.pathname}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ duration: 0.4, ease: 'easeInOut' }}
+					>
+						<Component key={asPath} {...pageProps} />
+					</motion.div>
+				</AnimatePresence>
 			</div>
 			<svg width="0" height="0"><filter id="blur" width="300%" height="300%" x="-0.75" y="-0.75" colorInterpolationFilters="sRGB"><feOffset in="SourceGraphic" result="source-copy"></feOffset><feColorMatrix in="source-copy" type="saturate" values="3" result="saturated-copy"></feColorMatrix><feColorMatrix in="saturated-copy" type="matrix" values="1 0 0 0 0
                      0 1 0 0 0

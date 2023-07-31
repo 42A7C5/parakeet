@@ -76,7 +76,7 @@ function GamePage(props: any) {
 					height: '100vh',
 					position: 'fixed',
 					top: 0,
-					left: 0
+					left: 0,
 				}}
 			>
 				<img src="/logo.png" className='spin' style={{ height: '120px', marginRight: '20px', verticalAlign: 'middle' }} />

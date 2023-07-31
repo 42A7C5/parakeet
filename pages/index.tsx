@@ -14,7 +14,7 @@ export default function Home(props: any) {
 	let [searchTags, setSearchTags] = useState<string[]>([])
 
 	return (
-		<>
+		<div className='home'>
 			<Head>
 				<title>Parakeet</title>
 			</Head>
@@ -208,7 +208,7 @@ export default function Home(props: any) {
 						)
 				})}
 			</div>
-		</>
+		</div>
 	)
 }
 
