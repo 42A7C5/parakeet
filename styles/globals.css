@@ -469,4 +469,11 @@ nav h2 {
 		box-shadow: unset;
 		border-radius: 0;
 	}
+
+	.modal {
+		width: 86vw;
+		border-radius: 0;
+		border-left: none;
+		border-right: none;
+	}
 }
