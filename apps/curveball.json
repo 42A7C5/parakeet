@@ -1,0 +1,11 @@
+{
+    "name": "Curveball",
+    "dev": "",
+    "art": {
+        "background": "/gameassets/curveball/background.png",
+        "logo": "/gameassets/curveball/logo.png"
+    },
+    "frame": "/gameassets/curveball/index.html",
+    "tags": ["casual", "highscore"],
+    "features": ["keyboard", "new"]
+}
