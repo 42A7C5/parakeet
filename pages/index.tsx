@@ -211,6 +211,9 @@ export default function Home(props: any) {
 					)}
 					{user && <div className='avatarBuilder'><AvatarCreator subdomain="parakeet" onAvatarExported={(url) => {
 						setAvatarCreated(url)
+						updateProfile(user, {
+							photoURL: url,
+						})
 						let avatarModal = document.querySelector('.avatarModal') as HTMLDialogElement
 						avatarModal.close()
 						let accountModal = document.querySelector('.accountModal') as HTMLDialogElement
