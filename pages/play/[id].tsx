@@ -139,6 +139,7 @@ function GamePage(props: any) {
 			</div>
 			<iframe
 				id={`frame-${props.game.id}`}
+				sandbox="allow-scripts allow-same-origin"
 				style={{
 					width: '100vw',
 					height: '100vh',

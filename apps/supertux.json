@@ -5,7 +5,7 @@
         "background": "/gameassets/supertux/background.png",
         "logo": "/gameassets/supertux/logo.png"
     },
-    "frame": "https://supertux.semphris.com/play/",
+    "frame": "https://on.parakeet.games/supertux/supertux2.html",
     "tags": ["platformer"],
     "features": ["keyboard", "touch"]
 }
