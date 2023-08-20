@@ -1,5 +1,6 @@
 {
     "name": "Hauberk",
+    "oneliner": "Dungeon crawler entirely rendered in ASCII",
     "dev": "munificent",
     "art": {
         "background": "https://camo.githubusercontent.com/3f3084f55f810d2088580a97b7d8543b6cac80a947b4343402be7a510956a020/68747470733a2f2f692e696d6775722e636f6d2f416261506276552e706e67",

@@ -1,5 +1,6 @@
 {
     "name": "DragonDungeon",
+    "oneliner": "Top-down shooter with dragons and fireballs",
     "dev": "Parakeet Studios",
     
     "art": {
@@ -9,5 +10,5 @@
     },
     "frame": "https://dragondungeon.netlify.app",
     "tags": ["shooter", "top-down"],
-    "features": ["online", "keyboard", "touch", "featured"]
+    "features": ["online", "keyboard", "touch"]
 }

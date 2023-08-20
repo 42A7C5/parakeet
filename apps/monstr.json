@@ -1,7 +1,7 @@
 {
     "name": "monstr.party",
+    "oneliner": "Knockout arena game with extreme physics",
     "dev": "Luke Wood",
-    
     "art": {
         "background": "/gameassets/monstr/background.png",
         "logo": "/gameassets/monstr/logo.png"

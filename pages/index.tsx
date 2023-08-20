@@ -9,13 +9,21 @@ import { readdirSync } from 'fs'
 import { useMemo, useState } from 'react'
 import { Carousel } from 'react-responsive-carousel'
 import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import { AvatarCreator } from '@readyplayerme/rpm-react-sdk'
+import { Avatar } from '@readyplayerme/visage'
 
 export default function Home(props: any) {
 	let [searchTerm, setSearchTerm] = useState<string>('')
 	let [searchTags, setSearchTags] = useState<string[]>([])
+	let [avatarCreated, setAvatarCreated] = useState<string>('https://readyplayerme.github.io/visage/male.glb')
 	let [user, setUser] = useState<any>()
 
-	useMemo(async () => { onAuthStateChanged(getAuth(), (user) => { if (user) { setUser(user) } }) }, [])
+	useMemo(async () => { onAuthStateChanged(getAuth(), (user) => { if (user) {
+		setUser(user)
+		if (user.photoURL) {
+			setAvatarCreated(user.photoURL)
+		}
+	} }) }, [])
 
 	return (
 		<>
@@ -40,6 +48,12 @@ export default function Home(props: any) {
 						<a href={'#'} onClick={() => {
 							let accountModal = document.querySelector('.accountModal') as HTMLDialogElement
 							accountModal.showModal()
+						}}>
+							<span className='material-symbols-outlined'>account_circle</span>
+						</a>
+						<a href={'#'} onClick={() => {
+							let avatarModal = document.querySelector('.avatarModal') as HTMLDialogElement
+							avatarModal.showModal()
 						}}>
 							<span className='material-symbols-outlined'>face</span>
 						</a>
@@ -89,7 +103,7 @@ export default function Home(props: any) {
 					<ThemeOption name="Void" text="white" primary="purple" secondary="#cc10ad" background="linear-gradient(0deg, black, black)" />
 				</dialog>
 				<dialog className='accountModal modal'>
-					<span className="material-symbols-outlined modalIdentifier">face</span>
+					<span className="material-symbols-outlined modalIdentifier">account_circle</span>
 					<span className='material-symbols-outlined modalCloseButton' onClick={() => {
 						let accountModal = document.querySelector('.accountModal') as HTMLDialogElement
 						accountModal.close()
@@ -97,98 +111,111 @@ export default function Home(props: any) {
 					<h1>
 						Parakeet Account
 					</h1>
-						{!user && (
-							<p>Loading...</p>
-						)}
-						{user && (
-							<>
-								<h3 style={{ fontSize: '2.0em' }}>
-									<img src={user.photoURL || 'https://api.parakeet.games/Content/Avatars/DefaultBird.png'} height="90px" style={{ borderRadius: '30px', verticalAlign: 'middle', marginRight: '20px' }} />
-									{user.displayName || user.email || user.phoneNumber || 'Anonymous Parakeet'}
-								</h3>
-								{user.isAnonymous && <Link
-									href={"#"}
-									onClick={async (e) => {
+					{!user && (
+						<p>Loading...</p>
+					)}
+					{user && (
+						<>
+							<h3 style={{ fontSize: '2.0em' }}>
+								<Avatar modelSrc={avatarCreated} />
+								{user.displayName || user.email || user.phoneNumber || 'Anonymous Parakeet'}
+							</h3>
+							{user.isAnonymous && <Link
+								href={"#"}
+								onClick={async (e) => {
+									e.preventDefault();
+									let user = await signInWithPopup(
+										getAuth(),
+										new GoogleAuthProvider()
+									);
+									setUser(user.user);
+								}}
+							>
+								<span
+									style={{
+										color: "var(--text)",
+										textDecoration: "underline",
+										fontSize: "1.5rem",
+									}}
+								>
+									Sign in with Google
+								</span>
+								<br /><br />
+								<i>By signing in, you agree to our Privacy Policy and Terms of Service.</i>
+							</Link>}
+							{!user.isAnonymous && <>
+								<Link
+									href={`#`}
+									onClick={(e) => {
 										e.preventDefault();
-										let user = await signInWithPopup(
-											getAuth(),
-											new GoogleAuthProvider()
-										);
-										setUser(user.user);
+										updateProfile(user, {
+											displayName: prompt("Enter your new display name:"),
+										});
 									}}
 								>
 									<span
 										style={{
 											color: "var(--text)",
 											textDecoration: "underline",
-											fontSize: "1.5rem",
+											padding: "20px",
 										}}
 									>
-										Sign in with Google
+										Change Name
 									</span>
-									<br /><br />
-									<i>By signing in, you agree to our Privacy Policy and Terms of Service.</i>
-								</Link>}
-								{!user.isAnonymous && <>
-									<Link
-										href={`#`}
-										onClick={(e) => {
-											e.preventDefault();
-											updateProfile(user, {
-												displayName: prompt("Enter your new display name:"),
-											});
+								</Link>
+								<Link
+									href={`#`}
+									onClick={(e) => {
+										e.preventDefault();
+										let accountModal = document.querySelector('.accountModal') as HTMLDialogElement
+										accountModal.close()
+										let avatarModal = document.querySelector('.avatarModal') as HTMLDialogElement
+										avatarModal.showModal()
+									}}
+								>
+									<span
+										style={{
+											color: "var(--text)",
+											textDecoration: "underline",
+											padding: "20px",
 										}}
 									>
-										<span
-											style={{
-												color: "var(--text)",
-												textDecoration: "underline",
-												padding: "20px",
-											}}
-										>
-											Change Name
-										</span>
-									</Link>
-									<Link
-										href={`#`}
-										onClick={(e) => {
-											e.preventDefault();
-											updateProfile(user, {
-												photoURL: prompt("Enter the URL for your new display picture:"),
-											});
+										Change Avatar
+									</span>
+								</Link>
+								<Link
+									href={`#`}
+									onClick={(e) => {
+										e.preventDefault();
+										signOut(getAuth())
+										setUser(null)
+									}}
+								>
+									<span
+										style={{
+											color: "var(--text)",
+											textDecoration: "underline",
+											padding: "20px",
 										}}
 									>
-										<span
-											style={{
-												color: "var(--text)",
-												textDecoration: "underline",
-												padding: "20px",
-											}}
-										>
-											Change Picture
-										</span>
-									</Link>
-									<Link
-										href={`#`}
-										onClick={(e) => {
-											e.preventDefault();
-											signOut(getAuth())
-											setUser(null)
-										}}
-									>
-										<span
-											style={{
-												color: "var(--text)",
-												textDecoration: "underline",
-												padding: "20px",
-											}}
-										>
-											Log Out
-										</span>
-									</Link>
-								</>}
-							</>
-						)}
+										Log Out
+									</span>
+								</Link>
+							</>}
+						</>
+					)}
+				</dialog>
+				<dialog className='avatarModal modal'>
+					{!user && (
+						<p>Loading...</p>
+					)}
+					{user && <div className='avatarBuilder'><AvatarCreator subdomain="parakeet" onAvatarExported={(url) => {
+						setAvatarCreated(url)
+						let avatarModal = document.querySelector('.avatarModal') as HTMLDialogElement
+						avatarModal.close()
+						let accountModal = document.querySelector('.accountModal') as HTMLDialogElement
+						accountModal.showModal()
+					}} /></div>}
 				</dialog>
 				<dialog className='termsModal modal'>
 					<span className="material-symbols-outlined modalIdentifier">gavel</span>
@@ -300,6 +327,13 @@ export default function Home(props: any) {
 											src={game.art.background}
 											alt=''
 										/>
+										{game.features && <div className='game-features' data-atropos-offset='10'>
+											{game.oneliner && <b className='smallBoxText'>{game.oneliner}<br /></b>}
+											{game.features.includes('keyboard') && <span className='material-symbols-outlined'>laptop_chromebook</span>}
+											{game.features.includes('gamepad') && <span className='material-symbols-outlined'>sports_esports</span>}
+											{game.features.includes('touch') && <span className='material-symbols-outlined'>phone_iphone</span>}
+											{game.features.includes('ads') && <span className='material-symbols-outlined'>attach_money</span>}
+										</div>}
 										{game.art.emblem && (
 											<img
 												className='game-emblemart'
@@ -316,20 +350,6 @@ export default function Home(props: any) {
 												alt={game.name}
 											/>
 										)}
-										{game.features && <div className='game-features' data-atropos-offset='0'>
-											{/* {game.features.includes('featured') && <span className='material-symbols-outlined'>workspace_premium</span>} */}
-											{/* {game.features.includes('new') && <span className='material-symbols-outlined'>release_alert</span>} */}
-											{game.features.includes('local') && <span className='material-symbols-outlined'>weekend</span>}
-											{game.features.includes('online') && <span className='material-symbols-outlined'>group</span>}
-											{game.features.includes('keyboard') && <span className='material-symbols-outlined'>laptop_chromebook</span>}
-											{game.features.includes('gamepad') && <span className='material-symbols-outlined'>sports_esports</span>}
-											{game.features.includes('touch') && <span className='material-symbols-outlined'>phone_iphone</span>}
-											{game.features.includes('realmoney') && <span className='material-symbols-outlined'>attach_money</span>}
-											<br />
-											{game.features.includes('new') && <span className='smallBoxText'>New to Parakeet</span>}
-											{game.features.includes('featured') && <span className='smallBoxText'>Featured game</span>}
-											{game.features.includes('ads') && <span className='smallBoxText'>Contains ads</span>}
-										</div>}
 									</Atropos>
 								</Link>
 							)

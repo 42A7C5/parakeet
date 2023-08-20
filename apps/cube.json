@@ -1,7 +1,7 @@
 {
     "name": "Cube 2: Sauerbraten",
+    "oneliner": "3D FPS with classic deathmatch games",
     "dev": "Caleb Foust and others",
-    
     "art": {
         "background": "/gameassets/cube/background.png",
         "logo": "http://sauerbraten.org/cube2logo_wide.png"

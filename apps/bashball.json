@@ -1,6 +1,7 @@
 {
     "name": "Bash Ball",
     "dev": "vi",
+    "oneliner": "Retro soccer pong for 2-4 local players",
     "art": {
         "background": "https://img.itch.zone/aW1hZ2UvMTQ3ODM4Mi84NjIyMjE2LmdpZg==/original/sBaszb.gif",
         "logo": "https://img.itch.zone/aW1nLzg2MjEyMzgucG5n/315x250%23c/Ag7QZG.png"

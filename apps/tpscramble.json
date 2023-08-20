@@ -1,7 +1,7 @@
 {
     "name": "TP-Scramble",
+    "oneliner": "Offbeat, pandemic-themed tag game",
     "dev": "Luke Wood",
-    
     "art": {
         "background": "https://lit.games/img/tpscramble/keyart.png",
         "logo": "https://docs.google.com/drawings/d/e/2PACX-1vQdaLZgrPDeWo7oEmThe5TTGKatSZOiHNJh3-JSfyt1T5rILt1WbpQKwpDQlUM-fhJA189_Pmf_b1A8/pub?w=350&amp;h=100"

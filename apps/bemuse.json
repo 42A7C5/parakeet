@@ -1,5 +1,6 @@
 {
     "name": "Bemuse",
+    "oneliner": "Intense rhythm game with BMS support",
     "dev": "flicknote",
     "art": {
         "background": "https://bemuse.ninja/build/assets/a-603b4275d603bc93dac1.jpg",

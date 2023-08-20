@@ -1,11 +1,11 @@
 {
     "name": "WizardWars",
-    "dev": "Luke Wood",
+    "oneliner": "",
     "art": {
         "background": "/gameassets/wizards/background.jpg",
         "logo": "/gameassets/wizards/logo.png"
     },
     "frame": "https://wizardwars.online",
     "tags": ["shooter", "top-down"],
-    "features": ["online", "keyboard", "touch", "new"]
+    "features": ["online", "keyboard", "touch"]
 }

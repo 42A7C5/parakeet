@@ -1,7 +1,7 @@
 {
     "name": "Mazmorra",
+    "oneliner": "Online multiplayer dungeon crawler",
     "dev": "endel",
-    
     "art": {
         "background": "https://mazmorra.io/background.jpg",
         "logo": "https://mazmorra.io/images/logo.png"

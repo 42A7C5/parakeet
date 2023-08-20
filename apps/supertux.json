@@ -1,6 +1,6 @@
 {
     "name": "SuperTux",
-    "dev": "Parakeet Studios",
+    "oneliner": "2D jump'n run with story, co-op, and level editor",
     "art": {
         "background": "/gameassets/supertux/background.png",
         "logo": "/gameassets/supertux/logo.png"

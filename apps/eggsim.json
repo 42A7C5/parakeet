@@ -1,7 +1,6 @@
 {
     "name": "Egg Sim",
-    "dev": "James Lelgon",
-    
+    "oneliner": "Flappy-style game about cooking eggs",
     "art": {
         "background": "/gameassets/eggsim/background.png",
         "logo": "/gameassets/eggsim/logo.png"
