@@ -269,95 +269,67 @@ export default function Home(props: any) {
 						}}
 					/>
 					<br />
-					<div style={{ margin: '20px' }} className='hideMeOnMobile'>
-						<button
-							className='searchTag'
-							onClick={() => {
-								setSearchTags([])
-							}}
-							style={{
-								backgroundColor:
-									searchTags.length === 0 ? 'var(--secondary)' : 'var(--primary)',
-							}}
-						>
-							all
-						</button>
-						{props.tags.map((tag: string) => {
-							return (
-								<button
-									onClick={() => {
-										let tagIndex = searchTags.indexOf(tag)
-										if (tagIndex === -1) {
-											setSearchTags([...searchTags, tag])
-										} else {
-											setSearchTags(searchTags.filter((tg) => tg !== tag))
-										}
-									}}
-									key={tag.toString()}
-									className='searchTag'
-									style={{
-										backgroundColor: searchTags.includes(tag)
-											? 'var(--secondary)'
-											: 'var(--primary)',
-									}}
-								>
-									{tag}
-								</button>
-							)
-						})}
-					</div>
 					<br />
 				</div>
-				<div className={'gameList'}>
-					{props.games.map((game: any) => {
-						if (
-							(game.name.replace(/\s+/g, '').toLowerCase().includes(searchTerm) ||
-								searchTerm == '') &&
-							(searchTags.some((tag) => game.tags.includes(tag)) ||
-								searchTags.length === 0)
-						)
-							return (
-								<Link key={game.id} href={`/play/${game.id}`}>
-									<Atropos
-										key={game.id}
-										className='game'
-										highlight={false}
-										shadow={false}
-										rotateTouch={false}
-									>
-										<img
-											className='game-bgart'
-											src={game.art.background}
-											alt=''
-										/>
-										{game.features && <div className='game-features' data-atropos-offset='10'>
-											{game.oneliner && <b className='smallBoxText'>{game.oneliner}<br /></b>}
-											{game.features.includes('keyboard') && <span className='material-symbols-outlined'>laptop_chromebook</span>}
-											{game.features.includes('gamepad') && <span className='material-symbols-outlined'>sports_esports</span>}
-											{game.features.includes('touch') && <span className='material-symbols-outlined'>phone_iphone</span>}
-											{game.features.includes('ads') && <span className='material-symbols-outlined'>attach_money</span>}
-										</div>}
-										{game.art.emblem && (
-											<img
-												className='game-emblemart'
-												src={game.art.emblem}
-												data-atropos-offset='5'
-												alt=''
-											/>
-										)}
-										{game.art.logo && (
-											<img
-												className='game-logoart'
-												data-atropos-offset='10'
-												src={game.art.logo}
-												alt={game.name}
-											/>
-										)}
-									</Atropos>
-								</Link>
-							)
-					})}
-				</div>
+                {props.tags.map((tag: string) => {
+                    const capitalized =
+                        tag.charAt(0).toUpperCase()
+                        + tag.slice(1);
+                    return (
+                        <div key={tag}>
+                            <h1 className = {'tagHeader'}>{capitalized + ' games'}</h1>
+                            <div className={'tagSection'}>
+                                {props.games.map((game: any) => {
+                                    if (
+                                        (game.name.replace(/\s+/g, '').toLowerCase().includes(searchTerm) ||
+                                            searchTerm == '') &&
+                                        (game.tags.includes(tag))
+                                    )
+                                        return (
+                                            <Link key={game.id} href={`/play/${game.id}`} className={'tagSectionItem'}>
+                                                <Atropos
+                                                    key={game.id}
+                                                    className='game'
+                                                    highlight={false}
+                                                    shadow={false}
+                                                    rotateTouch={false}
+                                                >
+                                                    <img
+                                                        className='game-bgart'
+                                                        src={game.art.background}
+                                                        alt=''
+                                                    />
+                                                    {game.features && <div className='game-features' data-atropos-offset='10'>
+                                                        {game.oneliner && <b className='smallBoxText'>{game.oneliner}<br /></b>}
+                                                        {game.features.includes('keyboard') && <span className='material-symbols-outlined'>laptop_chromebook</span>}
+                                                        {game.features.includes('gamepad') && <span className='material-symbols-outlined'>sports_esports</span>}
+                                                        {game.features.includes('touch') && <span className='material-symbols-outlined'>phone_iphone</span>}
+                                                        {game.features.includes('ads') && <span className='material-symbols-outlined'>attach_money</span>}
+                                                    </div>}
+                                                    {game.art.emblem && (
+                                                        <img
+                                                            className='game-emblemart'
+                                                            src={game.art.emblem}
+                                                            data-atropos-offset='5'
+                                                            alt=''
+                                                        />
+                                                    )}
+                                                    {game.art.logo && (
+                                                        <img
+                                                            className='game-logoart'
+                                                            data-atropos-offset='10'
+                                                            src={game.art.logo}
+                                                            alt={game.name}
+                                                        />
+                                                    )}
+                                                </Atropos>
+                                            </Link>
+                                        )
+                                })}
+                            </div>
+                        </div>
+                    )
+                })}
 			</div>
 			<p style={{ textAlign: 'center' }}>
 				&copy; {new Date().getFullYear()} LeagueXP. All rights reserved.

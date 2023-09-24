@@ -127,6 +127,19 @@ a {
 
 /* Game display */
 
+.tagHeader {
+    color: var(--text);
+    padding-left: 30px;
+    margin-bottom: 0;
+}
+.tagSection {
+    overflow: auto;
+    white-space: nowrap
+}
+.tagSectionItem {
+    display: inline-block;
+}
+
 .gameList {
 	display: flex;
 	flex-wrap: wrap;
@@ -136,7 +149,7 @@ a {
 .game {
 	background-size: cover !important;
 	height: 300px;
-	width: 29vw;
+	width: 400px;
 	padding: 30px;
 }
 
@@ -476,10 +489,14 @@ nav h2 {
 	}
 
 	.game {
-		width: 100vw;
-		padding: 0;
+		width: 90vw;
+		padding: 2vw;
 		margin-top: 3vh;
 	}
+
+    .tagHeader {
+        padding-left: 0;
+    }
 
 	.game .atropos-inner {
 		box-shadow: unset;
