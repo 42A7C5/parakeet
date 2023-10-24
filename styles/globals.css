@@ -6,9 +6,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0');
 
 :root {
-	--text: white;
-	--primary: #0A233F;
-	--secondary: #00A1DE;
+	--text: rgb(219, 232, 254);
+	--primary: rgba(6, 16, 28, 1);
+	--secondary: rgba(0, 114, 188, 1);
 	--radius: 7px;
 }
 
@@ -28,7 +28,7 @@ html {
 	color: var(--text);
 	overflow-x: hidden;
 	min-height: 100dvh;
-	background: linear-gradient(180deg, black 20%, var(--primary) 100%), black;
+	background: var(--primary);
 	background-size: cover;
 }
 
@@ -165,7 +165,7 @@ a {
 }
 
 .atropos-inner:hover {
-	box-shadow: 0 0 40px var(--primary);
+	box-shadow: 0 0 20px var(--secondary);
 }
 
 .atropos-inner:hover > .game-oneliner {
@@ -289,8 +289,8 @@ nav h2 {
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background: var(--arc-palette-hover, rgba(255, 255, 255, 0.4));
-	backdrop-filter: blur(10px);
+	background: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(50px);
 }
 
 .guideTrigger {
@@ -322,8 +322,7 @@ nav h2 {
 
 .guideMainButton {
 	cursor: pointer;
-	border: 5px solid var(--text);
-	box-shadow: 0 0 30px var(--text);
+	border: 5px solid var(--secondary);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -331,28 +330,36 @@ nav h2 {
 	min-width: 200px;
 	min-height: 100px;
 	aspect-ratio: 1 / 1;
-	background-color: var(--secondary);
+	background-color: var(--primary);
 	backdrop-filter: blur(100px);
 	color: var(--text);
 	margin: 20px;
 	transition: all 0.3s ease;
+	border-radius: var(--radius);
 }
 
 .rws-header {
 	display: none;
 }
 
-.rws-container {
-	background-color: var(--text) !important;
+.rws-container, .rws-icon {
+	border-radius: var(--radius) !important;
+	background-color: var(--secondary) !important;
 }
+
+.rws-container {
+	background-color: var(--primary) !important;
+}
+
 .rws-close {
-	background-color: var(--arc-palette-foregroundSecondary, #cc10ad) !important;
-	color: var(--arc-palette-backgroundPrimary, white) !important;
+	background-color: var(--secondary) !important;
+	color: var(--text) !important;
 }
 
 .guideMainButton:hover {
-	transition: all 0.3s ease;
+	transition: all 0.1s ease;
 	transform: scale(1.1);
+	box-shadow: 0 0 20px var(--secondary);
 }
 
 .guideButtonContent {

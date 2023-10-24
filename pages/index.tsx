@@ -38,7 +38,7 @@ export default function Home(props: any) {
 				<nav>
 					{/* <Link href={'/'}> */}
 					<h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }} className='navTitle'>
-						<img src={'/logo.png'} alt="Parakeet logo" height={80} className='navLogo' /> <span className='navTitleText'><span style={{ color: 'var(--secondary)', fontFamily: 'Unbounded', fontSize: '1.6em' }}>Parakeet</span>.games</span>
+						<img src={'/logo.png'} alt="Parakeet logo" height={80} className='navLogo' /> <span className='navTitleText'><span style={{ color: 'white', fontFamily: 'Unbounded', fontSize: '1.6em' }}>Parakeet</span>.games</span>
 					</h1>
 					{/* </Link> */}
 					<h2
@@ -173,11 +173,11 @@ export default function Home(props: any) {
 						accountModal.showModal()
 					}} /></div>}
 				</dialog>
-				<Carousel showStatus={false} showArrows={true} infiniteLoop={true} showThumbs={false} showIndicators={false} autoPlay={true} className='gameotwcontainer hideMeOnMobile'>
+				<Carousel showStatus={false} showArrows={true} infiniteLoop={true} showThumbs={false} showIndicators={false} autoPlay={true} transitionTime={700} interval={5000} className='gameotwcontainer hideMeOnMobile'>
 					<div
 						className={'gameotw'}
 						style={{
-							background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/worlds.png) center center `,
+							background: `linear-gradient(rgba(0, 0, 0, 0), var(--primary)), url(/worlds.png) center center `,
 						}}
 					>
 						<div>
@@ -193,7 +193,7 @@ export default function Home(props: any) {
 							<div
 								className={'gameotw'}
 								style={{
-									background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(${game.art.background})`,
+									background: `linear-gradient(rgba(0, 0, 0, 0), var(--primary)), url(${game.art.background})`,
 								}}
 							>
 								<div>

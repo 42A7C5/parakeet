@@ -5,17 +5,14 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import Particles from 'react-tsparticles'
+import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { useRouter } from 'next/router'
-import { loadStarsPreset } from 'tsparticles-preset-stars'
 import Script from 'next/script'
 import 'atropos/css'
 import { initializeApp } from 'firebase/app'
 import { getAuth, onAuthStateChanged, signInAnonymously } from 'firebase/auth'
-import $ from 'jquery'
 
 export default function App({ Component, pageProps }: AppProps) {
 	let { asPath } = useRouter()
@@ -35,10 +32,6 @@ export default function App({ Component, pageProps }: AppProps) {
 				signInAnonymously(getAuth())
 			}
 		})
-	}, [])
-
-	const particlesInit = useCallback(async (engine: any) => {
-		await loadStarsPreset(engine)
 	}, [])
 
 	let router = useRouter()
@@ -74,11 +67,6 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name="description" content="Games that push the boundaries of the Web." />
 				<meta name="title" content="Parakeet.Games" />
 			</Head>
-			<Particles
-				id='tsparticles'
-				options={{ preset: 'stars', background: { opacity: 0 }, zLayers: 1 }}
-				init={particlesInit}
-			/>
 			<div className='app'>
 				<div style={{
 					position: 'absolute',
