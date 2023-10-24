@@ -1,5 +1,5 @@
 /****************************
-© 2019-present LeagueXP. All rights reserved.
+© 2019-present Parakeet.Games. All rights reserved.
 ****************************/
 
 import '../styles/globals.css'
@@ -37,49 +37,12 @@ export default function App({ Component, pageProps }: AppProps) {
 		})
 	}, [])
 
-	useEffect(() => {
-		if (typeof window !== 'undefined') {
-			var r = document.querySelector(':root') as any
-
-			if (window.localStorage.customThemeWhite) {
-				r.style.setProperty('--text', window.localStorage.customThemeWhite)
-			}
-
-			if (window.localStorage.customThemePrimary) {
-				r.style.setProperty('--primary', window.localStorage.customThemePrimary)
-			}
-
-			if (window.localStorage.customThemeSecondary) {
-				r.style.setProperty('--secondary', window.localStorage.customThemeSecondary)
-			}
-
-			if (window.localStorage.customThemeBackground) {
-				r.style.setProperty('--background', window.localStorage.customThemeBackground)
-			}
-		}
-	})
-
 	const particlesInit = useCallback(async (engine: any) => {
 		await loadStarsPreset(engine)
 	}, [])
 
 	let router = useRouter()
 	let [gameID, setGameID] = useState('wizards')
-
-	useEffect(() => {
-		if (typeof window !== 'undefined' && router.pathname.includes('/play')) {
-			setGameID(window.location.href.split('/play/')[1])
-			setTimeout(() => {
-				$('.app').fadeIn(1000)
-				$('.loading').fadeOut(2000)
-			}, 1000)
-		} else {
-			setTimeout(() => {
-				$('.app').fadeIn(1000)
-				$('.loading').fadeOut(500)
-			}, 1000)
-		}
-	})
 
 	return (
 		<>
@@ -116,34 +79,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				options={{ preset: 'stars', background: { opacity: 0 }, zLayers: 1 }}
 				init={particlesInit}
 			/>
-			<div
-				className='loading'
-				style={{
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-					width: '100vw',
-					height: '100vh',
-					position: 'fixed',
-					background: router.pathname.includes('/play') ? `url(${require(`../apps/${gameID}.json`).art.background}) center center fixed` : 'url(/worlds.png), linear-gradient(#91EED7, #2AD1D9)',
-					backgroundSize: 'cover',
-					color: 'white',
-					top: 0,
-					left: 0,
-					zIndex: 0
-				}}
-			>
-				{!router.pathname.includes('/play') && <img className='spin' src="/logo.png" style={{ height: '370px', width: '370px' }} />}
-				{router.pathname.includes('/play') && <img src={require(`../apps/${gameID}.json`).art.logo} style={{ width: '370px' }} />}
-				{router.pathname.includes('/play') && <div style={{
-					position: 'fixed',
-					top: '20px',
-					left: '20px',
-				}}>
-					<img src="/logo.png" className='spin' style={{ height: '80px', verticalAlign: 'middle' }} />
-				</div>}
-			</div>
-			<div className='app' style={{ display: 'none' }}>
+			<div className='app'>
 				<div style={{
 					position: 'absolute',
 					top: '20px',

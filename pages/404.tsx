@@ -1,5 +1,5 @@
 /****************************
-© 2019-present LeagueXP. All rights reserved.
+© 2019-present Parakeet.Games. All rights reserved.
 ****************************/
 
 import { useRouter } from "next/router"

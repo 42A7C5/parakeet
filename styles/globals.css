@@ -1,27 +1,23 @@
 /* ***************************
-© 2019-present LeagueXP. All rights reserved.
+© 2019-present Parakeet.Games. All rights reserved.
 ****************************/
 
-@import url('https://fonts.googleapis.com/css2?family=Unbounded&family=Open+Sans:wght@300;400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded&family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0');
 
 :root {
-	--text: black;
-	--primary: #91EED7;
-	--secondary: #2AD1D9;
-	--background: url('/worlds.png') center center;
+	--text: white;
+	--primary: #0A233F;
+	--secondary: #00A1DE;
+	--radius: 7px;
 }
 
 * {
-	font-family: 'Open Sans', sans-serif;
-	transition: background ease 1s;
-	transition: color ease 1s;
-	transition: border ease 1s;
-	transition: box-shadow ease 1s;
+	font-family: 'Rubik', sans-serif;
 	user-select: none;
 }
 
-h1, h2, .navTitleText {
+.navTitleText {
 	font-family: 'Unbounded', sans-serif;
 }
 
@@ -29,15 +25,14 @@ body,
 html {
 	padding: 0;
 	margin: 0;
-	color: var(--primary);
+	color: var(--text);
 	overflow-x: hidden;
 	min-height: 100dvh;
-	background: black;
+	background: linear-gradient(180deg, black 20%, var(--primary) 100%), black;
 	background-size: cover;
 }
 
 .home {
-	background: var(--background) no-repeat;
 	background-size: cover;
 	height: 100%;
 	padding-bottom: 20px;
@@ -59,10 +54,6 @@ a {
 	text-decoration: none;
 }
 
-.spin {
-	animation: spin 1s linear infinite;
-}
-
 @keyframes spin {
 	0% {
 		transform: rotate(0deg);
@@ -74,16 +65,20 @@ a {
 
 .modal {
 	padding: 30px;
-	border-radius: 20px;
 	text-align: center;
-	box-shadow: 0 0 40px var(--secondary);
+	box-shadow: 0 0 16px var(--secondary);
 	border: 5px solid var(--secondary);
 	background: var(--primary);
+	border-radius: var(--radius);
 }
 
 .modal h1 {
 	color: var(--text);
 	font-size: 2.5em;
+}
+
+.modal h2 {
+	color: var(--text);
 }
 
 .modalCloseButton {
@@ -93,14 +88,6 @@ a {
 	font-size: 2em;
 	color: var(--text);
 	cursor: pointer;
-}
-
-.modalIdentifier {
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	font-size: 2em;
-	color: var(--text);
 }
 
 .avatarModal {
@@ -131,13 +118,14 @@ a {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+	margin-top: 50vh;
 }
 
 .game {
 	background-size: cover !important;
 	height: 300px;
-	width: 29vw;
-	padding: 30px;
+	width: 30vw;
+	padding-bottom: 20px;
 }
 
 .game img {
@@ -158,33 +146,10 @@ a {
 }
 
 .game-logoart {
-	max-height: 50%;
+	max-height: 35%;
 	position: fixed !important;
 	top: 40% !important;
 	border-width: 3px;
-}
-
-.smallBoxText {
-	font-size: 10pt !important;
-}
-
-.game-features {
-	background: var(--primary);
-	color: var(--text);
-	border: 2px solid var(--secondary);
-	border-radius: 6px;
-	padding: 7px;
-	max-height: 50%;
-	text-align: right;
-	position: fixed !important;
-	top: 5% !important;
-	right: 5% !important;
-	z-index: 999;
-}
-
-.game-features span {
-	font-size: 18pt;
-	padding: 3px;
 }
 
 .game-emblemart {
@@ -195,35 +160,55 @@ a {
 }
 
 .atropos-inner {
-	box-shadow: 0 0 15px var(--text);
-	transition: box-shadow ease 1s;
-	border-radius: 30px;
+	transition: box-shadow ease 0.3s;
+	border-radius: var(--radius);
 }
 
 .atropos-inner:hover {
-	box-shadow: 0 0 50px var(--text);
+	box-shadow: 0 0 40px var(--primary);
 }
 
-.playbtn {
-	cursor: pointer;
-	margin-bottom: 40px;
-	font-size: 16pt;
-	padding: 15px;
-	border-width: 4px;
-	border-radius: 20px;
-	border-style: solid;
-	background: var(--primary);
-	color: var(--text);
-	transition: all ease 1s;
+.atropos-inner:hover > .game-oneliner {
+	display: inline;
 }
 
-.playbtn:hover {
-	transform: scale(1.2);
+.smallBoxText {
+	display: none;
+	vertical-align: middle;
+	margin-right: 10px;
 }
 
 .gameotwcontainer {
 	width: 100vw;
 	margin: 0;
+	position: absolute;
+	top: 0;
+}
+
+.gameotw {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-size: cover !important;
+	cursor: pointer;
+	height: 55vh;
+	transition: all 1s ease;
+	background-size: cover;
+	background-position-y: 0;
+	background-position-x: unset;
+}
+
+.gameotw:hover {
+	background-position-y: center;
+}
+
+.gameotw img {
+	transition: all ease 0.5s;
+	max-height: 20vh;
+}
+
+.gameotw:hover img {
+	transform: scale(1.08);
 }
 
 control-arrow {
@@ -246,7 +231,6 @@ control-arrow {
 	color: var(--text);
 	border: var(--secondary) 2px solid;
 	padding: 10px;
-	border-radius: 10px;
 	margin: 10px;
 	transition: all 0.2s ease;
 	box-shadow: 0 0 10px var(--secondary);
@@ -256,35 +240,6 @@ control-arrow {
 .searchBar::placeholder {
 	color: var(--text);
 	text-align: center;
-}
-
-.gameotw {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-size: cover !important;
-	cursor: pointer;
-	border-radius: 30px;
-	height: 40vh;
-	margin: 60px;
-	transition: all 1s ease;
-	background-size: cover;
-	background-position-y: 0;
-	background-position-x: unset;
-}
-
-.gameotw:hover {
-	transform: scale(1.05);
-	background-position-y: center;
-}
-
-.gameotw img {
-	transition: all ease 0.5s;
-	max-width: 80vw;
-}
-
-.gameotw:hover img {
-	transform: scale(1.2);
 }
 
 /* Navigation */
@@ -316,6 +271,9 @@ nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	position: absolute;
+	top: 0;
+	z-index: 9999;
 }
 
 nav h2 {
@@ -370,7 +328,6 @@ nav h2 {
 	align-items: center;
 	justify-content: center;
 	padding: 15px;
-	border-radius: 20px;
 	min-width: 200px;
 	min-height: 100px;
 	aspect-ratio: 1 / 1;
@@ -414,7 +371,6 @@ nav h2 {
 	display: none;
 	position: fixed;
 	bottom: 20px;
-	border-radius: 10px;
 	padding: 10px;
 	left: 20px;
 	min-width: 35vw;
@@ -441,7 +397,6 @@ nav h2 {
 	color: var(--text);
 	border: 5px solid var(--text);
 	box-shadow: 0 0 20px var(--text);
-	border-radius: 10px;
 	font-size: 1.5rem;
 	z-index: 9999;
 	position: relative;
@@ -473,6 +428,7 @@ nav h2 {
 
 	.gameList {
 		flex-direction: column;
+		margin-top: 6vh;
 	}
 
 	.game {
@@ -483,7 +439,6 @@ nav h2 {
 
 	.game .atropos-inner {
 		box-shadow: unset;
-		border-radius: 0;
 	}
 
 	.modal {
