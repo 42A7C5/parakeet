@@ -38,7 +38,7 @@ export default function Home(props: any) {
 				<nav>
 					{/* <Link href={'/'}> */}
 					<h1 style={{ verticalAlign: 'middle', color: 'var(--text)' }} className='navTitle'>
-						<img src={'/logo.png'} alt="Parakeet logo" height={80} className='navLogo' /> <span className='navTitleText'>Parakeet.Games</span>
+						<img src={'/logo.png'} alt="Parakeet logo" height={80} className='navLogo' /> <span className='navTitleText'><span style={{ color: 'var(--secondary)', fontFamily: 'Unbounded', fontSize: '1.6em' }}>Parakeet</span>.games</span>
 					</h1>
 					{/* </Link> */}
 					<h2
