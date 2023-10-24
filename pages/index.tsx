@@ -177,7 +177,7 @@ export default function Home(props: any) {
 					<div
 						className={'gameotw'}
 						style={{
-							background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/worlds.png)`,
+							background: `linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/worlds.png) center center `,
 						}}
 					>
 						<div>
