@@ -8,7 +8,6 @@ import { User, getAuth, onAuthStateChanged } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { RWebShare } from 'react-web-share'
 import { readdirSync } from 'fs'
-import $ from 'jquery'
 
 function GamePage(props: any) {
 	let [user, setUser] = useState<User>()
@@ -16,11 +15,7 @@ function GamePage(props: any) {
 
 	useEffect(() => {
 		window.addEventListener('message', (event) => {
-			if (event.data === 'open-guide') {
-				$('.guideBox').fadeIn(500)
-			} else if (event.data === 'close-guide') {
-				$('.guideBox').fadeOut(500)
-			} else if (typeof event.data == 'object') {
+			if (typeof event.data == 'object') {
 				if (event.data.title && event.data.description && event.data.parakeetMessageType == 'achievement') {
 					$('.popupTitle').text(event.data.title)
 					$('.popupDescription').text(event.data.description)
@@ -81,52 +76,6 @@ function GamePage(props: any) {
 			>
 				<img src="/logo.png" className='spin' style={{ height: '120px', marginRight: '20px', verticalAlign: 'middle' }} />
 			</div>
-			<div className='guideBox'>
-				<img src={props.game.art.logo} className='guideGameLogo' />
-				<div className='guideMainContent'>
-					{user && <div className='guideMainButton' onClick={() => { }}>
-						<div className='guideButtonContent'>
-							<span className='material-symbols-outlined'>face</span>
-							{user.displayName || 'Anonymous'}
-						</div>
-					</div>}
-					{/* <div className='guideMainButton' onClick={() => { }}>
-						<div className='guideButtonContent'>
-							<span className='material-symbols-outlined'>social_leaderboard</span>
-							Achievements
-						</div>
-					</div> */}
-					<RWebShare data={{
-						title: props.game.name + ' on Parakeet',
-						text: `I'm playing ${props.game.name} on Parakeet.Games! Come join me!`,
-					}}>
-						<div className='guideMainButton'>
-							<div className='guideButtonContent'>
-								<span className='material-symbols-outlined'>share</span>
-								Share
-							</div>
-						</div>
-					</RWebShare>
-					<div className='guideMainButton' onClick={() => router.push('/')}>
-						<div className='guideButtonContent'>
-							<span className='material-symbols-outlined'>logout</span>
-							Exit game
-						</div>
-					</div>
-					{/* <div className='guideMainButton' onClick={() => {
-						((document.querySelector(`#frame-${props.game.id}`) as HTMLIFrameElement).contentWindow as any).focus()
-						setGuideOpened(false)
-					}}>
-						<div className='guideButtonContent'>
-							<span className='material-symbols-outlined'>keyboard_return</span>
-							Return to game
-						</div>
-					</div> */}
-				</div>
-			</div>
-			<img src="/logo.png" className='guideTrigger' onClick={() => {
-				$('.guideBox').fadeToggle(300)
-			}} />
 			<div className='popup'>
 				<span className='material-symbols-outlined popupIcon'>social_leaderboard</span>
 				<span className='popupContent'>
@@ -146,7 +95,7 @@ function GamePage(props: any) {
 					position: 'fixed',
 					bottom: '0',
 					border: 'none',
-					zIndex: 1,
+					zIndex: 100,
 				}}
 			></iframe>
 		</>

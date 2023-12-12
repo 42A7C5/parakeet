@@ -3,8 +3,7 @@
     "oneliner": "3D FPS with classic deathmatch games",
     "dev": "Caleb Foust and others",
     "art": {
-        "background": "/gameassets/cube/background.png",
-        "logo": "http://sauerbraten.org/cube2logo_wide.png"
+        "background": "/gameassets/cube/poster.jpeg"
     },
     "frame": "https://sourga.me",
     "tags": ["shooter"],

@@ -64,12 +64,31 @@ a {
 }
 
 .modal {
-	padding: 30px;
 	text-align: center;
-	box-shadow: 0 0 16px var(--secondary);
-	border: 5px solid var(--secondary);
 	background: var(--primary);
 	border-radius: var(--radius);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+.modal::backdrop {
+	background: transparent;
+}
+
+.modal[open] {
+    animation: show 0.3s ease normal;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .modal h1 {
@@ -261,10 +280,23 @@ control-arrow {
 	margin-right: 20px;
 }
 
-.navLinks a span {
+.navSettings span {
 	padding: 10px;
-	font-size: 35px;
+	font-size: 30px;
+	margin: 30px;
 	color: var(--text);
+	background-color: var(--primary);
+	border: 3px solid var(--secondary);
+	box-shadow: 0 0 20px var(--secondary);
+	border-radius: 50%;
+}
+
+.navSettings {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 9999;
+	height: min-content;
 }
 
 nav {
@@ -273,7 +305,8 @@ nav {
 	justify-content: space-between;
 	position: absolute;
 	top: 0;
-	z-index: 9999;
+	z-index: 99;
+	width: 100vw;
 }
 
 nav h2 {
@@ -281,62 +314,6 @@ nav h2 {
 }
 
 /* Play page */
-.guideBox {
-	display: none;
-	z-index: 2;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background: rgba(0, 0, 0, 0.7);
-	backdrop-filter: blur(50px);
-}
-
-.guideTrigger {
-	cursor: pointer;
-	height: 80px;
-	position: fixed;
-	top: 20px;
-	left: 20px;
-	z-index: 3;
-}
-
-.guideGameLogo {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	height: 60px;
-}
-
-.guideMainContent {
-	position: absolute;
-	top: 100px;
-	width: 90%;
-	padding: 5%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-}
-
-.guideMainButton {
-	cursor: pointer;
-	border: 5px solid var(--secondary);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 15px;
-	min-width: 200px;
-	min-height: 100px;
-	aspect-ratio: 1 / 1;
-	background-color: var(--primary);
-	backdrop-filter: blur(100px);
-	color: var(--text);
-	margin: 20px;
-	transition: all 0.3s ease;
-	border-radius: var(--radius);
-}
 
 .rws-header {
 	display: none;
@@ -354,23 +331,6 @@ nav h2 {
 .rws-close {
 	background-color: var(--secondary) !important;
 	color: var(--text) !important;
-}
-
-.guideMainButton:hover {
-	transition: all 0.1s ease;
-	transform: scale(1.1);
-	box-shadow: 0 0 20px var(--secondary);
-}
-
-.guideButtonContent {
-	text-align: center;
-	font-size: 1.2rem;
-}
-
-.guideButtonContent span {
-	display: block;
-	font-size: 3rem;
-	padding-bottom: 20px;
 }
 
 .popup {
@@ -394,64 +354,31 @@ nav h2 {
 	font-size: 1.4rem;
 }
 
-.heroVideo {
-	filter: url(#blur);
-}
-
-.bigButton {
-	background: var(--secondary);
-	padding: 15px;
-	color: var(--text);
-	border: 5px solid var(--text);
-	box-shadow: 0 0 20px var(--text);
-	font-size: 1.5rem;
-	z-index: 9999;
-	position: relative;
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow {
+	background: transparent !important;
 }
 
 /* Responsive */
 
 @media screen and (max-width: 700px) {
-	nav {
-		/* display: block; */
-		/* text-align: center; */
-	}
-
-	.navTitleText {
-		display: none;
-		/* padding-left: 0; */
-		/* padding-right: 0; */
-	}
-
 	.hideMeOnMobile {
 		display: none !important;
 	}
 
-	.bigButton {
-		background: transparent;
-		border: unset;
-		text-decoration: underline;
+	.navTitleText {
+		display: block;
+		margin-top: 2vh;
 	}
 
 	.gameList {
 		flex-direction: column;
-		margin-top: 6vh;
+		margin-top: 23vh;
 	}
 
 	.game {
-		width: 100vw;
+		width: 90vw;
 		padding: 0;
 		margin-top: 3vh;
-	}
-
-	.game .atropos-inner {
-		box-shadow: unset;
-	}
-
-	.modal {
-		width: 86vw;
-		border-radius: 0;
-		border-left: none;
-		border-right: none;
+		margin-left: 5vw;
 	}
 }

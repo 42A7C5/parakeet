@@ -10,9 +10,12 @@ import { AnimatePresence, motion } from 'framer-motion'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
+import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInAnonymously, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import { AvatarCreator } from '@readyplayerme/rpm-react-sdk'
+import { Avatar } from '@readyplayerme/visage'
 import 'atropos/css'
 import { initializeApp } from 'firebase/app'
-import { getAuth, onAuthStateChanged, signInAnonymously } from 'firebase/auth'
+import Link from 'next/link'
 
 export default function App({ Component, pageProps }: AppProps) {
 	let { asPath } = useRouter()
@@ -35,7 +38,19 @@ export default function App({ Component, pageProps }: AppProps) {
 	}, [])
 
 	let router = useRouter()
-	let [gameID, setGameID] = useState('wizards')
+	let [avatarCreated, setAvatarCreated] = useState<string>('https://readyplayerme.github.io/visage/male.glb')
+	let [user, setUser] = useState<any>()
+
+	useMemo(async () => {
+		onAuthStateChanged(getAuth(), (user) => {
+			if (user) {
+				setUser(user)
+				if (user.photoURL) {
+					setAvatarCreated(user.photoURL)
+				}
+			}
+		})
+	}, [])
 
 	return (
 		<>
@@ -67,14 +82,123 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name="description" content="Games that push the boundaries of the Web." />
 				<meta name="title" content="Parakeet.Games" />
 			</Head>
+			<dialog className='settingsModal modal'>
+				<span className='material-symbols-outlined modalCloseButton' onClick={() => {
+					let settingsModal = document.querySelector('.settingsModal') as HTMLDialogElement
+					settingsModal.close()
+				}}>close</span>
+				{!user && (
+					<p>Loading...</p>
+				)}
+				{user && (
+					<>
+						<Avatar style={{ height: '300px' }} modelSrc={avatarCreated} animationSrc={'/male-idle.glb'} />
+						<h1 style={{ fontSize: '2.0em' }}>{user.displayName || user.email || user.phoneNumber || 'Anonymous Parakeet'}</h1>
+						{user.isAnonymous && <Link
+							href={"#"}
+							onClick={async (e) => {
+								e.preventDefault();
+								let user = await signInWithPopup(
+									getAuth(),
+									new GoogleAuthProvider()
+								);
+								setUser(user.user);
+							}}
+						>
+							<span
+								style={{
+									color: "var(--text)",
+									textDecoration: "underline",
+									fontSize: "1.5rem",
+								}}
+							>
+								Sign in with Google
+							</span>
+						</Link>}
+						{!user.isAnonymous && <>
+							<Link
+								href={`#`}
+								onClick={(e) => {
+									e.preventDefault();
+									updateProfile(user, {
+										displayName: prompt("Enter your new display name:"),
+									});
+								}}
+							>
+								<span
+									style={{
+										color: "var(--text)",
+										textDecoration: "underline",
+										padding: "20px",
+									}}
+								>
+									Change Name
+								</span>
+							</Link>
+							<Link
+								href={`#`}
+								onClick={(e) => {
+									e.preventDefault();
+									let settingsModal = document.querySelector('.settingsModal') as HTMLDialogElement
+									settingsModal.close()
+									let avatarModal = document.querySelector('.avatarModal') as HTMLDialogElement
+									avatarModal.showModal()
+								}}
+							>
+								<span
+									style={{
+										color: "var(--text)",
+										textDecoration: "underline",
+										padding: "20px",
+									}}
+								>
+									Change Avatar
+								</span>
+							</Link>
+							<Link
+								href={`#`}
+								onClick={(e) => {
+									e.preventDefault();
+									signOut(getAuth())
+									setUser(null)
+								}}
+							>
+								<span
+									style={{
+										color: "var(--text)",
+										textDecoration: "underline",
+										padding: "20px",
+									}}
+								>
+									Log Out
+								</span>
+							</Link>
+						</>}
+					</>
+				)}
+			</dialog>
+			<dialog className='avatarModal modal'>
+				{!user && (
+					<p>Loading...</p>
+				)}
+				{user && <div className='avatarBuilder'><AvatarCreator subdomain="parakeet" onAvatarExported={(url) => {
+					setAvatarCreated(url)
+					updateProfile(user, {
+						photoURL: url,
+					})
+					let avatarModal = document.querySelector('.avatarModal') as HTMLDialogElement
+					avatarModal.close()
+					let settingsModal = document.querySelector('.settingsModal') as HTMLDialogElement
+					settingsModal.showModal()
+				}} /></div>}
+			</dialog>
 			<div className='app'>
-				<div style={{
-					position: 'absolute',
-					top: '20px',
-					left: '20px',
-				}}>
-					<img src="/logo.png" style={{ height: '80px', verticalAlign: 'middle' }} />
-				</div>
+				<a className='navSettings' href={'#'} onClick={() => {
+						let settingsModal = document.querySelector('.settingsModal') as HTMLDialogElement
+						settingsModal.showModal()
+					}}>
+						<span className='material-symbols-outlined'>menu</span>
+					</a>
 				<AnimatePresence initial={false} mode="wait">
 					<motion.div
 						key={router.pathname}
@@ -87,10 +211,6 @@ export default function App({ Component, pageProps }: AppProps) {
 					</motion.div>
 				</AnimatePresence>
 			</div>
-			<svg width="0" height="0"><filter id="blur" width="300%" height="300%" x="-0.75" y="-0.75" colorInterpolationFilters="sRGB"><feOffset in="SourceGraphic" result="source-copy"></feOffset><feColorMatrix in="source-copy" type="saturate" values="3" result="saturated-copy"></feColorMatrix><feColorMatrix in="saturated-copy" type="matrix" values="1 0 0 0 0
-                     0 1 0 0 0
-                     0 0 1 0 0
-                     33 33 33 101 -132" result="bright-colors"></feColorMatrix><feMorphology in="bright-colors" operator="dilate" radius="10" result="spread"></feMorphology><feGaussianBlur in="spread" stdDeviation="30" result="ambilight-light"></feGaussianBlur><feOffset in="SourceGraphic" result="source"></feOffset><feComposite in="source" in2="ambilight-light" operator="over"></feComposite></filter></svg>
 		</>
 	)
 }
