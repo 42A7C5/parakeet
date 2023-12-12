@@ -7,9 +7,9 @@
 
 :root {
 	--text: rgb(219, 232, 254);
-	--primary: rgba(6, 16, 28, 1);
-	--secondary: rgba(0, 114, 188, 1);
-	--radius: 7px;
+	--primary: rgb(0, 24, 54);
+	--secondary: #00bbff;
+	--radius: 20px;
 }
 
 * {
@@ -118,13 +118,6 @@ a {
 	height: 70vh !important;
 	border: none !important;
 
-}
-
-.policyframe {
-	width: 70vw;
-	height: 60vh;
-	border: none;
-	border-radius: 20px;
 }
 
 .modal::backdrop {
@@ -237,7 +230,7 @@ control-arrow {
 .searchBar {
 	background: transparent;
 	border: unset;
-	border-radius: 0;
+	border-radius: var(--radius);
 	border-bottom: 2px solid var(--text);
 	vertical-align: middle;
 	margin-left: 10px;
@@ -288,7 +281,7 @@ control-arrow {
 	background-color: var(--primary);
 	border: 3px solid var(--secondary);
 	box-shadow: 0 0 20px var(--secondary);
-	border-radius: 50%;
+	border-radius: var(--radius);
 }
 
 .navSettings {
