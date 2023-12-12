@@ -135,14 +135,12 @@ export default function Home(props: any) {
 											<img
 												className='game-emblemart'
 												src={game.art.emblem}
-												data-atropos-offset='1'
 												alt=''
 											/>
 										)}
 										{game.art.logo && (
 											<img
 												className='game-logoart'
-												data-atropos-offset='2'
 												src={game.art.logo}
 												alt={game.name}
 											/>
