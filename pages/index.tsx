@@ -125,7 +125,7 @@ export default function Home(props: any) {
 						)
 							return (
 								<Link key={game.id} href={`/play/${game.id}`}>
-									<Atropos key={game.id} className='game' rotate={true}>
+									<Atropos key={game.id} className='game' rotate={false}>
 										<img
 											className='game-bgart'
 											src={game.art.background}
