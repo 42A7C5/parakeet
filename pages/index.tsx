@@ -109,6 +109,7 @@ export default function Home(props: any) {
 						if (game.id === 'promotion') {
 							return (
 								<div className='game' key={game.id}>
+									<p style={{ position: 'absolute', transform: 'translateX(-8px)', background: '#f9e300', zIndex: 9999, padding: '5px', borderRadius: '50%', color: 'var(--primary)', fontSize: '1.3rem' }}>ad</p>
 									<img src={game.src} />
 								</div>
 							)
