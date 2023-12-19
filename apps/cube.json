@@ -3,9 +3,9 @@
     "oneliner": "3D FPS with classic deathmatch games",
     "dev": "Caleb Foust and others",
     "art": {
-        "background": "/gameassets/cube/poster.jpeg"
+        "background": "/assets/img/tiles/cube/poster.jpeg"
     },
     "frame": "https://sourga.me",
     "tags": ["shooter"],
-    "features": ["online", "keyboard", "touch"]
+    "features": ["online", "keyboard", "touch", "featured"]
 }

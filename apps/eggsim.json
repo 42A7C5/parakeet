@@ -2,8 +2,8 @@
     "name": "Egg Sim",
     "oneliner": "Flappy-style game about cooking eggs",
     "art": {
-        "background": "/gameassets/eggsim/background.png",
-        "logo": "/gameassets/eggsim/logo.png"
+        "background": "/assets/img/tiles/eggsim/background.png",
+        "logo": "/assets/img/tiles/eggsim/logo.png"
     },
     "frame": "https://eggsim.netlify.app/",
     "tags": ["simulation", "casual", "highscore"],

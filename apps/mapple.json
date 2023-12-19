@@ -3,8 +3,8 @@
     "oneliner": "Country guessing game with daily puzzles",
     "dev": "WriterArtistCoder",
     "art": {
-        "background": "https://mapplegame.netlify.app/map-keysize.png",
-        "logo": "https://docs.google.com/drawings/d/e/2PACX-1vSVbRVdJTtAAqDAVkSQKHodFDA8TVCUyPdJIpoYIKrsLQil35HRyR-w7Fzf2UBmY56QKu9I8QGw551N/pub?w=525&h=150"
+        "background": "/assets/img/tiles/mapple/background.png",
+        "logo": "/assets/img/tiles/mapple/logo.png"
     },
     "frame": "https://mapplegame.netlify.app",
     "tags": ["brain"],

@@ -2,8 +2,8 @@
     "name": "WizardWars",
     "oneliner": "2D shooter with spells and buildcrafting",
     "art": {
-        "background": "/gameassets/wizards/background.jpg",
-        "logo": "/gameassets/wizards/logo.png"
+        "background": "/assets/img/tiles/wizards/background.jpg",
+        "logo": "/assets/img/tiles/wizards/logo.png"
     },
     "frame": "https://wizardwars.online",
     "tags": ["shooter", "top-down"],

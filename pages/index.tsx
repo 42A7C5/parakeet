@@ -1,23 +1,14 @@
 /****************************
-© 2019-present Samuel Sharp. All rights reserved.
+© 2019-present Parakeet.Games. All rights reserved.
 ****************************/
 
 import Link from 'next/link'
 import Head from 'next/head'
 import Atropos from 'atropos/react'
+import Image from 'next/image'
 import { readdirSync } from 'fs'
 
 import { Carousel } from 'react-responsive-carousel'
-import {
-	GoogleAuthProvider,
-	getAuth,
-	onAuthStateChanged,
-	signInWithPopup,
-	signOut,
-	updateProfile,
-} from 'firebase/auth'
-import { AvatarCreator } from '@readyplayerme/rpm-react-sdk'
-import { Avatar } from '@readyplayerme/visage'
 import promotion1 from '../public/promotions/fen-naloxone-400x840.webp'
 import promotion2 from '../public/promotions/imm-alex-belonging-400x840.webp'
 import promotion3 from '../public/promotions/luv-love-lives-on-eng-400x840.webp'
@@ -85,7 +76,7 @@ export default function Home(props: any) {
 								Let&apos;s build an awesome community together and make Web
 								games better for everyone.
 							</p>
-							<h2>❤️ The Parakeet Team</h2>
+							<h2>❤️ Samuel + The Parakeet Team</h2>
 						</div>
 					</div> */}
 					{props.picks.map((game: any) => (
@@ -97,10 +88,13 @@ export default function Home(props: any) {
 								}}
 							>
 								<div>
-									<img
+									<Image
 										src={game.art.logo}
-										style={{ width: 'auto' }}
+										width={999}
+										height={999}
 										alt={game.name}
+										priority
+										quality={90}
 									/>
 								</div>
 							</div>
@@ -113,7 +107,7 @@ export default function Home(props: any) {
 							return (
 								<div className='game' key={game.id}>
 									<p style={{ position: 'absolute', transform: 'translateX(-20px) translateY(-20px)', background: '#f9e300', zIndex: 9999, padding: '5px', borderRadius: '50%', color: 'var(--primary)', fontSize: '1.7rem' }}>ad</p>
-									<img src={game.src} />
+									<Image src={game.src} alt='Promoted content' width={840} height={400} />
 								</div>
 							)
 						}
@@ -130,23 +124,30 @@ export default function Home(props: any) {
 							return (
 								<Link key={game.id} href={`/play/${game.id}`}>
 									<Atropos key={game.id} className='game'>
-										<img
+										<Image
 											className='game-bgart'
+											width={999}
+											height={999}
 											src={game.art.background}
 											alt=''
 										/>
 										{game.art.emblem && (
-											<img
+											<Image
 												className='game-emblemart'
+												width={999}
+												height={999}
 												src={game.art.emblem}
 												alt=''
 											/>
 										)}
 										{game.art.logo && (
-											<img
+											<Image
 												className='game-logoart'
+												width={999}
+												height={999}
 												src={game.art.logo}
 												alt={game.name}
+												data-atropos-offset='2'
 											/>
 										)}
 									</Atropos>

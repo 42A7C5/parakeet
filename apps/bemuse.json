@@ -3,8 +3,8 @@
     "oneliner": "Intense rhythm game with BMS support",
     "dev": "flicknote",
     "art": {
-        "background": "https://bemuse.ninja/build/assets/a-603b4275d603bc93dac1.jpg",
-        "logo": "https://bemuse.ninja/build/assets/logo-with-shadow-f78db43c1a8aabfbace5.svg"
+        "background": "/assets/img/tiles/bemuse/background.jpeg",
+        "logo": "/assets/img/tiles/bemuse/logo.svg"
     },
     "frame": "https://bemuse.ninja/",
     "tags": ["rhythm"],

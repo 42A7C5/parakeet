@@ -3,8 +3,8 @@
     "oneliner": "Online multiplayer dungeon crawler",
     "dev": "endel",
     "art": {
-        "background": "https://mazmorra.io/background.jpg",
-        "logo": "https://mazmorra.io/images/logo.png"
+        "background": "/assets/img/tiles/mazmorra/background.jpg",
+        "logo": "/assets/img/tiles/mazmorra/logo.png"
     },
     "frame": "https://mazmorra.io",
     "tags": ["dungeon-crawler"],

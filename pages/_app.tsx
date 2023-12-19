@@ -11,8 +11,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInAnonymously, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
-import { AvatarCreator } from '@readyplayerme/rpm-react-sdk'
-import { Avatar } from '@readyplayerme/visage'
 import 'atropos/css'
 import { initializeApp } from 'firebase/app'
 import Link from 'next/link'
@@ -38,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	}, [])
 
 	let router = useRouter()
-	let [avatarCreated, setAvatarCreated] = useState<string>('https://readyplayerme.github.io/visage/male.glb')
+	let [profilePicture, setProfilePicture] = useState<string>('/interface/default.png')
 	let [user, setUser] = useState<any>()
 
 	useMemo(async () => {
@@ -46,7 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			if (user) {
 				setUser(user)
 				if (user.photoURL) {
-					setAvatarCreated(user.photoURL)
+					setProfilePicture(user.photoURL)
 				}
 			}
 		})
@@ -82,18 +80,39 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name="description" content="Games that push the boundaries of the Web." />
 				<meta name="title" content="Parakeet.Games" />
 			</Head>
-			<dialog className='settingsModal modal'>
+			<dialog className='modal'>
 				<span className='material-symbols-outlined modalCloseButton' onClick={() => {
-					let settingsModal = document.querySelector('.settingsModal') as HTMLDialogElement
-					settingsModal.close()
+					let modal = document.querySelector('.modal') as HTMLDialogElement
+					modal.close()
 				}}>close</span>
 				{!user && (
 					<p>Loading...</p>
 				)}
 				{user && (
 					<>
-						<Avatar style={{ height: '300px' }} modelSrc={avatarCreated} animationSrc={'/male-idle.glb'} />
-						<h1 style={{ fontSize: '2.0em' }}>{user.displayName || user.email || user.phoneNumber || 'Anonymous Parakeet'}</h1>
+						<h1 style={{ fontSize: '1.4em', position: 'absolute', top: 0, left: '15px' }}>
+							<img src={profilePicture} alt="User profile picture" style={{ borderRadius: '50%', height: '40px', verticalAlign: 'middle', marginRight: '10px' }} />
+							{user.displayName || user.email || user.phoneNumber || 'Anonymous Parakeet'}
+						</h1>
+						<Link
+							href={`/`}
+							onClick={() => {
+								let modal = document.querySelector('.modal') as HTMLDialogElement
+								modal.close()
+							}}
+						>
+							<span
+								style={{
+									color: "var(--text)",
+									fontSize: '1.5rem',
+									textDecoration: "underline",
+									padding: "20px",
+								}}
+							>
+								Return Home
+							</span>
+						</Link>
+						<br />
 						{user.isAnonymous && <Link
 							href={"#"}
 							onClick={async (e) => {
@@ -139,10 +158,9 @@ export default function App({ Component, pageProps }: AppProps) {
 								href={`#`}
 								onClick={(e) => {
 									e.preventDefault();
-									let settingsModal = document.querySelector('.settingsModal') as HTMLDialogElement
-									settingsModal.close()
-									let avatarModal = document.querySelector('.avatarModal') as HTMLDialogElement
-									avatarModal.showModal()
+									updateProfile(user, {
+										photoURL: prompt("Enter your new profile picture URL:"),
+									});
 								}}
 							>
 								<span
@@ -152,7 +170,7 @@ export default function App({ Component, pageProps }: AppProps) {
 										padding: "20px",
 									}}
 								>
-									Change Avatar
+									Change Profile Picture
 								</span>
 							</Link>
 							<Link
@@ -177,28 +195,13 @@ export default function App({ Component, pageProps }: AppProps) {
 					</>
 				)}
 			</dialog>
-			<dialog className='avatarModal modal'>
-				{!user && (
-					<p>Loading...</p>
-				)}
-				{user && <div className='avatarBuilder'><AvatarCreator subdomain="parakeet" onAvatarExported={(url) => {
-					setAvatarCreated(url)
-					updateProfile(user, {
-						photoURL: url,
-					})
-					let avatarModal = document.querySelector('.avatarModal') as HTMLDialogElement
-					avatarModal.close()
-					let settingsModal = document.querySelector('.settingsModal') as HTMLDialogElement
-					settingsModal.showModal()
-				}} /></div>}
-			</dialog>
 			<div className='app'>
 				<a className='navSettings' href={'#'} onClick={() => {
-						let settingsModal = document.querySelector('.settingsModal') as HTMLDialogElement
-						settingsModal.showModal()
-					}}>
-						<span className='material-symbols-outlined'>menu</span>
-					</a>
+					let modal = document.querySelector('.modal') as HTMLDialogElement
+					modal.showModal()
+				}}>
+					<span className='material-symbols-outlined'>menu</span>
+				</a>
 				<AnimatePresence initial={false} mode="wait">
 					<motion.div
 						key={router.pathname}

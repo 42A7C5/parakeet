@@ -3,10 +3,10 @@
     "oneliner": "Simple game of pong with a twist",
     "dev": "",
     "art": {
-        "background": "/gameassets/curveball/background.png",
-        "logo": "/gameassets/curveball/logo.png"
+        "background": "/assets/img/tiles/curveball/background.png",
+        "logo": "/assets/img/tiles/curveball/logo.png"
     },
-    "frame": "/gameassets/curveball/index.html",
+    "frame": "/assets/html/curveball/index.html",
     "tags": ["casual", "highscore"],
     "features": ["keyboard"]
 }
