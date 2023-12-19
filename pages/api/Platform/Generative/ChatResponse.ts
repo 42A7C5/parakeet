@@ -1,3 +1,7 @@
+/****************************
+© 2019-present Samuel Sharp. All rights reserved.
+****************************/
+
 import type { NextApiRequest, NextApiResponse } from 'next'
  
 type ResponseData = {

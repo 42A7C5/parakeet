@@ -1,5 +1,5 @@
 /****************************
-© 2019-present Parakeet.Games. All rights reserved.
+© 2019-present Samuel Sharp. All rights reserved.
 ****************************/
 
 import Head from 'next/head'

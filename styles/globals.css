@@ -1,5 +1,5 @@
 /* ***************************
-© 2019-present Parakeet.Games. All rights reserved.
+© 2019-present Samuel Sharp. All rights reserved.
 ****************************/
 
 @import url('https://fonts.googleapis.com/css2?family=Unbounded&family=Rubik&display=swap');
@@ -9,7 +9,7 @@
 	--text: rgb(219, 232, 254);
 	--primary: rgb(0, 24, 54);
 	--secondary: #00bbff;
-	--radius: 6px;
+	--radius: 16px;
 }
 
 * {
