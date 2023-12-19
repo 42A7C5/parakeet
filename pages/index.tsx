@@ -30,7 +30,7 @@ export default function Home(props: any) {
 					<title>Parakeet</title>
 				</Head>
 				<div className='alert'>
-					Play the all-new TP-Scramble open alpha and try out all the game's skins! <a href='/play/tpscramble'>Learn more &rarr;</a>
+					Play the all-new TP-Scramble open alpha and try out all the game&apos;s skins! <Link href='/play/tpscramble'>Learn more &rarr;</Link>
 				</div>
 				<nav>
 					{/* <Link href={'/'}> */}
@@ -129,7 +129,7 @@ export default function Home(props: any) {
 						)
 							return (
 								<Link key={game.id} href={`/play/${game.id}`}>
-									<Atropos key={game.id} className='game' rotate={false}>
+									<Atropos key={game.id} className='game'>
 										<img
 											className='game-bgart'
 											src={game.art.background}
