@@ -6,9 +6,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0');
 
 :root {
-	--text: rgb(183, 206, 246);
+	--text: rgb(175, 210, 248);
 	--primary: rgb(0, 35, 77);
-	--secondary: #00bbff;
+	--secondary: #08CEEB;
 	--radius: 16px;
 }
 
