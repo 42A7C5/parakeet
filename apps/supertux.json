@@ -5,7 +5,7 @@
         "background": "/gameassets/supertux/background.png",
         "logo": "/gameassets/supertux/logo.png"
     },
-    "frame": "https://v6p9d9t4.ssl.hwcdn.net/html/8632835/index.html",
+    "frame": "https://html-classic.itch.zone/html/8632835/index.html",
     "tags": ["platformer"],
     "features": ["keyboard", "touch"]
 }
