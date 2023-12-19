@@ -29,6 +29,9 @@ export default function Home(props: any) {
 				<Head>
 					<title>Parakeet</title>
 				</Head>
+				<div className='alert'>
+					Play the all-new TP-Scramble open alpha and try out all the game's skins! <a href='/play/tpscramble'>Learn more &rarr;</a>
+				</div>
 				<nav>
 					{/* <Link href={'/'}> */}
 					<h1
@@ -67,7 +70,7 @@ export default function Home(props: any) {
 					interval={5000}
 					className='gameotwcontainer hideMeOnMobile'
 				>
-					<div
+					{/* <div
 						className={'gameotw'}
 						style={{
 							background: `linear-gradient(rgba(0, 0, 0, 0), var(--primary)), url(/worlds.png) center center `,
@@ -84,7 +87,7 @@ export default function Home(props: any) {
 							</p>
 							<h2>❤️ The Parakeet Team</h2>
 						</div>
-					</div>
+					</div> */}
 					{props.picks.map((game: any) => (
 						<Link key={game.id} href={`/play/${game.id}`}>
 							<div
@@ -251,8 +254,8 @@ export async function getStaticProps() {
 			tags: uniqueTags,
 			picks: [
 				{
-					...require('../apps/bashball.json'),
-					id: 'bashball',
+					...require('../apps/tpscramble.json'),
+					id: 'tpscramble',
 				},
 				{
 					...require('../apps/wizards.json'),
