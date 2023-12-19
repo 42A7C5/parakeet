@@ -129,6 +129,8 @@ export default function Home(props: any) {
 											width={999}
 											height={999}
 											src={game.art.background}
+											blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM0WHhgEwAE3wJFOVmJuQAAAABJRU5ErkJggg=='
+											placeholder='blur'
 											alt=''
 										/>
 										{game.art.emblem && (
