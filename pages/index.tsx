@@ -7,11 +7,9 @@ import Head from 'next/head'
 import Atropos from 'atropos/react'
 import Image from 'next/image'
 import { readdirSync } from 'fs'
+import { v4 } from 'uuid'
 
 import { Carousel } from 'react-responsive-carousel'
-import promotion1 from '../public/promotions/fen-naloxone-400x840.webp'
-import promotion2 from '../public/promotions/imm-alex-belonging-400x840.webp'
-import promotion3 from '../public/promotions/luv-love-lives-on-eng-400x840.webp'
 
 export default function Home(props: any) {
 	return (
@@ -103,11 +101,11 @@ export default function Home(props: any) {
 				</Carousel>
 				<div className={'gameList'}>
 					{props.games.map((game: any) => {
-						if (game.id === 'promotion') {
+						if (game.id.startsWith('promotion')) {
 							return (
-								<div className='game' key={game.id}>
-									<p style={{ position: 'absolute', transform: 'translateX(-20px) translateY(-20px)', background: '#f9e300', zIndex: 9999, padding: '5px', borderRadius: '50%', color: 'var(--primary)', fontSize: '1.7rem' }}>ad</p>
-									<Image src={game.src} alt='Promoted content' width={840} height={400} />
+								<div className='game' key={game.id} style={{ textAlign: 'center', position: 'relative' }}>
+									<iframe src={game.src} style={{ border: 'none', height: '250px', width: '300px' }}></iframe>
+									<p> <span className="material-symbols-outlined">info</span>&nbsp;&nbsp;Sponsored content</p>
 								</div>
 							)
 						}
@@ -176,6 +174,7 @@ export async function getStaticProps() {
 	let gamesWithAds: any[] = []
 
 	let allGames = readdirSync('apps')
+	let allPromotions = readdirSync('public/promotions')
 
 	for (let gameIndex = 0; gameIndex < allGames.length; gameIndex++) {
 		const gameData = require('../apps/' + allGames[gameIndex])
@@ -243,12 +242,13 @@ export async function getStaticProps() {
 	games.push(...lowSupportedGames)
 	games.push(...gamesWithAds)
 
-	const allPromotions = [promotion1, promotion2, promotion3]
 	for (let promotion of allPromotions) {
-		games.splice(((games.length + 1) * Math.random()) | 0, 0, {
-			id: 'promotion',
-			src: promotion.src,
-		})
+		if (promotion.endsWith('.html')) {
+			games.splice(((games.length + 1) * Math.random()) | 0, 0, {
+				id: 'promotion' + v4(),
+				src: '/promotions/' + promotion,
+			})	
+		}
 	}
 
 	return {

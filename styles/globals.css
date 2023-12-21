@@ -359,7 +359,7 @@ nav h2 {
 
 /* Responsive */
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1000px) {
 	.hideMeOnMobile {
 		display: none !important;
 	}
