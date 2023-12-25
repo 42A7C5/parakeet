@@ -1,0 +1,12 @@
+{
+    "name": "House of Cards",
+    "oneliner": "Card themed, casual roguelike shooter",
+    "dev": "LelsersLasers",
+    "art": {
+        "background": "/assets/img/tiles/houseofcards/background.png",
+        "logo": "/assets/img/tiles/houseofcards/logo.png"
+    },
+    "frame": "https://html-classic.itch.zone/html/9377765/index.html",
+    "tags": ["roguelike"],
+    "features": ["keyboard", "touch"]
+}

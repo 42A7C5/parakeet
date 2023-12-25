@@ -1,6 +1,7 @@
 {
     "name": "OpenTTD",
     "oneliner": "Classic tycoon game with buses, trains, and planes.",
+    "dev": "OpenTTD Team",
     "art": {
         "background": "/assets/img/tiles/openttd/background.png",
         "logo": "/assets/img/tiles/openttd/logo.gif"

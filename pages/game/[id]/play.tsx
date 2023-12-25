@@ -62,20 +62,6 @@ function GamePage(props: any) {
 			<Head>
 				<title>{`${game.name} on Parakeet`}</title>
 			</Head>
-			<div
-				style={{
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-					width: '100vw',
-					height: '100vh',
-					position: 'fixed',
-					top: 0,
-					left: 0,
-				}}
-			>
-				<img src="/logo.png" className='spin' style={{ height: '120px', marginRight: '20px', verticalAlign: 'middle' }} />
-			</div>
 			<div className='popup'>
 				<span className='material-symbols-outlined popupIcon'>social_leaderboard</span>
 				<span className='popupContent'>
@@ -123,7 +109,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: any) {
 	return {
 		props: {
-			game: { ...require(`../../apps/${params.id}.json`), id: params.id },
+			game: { ...require(`../../../apps/${params.id}.json`), id: params.id },
 		},
 	}
 }

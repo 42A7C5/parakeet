@@ -1,5 +1,5 @@
 /****************************
-© 2019-present Parakeet.Games. All rights reserved.
+© 2019-present Samuel Sharp. All rights reserved.
 ****************************/
 
 import Link from 'next/link'
@@ -18,9 +18,6 @@ export default function Home(props: any) {
 				<Head>
 					<title>Parakeet</title>
 				</Head>
-				<div className='alert'>
-					Play the all-new TP-Scramble open alpha and try out all the game&apos;s skins! <Link href='/play/tpscramble'>Learn more &rarr;</Link>
-				</div>
 				<nav>
 					{/* <Link href={'/'}> */}
 					<h1
@@ -78,7 +75,7 @@ export default function Home(props: any) {
 						</div>
 					</div> */}
 					{props.picks.map((game: any) => (
-						<Link key={game.id} href={`/play/${game.id}`}>
+						<Link key={game.id} href={`/game/${game.id}`}>
 							<div
 								className={'gameotw'}
 								style={{
@@ -120,7 +117,7 @@ export default function Home(props: any) {
 							true
 						)
 							return (
-								<Link key={game.id} href={`/play/${game.id}`}>
+								<Link key={game.id} href={`/game/${game.id}`}>
 									<Atropos key={game.id} className='game'>
 										<Image
 											className='game-bgart'
@@ -244,7 +241,7 @@ export async function getStaticProps() {
 
 	for (let promotion of allPromotions) {
 		if (promotion.endsWith('.html')) {
-			games.splice(((games.length + 1) * Math.random()) | 0, 0, {
+			games.splice(((games.length + 2) * Math.random()) | 0, 0, {
 				id: 'promotion' + v4(),
 				src: '/promotions/' + promotion,
 			})	

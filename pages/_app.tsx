@@ -20,13 +20,14 @@ export default function App({ Component, pageProps }: AppProps) {
 
 	useMemo(() => {
 		initializeApp({
-			apiKey: 'AIzaSyCVRdvjxtTS5DV__if3-81t_fYp5GUod-U',
-			authDomain: 'cloudark.parakeet.games',
-			projectId: 'parakeetapi',
-			storageBucket: 'parakeetapi.appspot.com',
-			messagingSenderId: '163437557468',
-			appId: '1:163437557468:web:ca1358397b5b9da133a619',
-		})
+			apiKey: "AIzaSyBq_GEsEXJMfG2K3DAehXSRiryfjs-zFKQ",
+			authDomain: "parakeetdotgames.firebaseapp.com",
+			projectId: "parakeetdotgames",
+			storageBucket: "parakeetdotgames.appspot.com",
+			messagingSenderId: "37719389159",
+			appId: "1:37719389159:web:9fde7211661ab320488342",
+			measurementId: "G-Z24FZ3HRR7"
+		  })
 
 		onAuthStateChanged(getAuth(), user => {
 			if (!user) {
