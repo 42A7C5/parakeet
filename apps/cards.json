@@ -3,8 +3,8 @@
     "oneliner": "Card themed, casual roguelike shooter",
     "dev": "LelsersLasers",
     "art": {
-        "background": "/assets/img/tiles/houseofcards/background.png",
-        "logo": "/assets/img/tiles/houseofcards/logo.png"
+        "background": "/assets/img/tiles/cards/background.png",
+        "logo": "/assets/img/tiles/cards/logo.png"
     },
     "frame": "https://html-classic.itch.zone/html/9429794/index.html",
     "tags": ["roguelike"],
