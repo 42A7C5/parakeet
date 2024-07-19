@@ -98,14 +98,6 @@ export default function Home(props: any) {
 				</Carousel>
 				<div className={'gameList'}>
 					{props.games.map((game: any) => {
-						if (game.id.startsWith('promotion')) {
-							return (
-								<div className='game' key={game.id} style={{ textAlign: 'center', position: 'relative' }}>
-									<iframe src={game.src} style={{ border: 'none', height: '250px', width: '300px' }}></iframe>
-									<p> <span className="material-symbols-outlined">info</span>&nbsp;&nbsp;Sponsored content</p>
-								</div>
-							)
-						}
 						if (
 							// (game.name
 							// 	.replace(/\s+/g, '')
@@ -171,7 +163,6 @@ export async function getStaticProps() {
 	let gamesWithAds: any[] = []
 
 	let allGames = readdirSync('apps')
-	let allPromotions = readdirSync('public/promotions')
 
 	for (let gameIndex = 0; gameIndex < allGames.length; gameIndex++) {
 		const gameData = require('../apps/' + allGames[gameIndex])
@@ -238,15 +229,6 @@ export async function getStaticProps() {
 	games.push(...mediumSupportedGames)
 	games.push(...lowSupportedGames)
 	games.push(...gamesWithAds)
-
-	for (let promotion of allPromotions) {
-		if (promotion.endsWith('.html')) {
-			games.splice(((games.length + 2) * Math.random()) | 0, 0, {
-				id: 'promotion' + v4(),
-				src: '/promotions/' + promotion,
-			})	
-		}
-	}
 
 	return {
 		props: {
