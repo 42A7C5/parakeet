@@ -24,6 +24,28 @@ export default function Home(props: any) {
 					interval={5000}
 					className='border-b-4 border-primary mb-6 mt-2'
 				>
+					<div
+						className='flex justify-center items-center bg-cover cursor-pointer h-52 md:h-96'
+						style={{
+							background: `linear-gradient(var(--background), rgba(0, 0, 0, 0)), url(/assets/img/tiles/dragondungeon/background.png) center center`,
+						}}
+					>
+						<Link href={`/game/dragondungeon`}>
+							<div>
+								<Image
+									className='max-h-28 md:max-h-48'
+									src={"/assets/img/tiles/dragondungeon/logo.png"}
+									width={999}
+									height={999}
+									alt={"DragonDungeon"}
+									priority
+									quality={90}
+								/>
+								<h1 className='text-3xl'>August 9th, 2024</h1>
+								<h2 className='text-2xl'>Click to learn more</h2>
+							</div>
+						</Link>
+					</div>
 					{props.picks.map((game: any) => (
 						<Link key={game.id} href={`/game/${game.id}`}>
 							<div
@@ -88,36 +110,6 @@ export default function Home(props: any) {
 										placeholder='blur'
 										alt=''
 									/>
-									{/* <Atropos key={game.id} className='bg-cover rounded-md w-[30vw] h-[300px]' shadow={false} highlight={true} rotate={false} rotateTouch={false}>
-										<Image
-											className='game-bgart'
-											width={999}
-											height={999}
-											src={game.art.background}
-											blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM0WHhgEwAE3wJFOVmJuQAAAABJRU5ErkJggg=='
-											placeholder='blur'
-											alt=''
-										/>
-										{game.art.emblem && (
-											<Image
-												className='game-emblemart'
-												width={999}
-												height={999}
-												src={game.art.emblem}
-												alt=''
-											/>
-										)}
-										{game.art.logo && (
-											<Image
-												className='game-logoart'
-												width={999}
-												height={999}
-												src={game.art.logo}
-												alt={game.name}
-												data-atropos-offset='2'
-											/>
-										)}
-									</Atropos> */}
 								</Link>
 							)
 					})}
