@@ -187,29 +187,6 @@ a {
 	margin-right: 10px;
 }
 
-.gameotw {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-size: cover !important;
-	cursor: pointer;
-	height: 35vh;
-	transition: all 1s ease;
-	background-size: cover;
-	background-position-y: 0;
-	background-position-x: unset;
-}
-
-
-.gameotw img {
-	transition: all ease 0.5s;
-	max-height: 15vh;
-}
-
-.gameotw:hover img {
-	transform: scale(1.08);
-}
-
 control-arrow {
 	background: none !important;
 }

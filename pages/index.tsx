@@ -4,7 +4,6 @@
 
 import Link from 'next/link'
 import Head from 'next/head'
-import Atropos from 'atropos/react'
 import Image from 'next/image'
 import { readdirSync } from 'fs'
 import { v4 } from 'uuid'
@@ -23,7 +22,7 @@ export default function Home(props: any) {
 					autoPlay={true}
 					transitionTime={700}
 					interval={5000}
-					className='border-b-4 border-primary mb-10 mt-2'
+					className='border-b-4 border-primary mb-6 mt-2'
 				>
 					{props.picks.map((game: any) => (
 						<Link key={game.id} href={`/game/${game.id}`}>
@@ -48,7 +47,7 @@ export default function Home(props: any) {
 						</Link>
 					))}
 				</Carousel>
-				<div className={'flex flex-wrap justify-evenly flex-column'}>
+				<div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6'}>
 					{props.games.map((game: any) => {
 						if (
 							// (game.name
@@ -61,8 +60,35 @@ export default function Home(props: any) {
 							true
 						)
 							return (
-								<Link key={game.id} href={`/game/${game.id}`}>
-									<Atropos key={game.id} className='game' shadow={false} highlight={true} rotate={false} rotateTouch={false}>
+								<Link key={game.id} href={`/game/${game.id}`} className='relative hover:scale-105 transition-transform h-[300px] shadow-xl flex items-center justify-center'>
+									{game.art.logo && <div className='absolute inset-0 flex items-center justify-center z-40'>
+										<Image
+											width={999}
+											height={999}
+											src={game.art.logo}
+											alt={game.name}
+											className='max-h-[60%] max-w-[60%] object-contain'
+										/>
+									</div>}
+									{game.art.emblem && <div className='absolute inset-0 flex items-center justify-center z-30'>
+										<Image
+											width={999}
+											height={999}
+											src={game.art.emblem}
+											alt=''
+											className='max-h-[80%] max-w-[80%] object-contain'
+										/>
+									</div>}
+									<Image
+										className='w-full h-full object-cover rounded-md'
+										width={999}
+										height={999}
+										src={game.art.background}
+										blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM0WHhgEwAE3wJFOVmJuQAAAABJRU5ErkJggg=='
+										placeholder='blur'
+										alt=''
+									/>
+									{/* <Atropos key={game.id} className='bg-cover rounded-md w-[30vw] h-[300px]' shadow={false} highlight={true} rotate={false} rotateTouch={false}>
 										<Image
 											className='game-bgart'
 											width={999}
@@ -91,7 +117,7 @@ export default function Home(props: any) {
 												data-atropos-offset='2'
 											/>
 										)}
-									</Atropos>
+									</Atropos> */}
 								</Link>
 							)
 					})}
