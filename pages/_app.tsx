@@ -75,7 +75,7 @@ export default function App({ Component, pageProps }: AppProps) {
 					<div className='hidden md:block'>
 						<Link href='/' className='p-3 m-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">near_me</span> Explore</Link>
 						<Link href='/account' className='p-3 m-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">person</span> Account</Link>
-						<Link href='/developers' className='p-3 m-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">code</span> Developers</Link>
+						{/* <Link href='/developers' className='p-3 m-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">code</span> Developers</Link> */}
 						<Link href='/about' className='p-3 m-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">gamepad</span> About</Link>
 					</div>
 					<div className='md:hidden bg-surface rounded-full p-0.5 absolute right-8'>
