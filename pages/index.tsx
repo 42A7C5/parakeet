@@ -214,16 +214,16 @@ export async function getStaticProps() {
 			tags: uniqueTags,
 			picks: [
 				{
-					...require('../apps/tpscramble.json'),
-					id: 'tpscramble',
+					...require('../apps/mazmorra.json'),
+					id: 'mazmorra',
 				},
 				{
 					...require('../apps/wizards.json'),
 					id: 'wizards',
 				},
 				{
-					...require('../apps/dragondungeon.json'),
-					id: 'dragondungeon',
+					...require('../apps/cards.json'),
+					id: 'cards',
 				},
 			],
 		},

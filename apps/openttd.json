@@ -6,7 +6,7 @@
         "background": "/assets/img/tiles/openttd/background.png",
         "logo": "/assets/img/tiles/openttd/logo.gif"
     },
-    "frame": "https://parakeethosting.github.io/openttd/",
+    "frame": "https://atalbayrak.github.io/openttd/",
     "tags": ["simulation"],
     "features": ["keyboard", "new"]
 }
