@@ -10,7 +10,6 @@ module.exports = {
       background: 'var(--background)',
       surface: 'var(--surface)',
       primary: 'var(--primary)',
-      secondary: 'var(--secondary)',
       transparent: 'transparent',
     }
   },

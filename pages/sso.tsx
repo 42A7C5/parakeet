@@ -35,9 +35,6 @@ export default function Account() {
 
     return (
         <>
-            <Head>
-                <title>SSO | Parakeet</title>
-            </Head>
             <div style={{ textAlign: "center" }}>
                 <h1>Developer Auth Tool</h1>
                 <h2>The application you are about to send your credentials to is <u>NOT</u> verified by Parakeet!</h2>

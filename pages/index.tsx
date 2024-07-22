@@ -15,9 +15,6 @@ export default function Home(props: any) {
 	return (
 		<>
 			<div className='home'>
-				<Head>
-					<title>Parakeet</title>
-				</Head>
 				<Carousel
 					showStatus={false}
 					showArrows={true}
