@@ -21,7 +21,7 @@ export default function DragonDungeonLanding() {
             <div className="bg-surface p-4 rounded-xl">
                 <Image alt="Icon of a fireball" src={'/assets/dd-landing/fireball.png'} width={200} height={200} className="h-28 w-auto float-left mr-5" style={{ imageRendering: 'pixelated' }} />
                 <h3 className="text-2xl">Pick your poison.</h3>
-                <p className="text-lg">5 unique abilities, 5 unique ways to play. Stalk your enemies with the slow-moving but hard-hitting Poisonball, or light 'em up with the violent chain reactions of the Electricball!</p>
+                <p className="text-lg">5 unique abilities, 5 unique ways to play. Stalk your enemies with the slow-moving but hard-hitting Poisonball, or light &apos;em up with the violent chain reactions of the Electricball!</p>
             </div>
             <div className="bg-surface p-4 rounded-xl">
                 <Image alt="Icon of a coin flask" src={'/assets/dd-landing/coinflask.png'} width={200} height={200} className="h-28 w-auto float-left mr-5" style={{ imageRendering: 'pixelated' }} />
