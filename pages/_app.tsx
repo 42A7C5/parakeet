@@ -58,7 +58,7 @@ export default function App({ Component, pageProps }: AppProps) {
 				<title>Parakeet</title>
 				<link rel='shortcut icon' href='/logo.svg' type='image/svg+xml' />
 				<link rel="manifest" href="/manifest.json" />
-				<meta name="theme-color" content="#cc10ad" />
+				<meta name="theme-color" content="#08CEEB" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<meta name="mobile-web-app-capable" content="yes" />
 				<meta name="apple-mobile-web-app-capable" content="yes" />

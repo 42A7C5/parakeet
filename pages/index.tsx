@@ -23,18 +23,19 @@ export default function Home(props: any) {
 					autoPlay={true}
 					transitionTime={700}
 					interval={5000}
-					className='gameotwcontainer hideMeOnMobile'
+					className='border-b-4 border-primary mb-10 mt-2'
 				>
 					{props.picks.map((game: any) => (
 						<Link key={game.id} href={`/game/${game.id}`}>
 							<div
-								className={'gameotw'}
+								className='flex justify-center items-center bg-cover cursor-pointer h-52 md:h-96'
 								style={{
 									background: `linear-gradient(var(--background), rgba(0, 0, 0, 0)), url(${game.art.background}) center center`,
 								}}
 							>
 								<div>
 									<Image
+										className='max-h-28 md:max-h-48'
 										src={game.art.logo}
 										width={999}
 										height={999}

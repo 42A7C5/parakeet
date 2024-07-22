@@ -187,14 +187,6 @@ a {
 	margin-right: 10px;
 }
 
-.gameotwcontainer {
-	width: 100vw;
-	margin-bottom: 3vh;
-	border-bottom: 5px solid var(--primary);
-	border-image: linear-gradient(to right, var(--primary), var(--surface)) 1;
-	border-image-slice: 4;
-}
-
 .gameotw {
 	display: flex;
 	justify-content: center;
