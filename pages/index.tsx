@@ -18,68 +18,22 @@ export default function Home(props: any) {
 				<Head>
 					<title>Parakeet</title>
 				</Head>
-				<nav>
-					{/* <Link href={'/'}> */}
-					<h1
-						style={{ verticalAlign: 'middle', color: 'var(--text)' }}
-						className='navTitle'
-					>
-						<img
-							src={'/logo.png'}
-							alt='Parakeet logo'
-							height={80}
-							className='navLogo'
-						/>{' '}
-						<span className='navTitleText'>
-							<span
-								style={{
-									color: 'white',
-									fontFamily: 'Unbounded',
-									fontSize: '1.6em',
-								}}
-							>
-								Parakeet
-							</span>
-							.games
-						</span>
-					</h1>
-				</nav>
-
 				<Carousel
 					showStatus={false}
 					showArrows={true}
 					infiniteLoop={true}
 					showThumbs={false}
-					showIndicators={false}
 					autoPlay={true}
 					transitionTime={700}
 					interval={5000}
 					className='gameotwcontainer hideMeOnMobile'
 				>
-					{/* <div
-						className={'gameotw'}
-						style={{
-							background: `linear-gradient(rgba(0, 0, 0, 0), var(--primary)), url(/worlds.png) center center `,
-						}}
-					>
-						<div>
-							<h1>Welcome to Parakeet!</h1>
-							<p>
-								We set out to create an awesome place to find and play games
-								made for the Web. But it&apos;s not about us.
-								<br />
-								Let&apos;s build an awesome community together and make Web
-								games better for everyone.
-							</p>
-							<h2>❤️ Samuel + The Parakeet Team</h2>
-						</div>
-					</div> */}
 					{props.picks.map((game: any) => (
 						<Link key={game.id} href={`/game/${game.id}`}>
 							<div
 								className={'gameotw'}
 								style={{
-									background: `linear-gradient(rgba(0, 0, 0, 0), var(--primary)), url(${game.art.background})`,
+									background: `linear-gradient(var(--background), rgba(0, 0, 0, 0)), url(${game.art.background}) center center`,
 								}}
 							>
 								<div>
@@ -96,7 +50,7 @@ export default function Home(props: any) {
 						</Link>
 					))}
 				</Carousel>
-				<div className={'gameList'}>
+				<div className={'flex flex-wrap justify-evenly flex-column'}>
 					{props.games.map((game: any) => {
 						if (
 							// (game.name
@@ -110,7 +64,7 @@ export default function Home(props: any) {
 						)
 							return (
 								<Link key={game.id} href={`/game/${game.id}`}>
-									<Atropos key={game.id} className='game'>
+									<Atropos key={game.id} className='game' shadow={false} highlight={true} rotate={false} rotateTouch={false}>
 										<Image
 											className='game-bgart'
 											width={999}

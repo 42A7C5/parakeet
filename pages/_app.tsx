@@ -14,6 +14,7 @@ import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInAnonymously, sig
 import 'atropos/css'
 import { initializeApp } from 'firebase/app'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function App({ Component, pageProps }: AppProps) {
 	let { asPath } = useRouter()
@@ -27,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			messagingSenderId: "37719389159",
 			appId: "1:37719389159:web:9fde7211661ab320488342",
 			measurementId: "G-Z24FZ3HRR7"
-		  })
+		})
 
 		onAuthStateChanged(getAuth(), user => {
 			if (!user) {
@@ -197,19 +198,70 @@ export default function App({ Component, pageProps }: AppProps) {
 				)}
 			</dialog>
 			<div className='app'>
-				<a className='navSettings' href={'#'} onClick={() => {
-					let modal = document.querySelector('.modal') as HTMLDialogElement
-					modal.showModal()
-				}}>
-					<span className='material-symbols-outlined'>menu</span>
-				</a>
+				{/* <nav>
+					<h1
+						style={{ verticalAlign: 'middle', color: 'var(--text)' }}
+						className='navTitle'
+					>
+						<img
+							src={'/logo.png'}
+							alt='Parakeet logo'
+							height={55}
+							className='navLogo'
+						/>{' '}
+						<span className='navTitleText'>
+							<span
+								style={{
+									color: 'var(--primary)',
+									fontFamily: 'Unbounded',
+									fontSize: '1.6em',
+								}}
+							>
+								Parakeet
+							</span>
+							<span style={{
+								color: 'var(--secondary)',
+								fontFamily: 'Unbounded',
+							}}>
+								.games
+							</span>
+						</span>
+					</h1>
+					<div className="navSettingsWrapper">
+						<Link className='navSettings' href={'/'} onClick={() => {
+							let modal = document.querySelector('.modal') as HTMLDialogElement
+							modal.showModal()
+						}}>
+							<span className='material-symbols-outlined'>home</span>
+						</Link>
+						<a className='navSettings' href={'#'} >
+							<span className='material-symbols-outlined'>menu</span>
+						</a>
+					</div>
+				</nav> */}
+				<nav className='px-8 flex justify-center w-screen h-[6vh] items-center mt-4'>
+					<Link href='/' className='absolute left-8'><Image height={50} width={50} src="/logo.svg" alt="Parakeet logo" className='mr-2 h-[60px] w-[60px] z-40 rounded-full object-cover' /></Link>
+					<div className='hidden md:block'>
+						<Link href='/' className='p-3 m-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">near_me</span> Explore</Link>
+						{/* <Link href='/library' className='p-3 m-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">gamepad</span> Library</Link> */}
+						{/* <Link href='/developers' className='p-3 m-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">code</span> Developers</Link> */}
+						{/* <Link href='/settings' className='p-3 m-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">settings</span> Settings</Link> */}
+					</div>
+					<div className='bg-surface rounded-full p-0.5 absolute right-8'>
+						<Link href='/'><span className="material-symbols-outlined p-2 hover:text-primary md:hidden">home</span></Link>
+						<Link href='#' onClick={() => {
+							let modal = document.querySelector('.modal') as HTMLDialogElement
+							modal.showModal()
+						}}><span className="material-symbols-outlined p-2 hover:text-primary">person</span></Link>
+					</div>
+				</nav>
 				<AnimatePresence initial={false} mode="wait">
 					<motion.div
 						key={router.pathname}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
-						transition={{ duration: 0.4, ease: 'easeInOut' }}
+						transition={{ duration: 0.2, ease: 'easeInOut' }}
 					>
 						<Component key={asPath} {...pageProps} />
 					</motion.div>
