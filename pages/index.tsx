@@ -41,7 +41,7 @@ export default function Home(props: any) {
 									priority
 									quality={90}
 								/>
-								<h1 className='text-3xl'>August 9th, 2024</h1>
+								<h1 className='text-3xl'>Coming Soon</h1>
 								<h2 className='text-2xl'>Click to learn more</h2>
 							</div>
 						</Link>

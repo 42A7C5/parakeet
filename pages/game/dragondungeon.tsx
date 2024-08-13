@@ -10,7 +10,7 @@ export default function DragonDungeonLanding() {
         <Image alt='' src={'/assets/img/tiles/dragondungeon/background.png'} width={1920} height={600} className="object-cover mt-5 h-[20vh] border-t-4 border-primary" />
         <Image alt='' src={'/assets/img/tiles/dragondungeon/logo.png'} width={999} height={999} className="max-h-48 w-auto -translate-y-32 scale-90" />
         <div className="p-8 -translate-y-36">
-            <h1 className="text-4xl">Enter the Farlands. August 9th. Only on Parakeet.</h1>
+            <h1 className="text-4xl">Enter the Farlands. Only on Parakeet.</h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-8 -translate-y-36">
             <div className="bg-surface p-4 rounded-xl">
@@ -35,7 +35,7 @@ export default function DragonDungeonLanding() {
             </div>
         </div>
         <div className="text-center -translate-y-36">
-            <h3 className="text-2xl">Ready to play? Come back August 9th.</h3>
+            <h3 className="text-2xl">Ready to play? Come back soon.</h3>
         </div>
     </div>
 }
