@@ -8,7 +8,7 @@
         "emblem": "/assets/img/tiles/dragondungeon/emblem.png",
         "logo": "/assets/img/tiles/dragondungeon/logo.png"
     },
-    "frame": "https://dragondungeon.netlify.app",
+    "frame": "https://dragondungeon.pages.dev",
     "tags": ["shooter", "top-down"],
     "features": ["online", "keyboard", "touch", "featured"]
 }
