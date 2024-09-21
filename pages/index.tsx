@@ -28,14 +28,14 @@ export default function Home(props: any) {
 						<div className='w-[92vw] ml-[4vw] md:w-[96vw] md:ml-[2vw]'>
 							<Link key={game.id} href={`/game/${game.id}`}>
 							<div
-								className='flex rounded-lg w-full justify-center items-center bg-cover cursor-pointer min-h-48 md:h-96'
+								className='transition-transform feature flex rounded-lg w-full justify-center items-center bg-cover cursor-pointer min-h-48 md:h-96'
 								style={{
 									background: `url(${game.art.background}) center center`,
 								}}
 							>
 								<div>
 									<Image
-										className='max-h-20 md:max-h-48'
+										className='transition-transform feature-logo max-h-20 md:max-h-48'
 										src={game.art.logo}
 										width={999}
 										height={999}
@@ -62,14 +62,14 @@ export default function Home(props: any) {
 							true
 						)
 							return (
-								<Link key={game.id} href={`/game/${game.id}`} className='relative hover:scale-105 transition-transform h-[300px] shadow-xl flex items-center justify-center'>
-									{game.art.logo && <div className='absolute inset-0 flex items-center justify-center z-40'>
+								<Link key={game.id} href={`/game/${game.id}`} className='card relative transition-transform h-[300px] shadow-xl flex items-center justify-center'>
+									{game.art.logo && <div className='card-logo absolute transition-transform inset-0 flex items-center justify-center z-40'>
 										<Image
 											width={999}
 											height={999}
 											src={game.art.logo}
 											alt={game.name}
-											className='max-h-[60%] max-w-[60%] object-contain'
+											className='max-h-[50%] max-w-[50%] object-contain'
 										/>
 									</div>}
 									{/* {game.art.emblem && <div className='absolute inset-0 flex items-center justify-center z-30'>
