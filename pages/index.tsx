@@ -25,27 +25,27 @@ export default function Home(props: any) {
 					className='my-8 rounded-lg w-full'
 				>
 					{props.picks.map((game: any) => (
-						<div className='w-[92vw] ml-[4vw] md:w-[96vw] md:ml-[2vw]'>
-							<Link key={game.id} href={`/game/${game.id}`}>
-							<div
-								className='transition-transform feature flex rounded-lg w-full justify-center items-center bg-cover cursor-pointer min-h-48 md:h-96'
-								style={{
-									background: `url(${game.art.background}) center center`,
-								}}
-							>
-								<div>
-									<Image
-										className='transition-transform feature-logo max-h-20 md:max-h-48'
-										src={game.art.logo}
-										width={999}
-										height={999}
-										alt={game.name}
-										priority
-										quality={90}
-									/>
+						<div key={game.id} className='w-[92vw] ml-[4vw] md:w-[96vw] md:ml-[2vw]'>
+							<Link href={`/game/${game.id}`}>
+								<div
+									className='transition-transform feature flex rounded-lg w-full justify-center items-center bg-cover cursor-pointer min-h-48 md:h-96'
+									style={{
+										background: `url(${game.art.background}) center center`,
+									}}
+								>
+									<div>
+										<Image
+											className='transition-transform feature-logo max-h-20 md:max-h-48'
+											src={game.art.logo}
+											width={999}
+											height={999}
+											alt={game.name}
+											priority
+											quality={90}
+										/>
+									</div>
 								</div>
-							</div>
-						</Link>
+							</Link>
 						</div>
 					))}
 				</Carousel>
