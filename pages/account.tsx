@@ -30,7 +30,7 @@ export default function AccountMgr() {
                     <Link href='#' onClick={(e) => {
                         e.preventDefault()
                         signInWithPopup(getAuth(), new GoogleAuthProvider())
-                    }} className='whitespace-nowrap p-3 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">password</span> Sign in with Google</Link>
+                    }} className='whitespace-nowrap p-3 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">password</span> Sign in with Google</Link>
                 </>}
                 {(user && !user?.isAnonymous) && <>
                     <Link href='#' onClick={(e) => {
@@ -42,7 +42,7 @@ export default function AccountMgr() {
                                 window.location.reload()
                             });
                         }
-                    }} className='whitespace-nowrap my-1 inline-block md:inline md:my-0 p-3 mr-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">person</span> Change Username</Link>
+                    }} className='whitespace-nowrap my-1 inline-block md:inline md:my-0 p-3 mr-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">person</span> Change Username</Link>
                     <Link href='#' onClick={(e) => {
                         e.preventDefault()
                         if (user) {
@@ -52,12 +52,12 @@ export default function AccountMgr() {
                                 window.location.reload()
                             });
                         }
-                    }} className='whitespace-nowrap my-1 inline-block md:inline md:my-0 p-3 mr-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">photo</span> Change Profile Picture</Link>
+                    }} className='whitespace-nowrap my-1 inline-block md:inline md:my-0 p-3 mr-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">photo</span> Change Profile Picture</Link>
                     <Link href='#' onClick={(e) => {
                         e.preventDefault()
                         signOut(getAuth())
                         setUser(undefined)
-                    }} className='whitespace-nowrap my-1 inline-block md:inline md:my-0 p-3 mr-1 bg-surface hover:text-primary rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">logout</span> Log Out</Link>
+                    }} className='whitespace-nowrap my-1 inline-block md:inline md:my-0 p-3 mr-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">logout</span> Log Out</Link>
                 </>}
             </div>
         </div>

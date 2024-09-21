@@ -72,7 +72,8 @@ html {
 	display: none;
 }
 
-.rws-container, .rws-icon {
+.rws-container,
+.rws-icon {
 	border-radius: var(--radius) !important;
 	background-color: var(--primary) !important;
 }
@@ -108,5 +109,15 @@ html {
 }
 
 .carousel.carousel-slider .control-arrow {
-	background: transparent !important;
+	display: none;
+}
+
+::-webkit-scrollbar {
+	width: 0.5vw;
+	height: 8px;
+	background-color: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--surface);
 }

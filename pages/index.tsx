@@ -13,7 +13,7 @@ import { Carousel } from 'react-responsive-carousel'
 export default function Home(props: any) {
 	return (
 		<>
-			<div className='home'>
+			<div>
 				<Carousel
 					showStatus={false}
 					showArrows={true}
@@ -22,40 +22,19 @@ export default function Home(props: any) {
 					autoPlay={true}
 					transitionTime={700}
 					interval={5000}
-					className='border-b-4 border-primary mb-6 mt-2'
+					className='my-8 rounded-lg w-full'
 				>
-					<div
-						className='flex justify-center items-center bg-cover cursor-pointer h-52 md:h-96'
-						style={{
-							background: `linear-gradient(var(--background), rgba(0, 0, 0, 0)), url(/assets/img/tiles/dragondungeon/background.png) center center`,
-						}}
-					>
-						<Link href={`/game/dragondungeon`}>
-							<div>
-								<Image
-									className='max-h-28 md:max-h-48'
-									src={"/assets/img/tiles/dragondungeon/logo.png"}
-									width={999}
-									height={999}
-									alt={"DragonDungeon"}
-									priority
-									quality={90}
-								/>
-								<h1 className='text-3xl mt-3'>Play it now!</h1>
-							</div>
-						</Link>
-					</div>
 					{props.picks.map((game: any) => (
 						<Link key={game.id} href={`/game/${game.id}`}>
 							<div
-								className='flex justify-center items-center bg-cover cursor-pointer h-52 md:h-96'
+								className='flex rounded-lg w-[92vw] ml-[4vw] md:w-[96vw] md:ml-[2vw] justify-center items-center bg-cover cursor-pointer min-h-48 md:h-96'
 								style={{
-									background: `linear-gradient(var(--background), rgba(0, 0, 0, 0)), url(${game.art.background}) center center`,
+									background: `url(${game.art.background}) center center`,
 								}}
 							>
 								<div>
 									<Image
-										className='max-h-28 md:max-h-48'
+										className='max-h-20 md:max-h-48'
 										src={game.art.logo}
 										width={999}
 										height={999}
@@ -205,16 +184,24 @@ export async function getStaticProps() {
 			tags: uniqueTags,
 			picks: [
 				{
+					...require('../apps/ai-lab-chat.json'),
+					id: 'ai-lab-chat',
+				},
+				{
+					...require('../apps/dragondungeon.json'),
+					id: 'dragondungeon',
+				},
+				{
+					...require('../apps/cards.json'),
+					id: 'cards',
+				},
+				{
 					...require('../apps/mazmorra.json'),
 					id: 'mazmorra',
 				},
 				{
 					...require('../apps/wizards.json'),
 					id: 'wizards',
-				},
-				{
-					...require('../apps/cards.json'),
-					id: 'cards',
 				},
 			],
 		},
