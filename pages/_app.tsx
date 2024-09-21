@@ -69,19 +69,22 @@ export default function App({ Component, pageProps }: AppProps) {
 				<meta name="title" content="Parakeet.Games" />
 			</Head>
 			<div className='app'>
-				<nav className='md:px-[4vw] flex justify-center w-screen h-[6vh] items-center mt-6'>
-					<Link href='/' className='absolute left-8'><Image height={50} width={50} src="/logo.svg" alt="Parakeet logo" className='mr-2 h-[50px] w-[50px] z-40 rounded-full object-cover' /></Link>
-					<div className='hidden md:block'>
-						<Link href='/' className='p-3 m-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">near_me</span> Explore</Link>
-						<Link href='/account' className='p-3 m-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">person</span> Account</Link>
-						{/* <Link href='/developers' className='p-3 m-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">code</span> Developers</Link> */}
-						<Link href='/about' className='p-3 m-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">gamepad</span> About</Link>
+				<nav className='w-[92vw] mx-[4vw] md:w-[96vw] md:mx-[2vw] flex justify-space w-screen h-[6vh] items-center mt-6 sticky top-0'>
+					<div className='flex-none'>
+						<Link href='/'><Image height={50} width={50} src="/logo.svg" alt="Parakeet logo" className='mr-2 h-[50px] w-[50px] z-40 rounded-full object-cover inline' /></Link>
+						<div className='md:hidden bg-surface rounded-full p-0.5 inline-block align-middle ml-2'>
+							<Link href='/'><span style={{ color: router.asPath == '/' ? 'var(--primary)' : '' }} className="material-symbols-outlined p-2 hover:text-primary transition-colors md:hidden">near_me</span></Link>
+							<Link href='/account'><span style={{ color: router.asPath == '/account' ? 'var(--primary)' : '' }} className="material-symbols-outlined p-2 hover:text-primary transition-colors md:hidden">person</span></Link>
+							{/* <Link href='/developers'><span style={{ color: router.asPath == '/developers' ? 'var(--primary)' : '' }} className="material-symbols-outlined p-2 hover:text-primary transition-colors md:hidden">code</span></Link> */}
+							<Link href='/about'><span style={{ color: router.asPath == '/about' ? 'var(--primary)' : '' }} className="material-symbols-outlined p-2 hover:text-primary transition-colors md:hidden">gamepad</span></Link>
+						</div>
 					</div>
-					<div className='md:hidden bg-surface rounded-full p-0.5 absolute right-8'>
-						<Link href='/'><span className="material-symbols-outlined p-2 hover:text-primary transition-colors md:hidden">near_me</span></Link>
-						<Link href='/account'><span className="material-symbols-outlined p-2 hover:text-primary transition-colors md:hidden">person</span></Link>
-						{/* <Link href='/developers'><span className="material-symbols-outlined p-2 hover:text-primary transition-colors md:hidden">code</span></Link> */}
-						<Link href='/about'><span className="material-symbols-outlined p-2 hover:text-primary transition-colors md:hidden">gamepad</span></Link>
+					<div className="flex-auto hidden md:block"></div>
+					<div className='hidden md:block'>
+						<Link href='/' style={{ color: router.asPath == '/' ? 'var(--primary)' : '' }} className='p-3 m-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">near_me</span> Explore</Link>
+						<Link href='/account' style={{ color: router.asPath == '/account' ? 'var(--primary)' : '' }} className='p-3 m-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">person</span> Account</Link>
+						{/* <Link href='/developers' style={{ color: router.asPath == '/developers' ? 'var(--primary)' : '' }} className='p-3 m-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">code</span> Developers</Link> */}
+						<Link href='/about' style={{ color: router.asPath == '/about' ? 'var(--primary)' : '' }} className='p-3 m-1 bg-surface hover:text-primary transition-colors rounded-md text-md'><span className="material-symbols-outlined translate-y-1.5">gamepad</span> About</Link>
 					</div>
 				</nav>
 				<AnimatePresence initial={false} mode="wait">

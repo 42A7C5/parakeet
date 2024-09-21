@@ -25,9 +25,10 @@ export default function Home(props: any) {
 					className='my-8 rounded-lg w-full'
 				>
 					{props.picks.map((game: any) => (
-						<Link key={game.id} href={`/game/${game.id}`}>
+						<div className='w-[92vw] ml-[4vw] md:w-[96vw] md:ml-[2vw]'>
+							<Link key={game.id} href={`/game/${game.id}`}>
 							<div
-								className='flex rounded-lg w-[92vw] ml-[4vw] md:w-[96vw] md:ml-[2vw] justify-center items-center bg-cover cursor-pointer min-h-48 md:h-96'
+								className='flex rounded-lg w-full justify-center items-center bg-cover cursor-pointer min-h-48 md:h-96'
 								style={{
 									background: `url(${game.art.background}) center center`,
 								}}
@@ -45,9 +46,10 @@ export default function Home(props: any) {
 								</div>
 							</div>
 						</Link>
+						</div>
 					))}
 				</Carousel>
-				<div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6'}>
+				<div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-6 w-[92vw] ml-[4vw] md:w-[96vw] md:ml-[2vw]'}>
 					{props.games.map((game: any) => {
 						if (
 							// (game.name
@@ -70,7 +72,7 @@ export default function Home(props: any) {
 											className='max-h-[60%] max-w-[60%] object-contain'
 										/>
 									</div>}
-									{game.art.emblem && <div className='absolute inset-0 flex items-center justify-center z-30'>
+									{/* {game.art.emblem && <div className='absolute inset-0 flex items-center justify-center z-30'>
 										<Image
 											width={999}
 											height={999}
@@ -78,7 +80,7 @@ export default function Home(props: any) {
 											alt=''
 											className='max-h-[80%] max-w-[80%] object-contain'
 										/>
-									</div>}
+									</div>} */}
 									<Image
 										className='w-full h-full object-cover rounded-md'
 										width={999}
