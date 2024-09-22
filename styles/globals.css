@@ -130,14 +130,6 @@ html {
 	transform: scale(1.1);
 }
 
-.feature {
-	transform: scale(0.975);
-}
-
-.feature:hover {
-	transform: scale(1);
-}
-
 .feature:hover .feature-logo {
 	transform: scale(1.1);
 }

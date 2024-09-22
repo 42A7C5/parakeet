@@ -28,7 +28,7 @@ export default function Home(props: any) {
 						<div key={game.id} className='w-[92vw] ml-[4vw] md:w-[96vw] md:ml-[2vw]'>
 							<Link href={`/game/${game.id}`}>
 								<div
-									className='transition-transform feature flex rounded-lg w-full justify-center items-center bg-cover cursor-pointer min-h-48 md:h-96'
+									className='feature flex rounded-lg w-full justify-center items-center !bg-cover cursor-pointer min-h-48 md:h-96'
 									style={{
 										background: `url(${game.art.background}) center center`,
 									}}
