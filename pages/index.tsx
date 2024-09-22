@@ -186,6 +186,10 @@ export async function getStaticProps() {
 			tags: uniqueTags,
 			picks: [
 				{
+					...require('../apps/apocalypse-yesterday.json'),
+					id: 'apocalypse-yesterday',
+				},
+				{
 					...require('../apps/ai-lab-chat.json'),
 					id: 'ai-lab-chat',
 				},
@@ -196,10 +200,6 @@ export async function getStaticProps() {
 				{
 					...require('../apps/house-of-cards.json'),
 					id: 'house-of-cards',
-				},
-				{
-					...require('../apps/mazmorra.json'),
-					id: 'mazmorra',
 				},
 				{
 					...require('../apps/wizards.json'),
