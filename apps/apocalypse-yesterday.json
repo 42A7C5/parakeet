@@ -1,0 +1,12 @@
+{
+    "name": "Apocalypse Yesterday!",
+    "dev": "Parakeet Studios",
+    "oneliner": "What's the point of escaping a zombie apocalypse if you can't enjoy the view?",
+    "art": {
+        "background": "/assets/img/tiles/apocyest/background.png",
+        "logo": "/assets/img/tiles/apocyest/logo.png"
+    },
+    "frame": "https://zombie-game.pages.dev/",
+    "tags": ["survival", "zombies"],
+    "features": ["keyboard"]
+}

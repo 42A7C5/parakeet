@@ -33,7 +33,7 @@ function GamePage(props: any) {
             </Head>
             <div style={{ background: `url(${game.art.background}) center center`, backgroundSize: 'cover' }} className='md:w-[96vw] md:ml-[2vw] md:rounded-lg min-h-[40vh] mt-8 flex justify-center items-center'>
                 <div className='text-center'>
-                    {game.art.logo && <Image src={game.art.logo} alt={game.name} width={300} height={300} className='max-h-24 md:h-[25vh] w-auto' />}
+                    {game.art.logo && <Image src={game.art.logo} alt={game.name} width={300} height={300} className='h-32 md:h-[27vh] w-auto' />}
                     {!game.art.logo && <h1 className='text-3xl'>{game.name}</h1>}
 
                 </div>

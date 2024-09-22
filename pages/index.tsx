@@ -194,8 +194,8 @@ export async function getStaticProps() {
 					id: 'dragondungeon',
 				},
 				{
-					...require('../apps/cards.json'),
-					id: 'cards',
+					...require('../apps/house-of-cards.json'),
+					id: 'house-of-cards',
 				},
 				{
 					...require('../apps/mazmorra.json'),
