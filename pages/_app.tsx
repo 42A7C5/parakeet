@@ -71,7 +71,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			<div className='app'>
 				<nav className='w-[92vw] mx-[4vw] md:w-[96vw] md:mx-[2vw] flex justify-space w-screen h-[6vh] items-center mt-6 sticky top-0'>
 					<div className='flex-none'>
-						<Link href='/'><Image height={50} width={50} src="/logo.svg" alt="Parakeet logo" className='mr-2 h-[50px] w-[50px] z-40 rounded-full object-cover inline' /></Link>
+						<Link href='/'><Image height={70} width={70} src="/logo.svg" alt="Parakeet logo" className='mr-2 h-[60px] w-[60px] z-40 rounded-full object-cover inline' /></Link>
 						<div className='md:hidden bg-surface rounded-full p-0.5 inline-block align-middle ml-2'>
 							<Link href='/'><span style={{ color: router.asPath == '/' ? 'var(--primary)' : '' }} className="material-symbols-outlined p-2 hover:text-primary transition-colors md:hidden">near_me</span></Link>
 							<Link href='/account'><span style={{ color: router.asPath == '/account' ? 'var(--primary)' : '' }} className="material-symbols-outlined p-2 hover:text-primary transition-colors md:hidden">person</span></Link>

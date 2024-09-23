@@ -123,13 +123,13 @@ html {
 }
 
 .card:hover {
-	transform: scale(1.025);
+	transform: scale(1.02);
 }
 
 .card:hover .card-logo {
-	transform: scale(1.1);
+	transform: scale(1.04);
 }
 
 .feature:hover .feature-logo {
-	transform: scale(1.1);
+	transform: scale(1.05);
 }
