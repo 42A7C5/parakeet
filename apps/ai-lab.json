@@ -1,5 +1,5 @@
 {
-    "name": "AI Lab: Chat",
+    "name": "AI Lab",
     "dev": "Parakeet Studios",
     "oneliner": "An open sandbox for AI characters.",
     "art": {
@@ -9,5 +9,6 @@
     },
     "frame": "https://parakeet-ai-lab.pages.dev/",
     "tags": ["experimental"],
-    "features": ["keyboard"]
+    "features": ["keyboard"],
+    "original": true
 }

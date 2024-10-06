@@ -4,7 +4,7 @@
     "dev": "LelsersLasers",
     "art": {
         "background": "/assets/img/tiles/cards/background.png",
-        "logo": "/assets/img/tiles/cards/logo.png"
+        "logo": "/assets/img/tiles/cards/logo.svg"
     },
     "frame": "https://html-classic.itch.zone/html/11523750/index.html",
     "tags": ["roguelike"],

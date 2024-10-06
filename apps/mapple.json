@@ -4,9 +4,10 @@
     "dev": "WriterArtistCoder",
     "art": {
         "background": "/assets/img/tiles/mapple/background.png",
-        "logo": "/assets/img/tiles/mapple/logo.png"
+        "logo": "/assets/img/tiles/mapple/logo.svg"
     },
     "frame": "https://mapplegame.netlify.app",
     "tags": ["brain"],
-    "features": ["keyboard", "touch"]
+    "features": ["keyboard", "touch"],
+    "original": true
 }

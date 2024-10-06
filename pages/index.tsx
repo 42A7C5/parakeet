@@ -35,7 +35,7 @@ export default function Home(props: any) {
 								>
 									<div>
 										<Image
-											className='transition-transform feature-logo max-h-20 md:max-h-48'
+											className='transition-transform feature-logo w-auto h-32'
 											src={game.art.logo}
 											width={999}
 											height={999}
@@ -63,13 +63,22 @@ export default function Home(props: any) {
 						)
 							return (
 								<Link key={game.id} href={`/game/${game.id}`} className='card relative transition-transform h-[300px] shadow-xl flex items-center justify-center'>
+									{game.original && <Image
+											className='absolute h-6 top-4'
+											src={'/assets/img/brand/badge-original.svg'}
+											width={999}
+											height={50}
+											alt={game.name}
+											priority
+											quality={90}
+										/>}
 									{game.art.logo && <div className='card-logo absolute transition-transform inset-0 flex items-center justify-center z-40'>
 										<Image
 											width={999}
 											height={999}
 											src={game.art.logo}
 											alt={game.name}
-											className='max-h-[50%] max-w-[50%] object-contain'
+											className='max-h-[70%] max-w-[70%] object-contain'
 										/>
 									</div>}
 									{/* {game.art.emblem && <div className='absolute inset-0 flex items-center justify-center z-30'>
@@ -190,20 +199,12 @@ export async function getStaticProps() {
 					id: 'apocalypse-yesterday',
 				},
 				{
-					...require('../apps/ai-lab-chat.json'),
+					...require('../apps/ai-lab.json'),
 					id: 'ai-lab-chat',
 				},
 				{
 					...require('../apps/dragondungeon.json'),
 					id: 'dragondungeon',
-				},
-				{
-					...require('../apps/house-of-cards.json'),
-					id: 'house-of-cards',
-				},
-				{
-					...require('../apps/wizards.json'),
-					id: 'wizards',
 				},
 			],
 		},

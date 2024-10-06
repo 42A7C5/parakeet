@@ -6,9 +6,10 @@
     "art": {
         "background": "/assets/img/tiles/dragondungeon/background.png",
         "emblem": "/assets/img/tiles/dragondungeon/emblem.png",
-        "logo": "/assets/img/tiles/dragondungeon/logo.png"
+        "logo": "/assets/img/tiles/dragondungeon/logo.svg"
     },
     "frame": "https://dragondungeon.pages.dev",
     "tags": ["shooter", "top-down"],
-    "features": ["online", "keyboard", "touch", "featured"]
+    "features": ["online", "keyboard", "touch", "featured"],
+    "original": true
 }
