@@ -4,8 +4,8 @@
     "dev": "Luke Wood",
     
     "art": {
-        "background": "/assets/img/tiles/pumpkio/background.png",
-        "logo": "/assets/img/tiles/pumpkio/logo.png"
+        "background": "/img/tiles/pumpkio/background.png",
+        "logo": "/img/tiles/pumpkio/logo.png"
     },
     "frame": "https://pumpk-io.netlify.app/",
     "tags": ["shooter"],

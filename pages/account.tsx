@@ -21,7 +21,7 @@ export default function AccountMgr() {
         <div className='p-8'>
             <h1 className='text-3xl'>Account</h1>
             {user && <h2 className='text-2xl mt-1'>
-                <img src={user.photoURL || '/assets/img/brand/default-user.png'} alt="User profile picture" className='rounded-full h-10 inline-block mr-2 align-middle' />
+                <img src={user.photoURL || '/img/brand/default-user.png'} alt="User profile picture" className='rounded-full h-10 inline-block mr-2 align-middle' />
                 Welcome, {user.displayName || user.email || user.phoneNumber || 'Anonymous Parakeet'}!
             </h2>}
             {!user && <h2 className='text-2xl'>Loading your account details...</h2>}

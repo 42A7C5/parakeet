@@ -3,9 +3,9 @@
     "oneliner": "Futuristic 3D high-score racer",
     "dev": "BKCore",
     "art": {
-        "background": "/assets/img/tiles/hexgl/background.jpeg",
-        "emblem": "/assets/img/tiles/hexgl/emblem.png",
-        "logo": "/assets/img/tiles/hexgl/logo.png"
+        "background": "/img/tiles/hexgl/background.jpeg",
+        "emblem": "/img/tiles/hexgl/emblem.png",
+        "logo": "/img/tiles/hexgl/logo.png"
     },
     "frame": "https://hexgl.bkcore.com/play/",
     "tags": ["racing"],

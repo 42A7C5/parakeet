@@ -2,8 +2,8 @@
     "name": "SuperTux",
     "oneliner": "2D jump'n run with story, co-op, and level editor",
     "art": {
-        "background": "/assets/img/tiles/supertux/background.png",
-        "logo": "/assets/img/tiles/supertux/logo.png"
+        "background": "/img/tiles/supertux/background.png",
+        "logo": "/img/tiles/supertux/logo.png"
     },
     "frame": "https://html-classic.itch.zone/html/8632835/index.html",
     "tags": ["platformer"],

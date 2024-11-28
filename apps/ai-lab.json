@@ -3,9 +3,9 @@
     "dev": "Parakeet Studios",
     "oneliner": "An open sandbox for AI characters.",
     "art": {
-        "background": "/assets/img/tiles/ailab/background.png",
-        "emblem": "/assets/img/tiles/ailab/emblem.png",
-        "logo": "/assets/img/tiles/ailab/logo.png"
+        "background": "/img/tiles/ailab/background.png",
+        "emblem": "/img/tiles/ailab/emblem.png",
+        "logo": "/img/tiles/ailab/logo.png"
     },
     "frame": "https://parakeet-ai-lab.pages.dev/",
     "tags": ["experimental"],

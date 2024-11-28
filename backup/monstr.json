@@ -3,8 +3,8 @@
     "oneliner": "Knockout arena game with extreme physics",
     "dev": "Luke Wood",
     "art": {
-        "background": "/assets/img/tiles/monstr/background.png",
-        "logo": "/assets/img/tiles/monstr/logo.png"
+        "background": "/img/tiles/monstr/background.png",
+        "logo": "/img/tiles/monstr/logo.png"
     },
     "frame": "https://monstr.party",
     "tags": ["party", "knockout", "arena"],

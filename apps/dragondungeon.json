@@ -4,9 +4,9 @@
     "dev": "Parakeet Studios",
     
     "art": {
-        "background": "/assets/img/tiles/dragondungeon/background.png",
-        "emblem": "/assets/img/tiles/dragondungeon/emblem.png",
-        "logo": "/assets/img/tiles/dragondungeon/logo.svg"
+        "background": "/img/tiles/dragondungeon/background.png",
+        "emblem": "/img/tiles/dragondungeon/emblem.png",
+        "logo": "/img/tiles/dragondungeon/logo.svg"
     },
     "frame": "https://dragondungeon.pages.dev",
     "tags": ["shooter", "top-down"],

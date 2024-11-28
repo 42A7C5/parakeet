@@ -3,8 +3,8 @@
     "oneliner": "Classic tycoon game with buses, trains, and planes.",
     "dev": "OpenTTD Team",
     "art": {
-        "background": "/assets/img/tiles/openttd/background.png",
-        "logo": "/assets/img/tiles/openttd/logo.gif"
+        "background": "/img/tiles/openttd/background.png",
+        "logo": "/img/tiles/openttd/logo.gif"
     },
     "frame": "https://atalbayrak.github.io/openttd/",
     "tags": ["simulation"],

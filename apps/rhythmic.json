@@ -3,8 +3,8 @@
     "oneliner": "Intense rhythm game with BMS support",
     "dev": "Parakeet Studios",
     "art": {
-        "background": "/assets/img/tiles/rhythmic/background.svg",
-        "logo": "/assets/img/tiles/rhythmic/logo.svg"
+        "background": "/img/tiles/rhythmic/background.svg",
+        "logo": "/img/tiles/rhythmic/logo.svg"
     },
     "frame": "https://parakeet-rhythmic.pages.dev",
     "tags": ["rhythm"],

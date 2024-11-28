@@ -3,8 +3,8 @@
     "oneliner": "Online multiplayer soccer with great vibes",
     "dev": "endel",
     "art": {
-        "background": "/assets/img/tiles/brawlball/background.png",
-        "logo": "/assets/img/tiles/brawlball/logo.png"
+        "background": "/img/tiles/brawlball/background.png",
+        "logo": "/img/tiles/brawlball/logo.png"
     },
     "frame": "https://brawlball.io",
     "tags": ["top-down", "sports"],

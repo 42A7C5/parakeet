@@ -24,6 +24,30 @@ export default function Home(props: any) {
 					interval={5000}
 					className='my-8 rounded-lg w-full'
 				>
+					{/* BEGIN PROFILE PRE-LAUNCH */}
+					<div key={'profile-soon'} className='w-[92vw] ml-[4vw] md:w-[96vw] md:ml-[2vw]'>
+							<Link href={`/game/profile`}>
+								<div
+									className='feature flex rounded-lg w-full justify-center items-center !bg-cover cursor-pointer min-h-48 md:h-96'
+									style={{
+										background: `url(/img/tiles/profile/background.svg) center center`,
+									}}
+								>
+									<div>
+										<Image
+											className='transition-transform feature-logo w-auto h-32'
+											src={'/img/tiles/profile/logo.svg'}
+											width={999}
+											height={999}
+											alt={'>_ profile'}
+											priority
+											quality={90}
+										/>
+									</div>
+								</div>
+							</Link>
+						</div>
+					{/* END PROFILE PRE-LAUNCH */}
 					{props.picks.map((game: any) => (
 						<div key={game.id} className='w-[92vw] ml-[4vw] md:w-[96vw] md:ml-[2vw]'>
 							<Link href={`/game/${game.id}`}>
@@ -64,14 +88,14 @@ export default function Home(props: any) {
 							return (
 								<Link key={game.id} href={`/game/${game.id}`} className='card relative transition-transform h-[300px] shadow-xl flex items-center justify-center'>
 									{game.original && <Image
-											className='absolute h-6 top-4'
-											src={'/assets/img/brand/badge-original.svg'}
-											width={999}
-											height={50}
-											alt={game.name}
-											priority
-											quality={90}
-										/>}
+										className='absolute h-6 top-4'
+										src={'/img/brand/badge-original.svg'}
+										width={999}
+										height={50}
+										alt={'Parakeet Original'}
+										priority
+										quality={90}
+									/>}
 									{game.art.logo && <div className='card-logo absolute transition-transform inset-0 flex items-center justify-center z-40'>
 										<Image
 											width={999}
@@ -200,7 +224,7 @@ export async function getStaticProps() {
 				},
 				{
 					...require('../apps/ai-lab.json'),
-					id: 'ai-lab-chat',
+					id: 'ai-lab',
 				},
 				{
 					...require('../apps/dragondungeon.json'),

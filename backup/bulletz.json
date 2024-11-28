@@ -4,9 +4,9 @@
     "dev": "Luke Wood",
     
     "art": {
-        "background": "/assets/img/tiles/bulletz/background.png",
-        "emblem": "/assets/img/tiles/bulletz/emblem.png",
-        "logo": "/assets/img/tiles/bulletz/logo.png"
+        "background": "/img/tiles/bulletz/background.png",
+        "emblem": "/img/tiles/bulletz/emblem.png",
+        "logo": "/img/tiles/bulletz/logo.png"
     },
     "frame": "https://bulletz.io",
     "tags": ["shooter", "top-down"],

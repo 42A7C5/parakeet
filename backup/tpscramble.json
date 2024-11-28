@@ -3,8 +3,8 @@
     "oneliner": "Offbeat, pandemic-themed tag game",
     "dev": "Luke Wood",
     "art": {
-        "background": "/assets/img/tiles/tpscramble/background.png",
-        "logo": "/assets/img/tiles/tpscramble/logo.png"
+        "background": "/img/tiles/tpscramble/background.png",
+        "logo": "/img/tiles/tpscramble/logo.png"
     },
     "frame": "https://tp-scramble.netlify.app/",
     "tags": ["top-down"],
